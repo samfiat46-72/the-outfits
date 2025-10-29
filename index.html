@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>The Outfits</title>
+  <style>
+    body {
+      background-color: #fefbe9;
+      text-align: center;
+      font-family: Arial, sans-serif;
+      margin-top: 100px;
+    }
+    h1 {
+      color: #222;
+    }
+    p {
+      color: #333;
+    }
+    button {
+      background-color: #d4a017;
+      border: none;
+      color: white;
+      padding: 12px 24px;
+      font-size: 16px;
+      border-radius: 8px;
+      cursor: pointer;
+      transition: background-color 0.3s;
+    }
+    button:hover {
+      background-color: #b88900;
+    }
+  </style>
+</head>
+<body>
+
+  <h1>The Outfits</h1>
+  <p>Luxury in Every Stitch</p>
+  <button id="pay">Pay Now</button>
+
+  <!-- Razorpay Checkout Script -->
+  <script src="https://checkout.razorpay.com/v1/checkout.js"></script>
+
+  <script>
+    document.getElementById("pay").addEventListener("click", function () {
+      const options = {
+        key: "rzp_test_t6cp7rtRFjylLiztnWWj04IZ", // Razorpay test key
+        amount: 10000, // amount in paise = ₹100
+        currency: "INR",
+        name: "The Outfits",
+        description: "Luxury in Every Stitch",
+        image: "https://your-logo-link.com/logo512.png",
+        handler: function (response) {
+          alert("✅ Payment Successful! ID: " + response.razorpay_payment_id);
+        },
+        prefill: {
+          name: "Customer Name",
+          email: "customer@example.com",
+          contact: "9999999999"
+        },
+        theme: {
+          color: "#d4a017"
+        }
+      };
+      const rzp = new Razorpay(options);
+      rzp.open();
+    });
+  </script>
+
+</body>
+</html>
