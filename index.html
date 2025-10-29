@@ -1,56 +1,117 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>The Outfits</title>
+
   <style>
+    /* Page styles */
     body {
       background-color: #fefbe9;
       text-align: center;
       font-family: Arial, sans-serif;
-      margin-top: 100px;
+      margin: 0;
+      padding: 0;
+      padding-top: 80px;
+      color: #222;
+      -webkit-font-smoothing: antialiased;
+      -moz-osx-font-smoothing: grayscale;
     }
+
+    header {
+      text-align: center;
+      padding: 20px;
+      margin-bottom: 10px;
+    }
+
+    header img {
+      width: 120px;
+      height: auto;
+      display: inline-block;
+    }
+
+    main {
+      max-width: 720px;
+      margin: 0 auto;
+      padding: 20px;
+    }
+
     h1 {
+      font-size: 40px;
+      margin: 8px 0;
       color: #222;
     }
-    p {
+
+    p.lead {
+      font-size: 18px;
+      margin: 8px 0 24px;
       color: #333;
     }
-    button {
+
+    button#pay {
       background-color: #d4a017;
       border: none;
-      color: white;
-      padding: 12px 24px;
+      color: #ffffff;
+      padding: 14px 32px;
       font-size: 16px;
-      border-radius: 8px;
+      border-radius: 10px;
       cursor: pointer;
-      transition: background-color 0.3s;
+      transition: background-color 0.2s ease;
     }
-    button:hover {
+
+    button#pay:hover {
       background-color: #b88900;
+    }
+
+    footer {
+      margin-top: 40px;
+      padding: 20px;
+    }
+
+    footer a {
+      color: #d4a017;
+      text-decoration: none;
+      font-weight: 600;
+    }
+
+    /* Mobile tweaks */
+    @media (max-width: 420px) {
+      h1 { font-size: 32px; }
+      p.lead { font-size: 16px; }
+      button#pay { padding: 12px 28px; }
     }
   </style>
 </head>
+
 <body>
+  <header>
+    <!-- Logo (kept the raw.githubusercontent link you used) -->
+    <img src="https://raw.githubusercontent.com/samfiat46-72/the-outfits/refs/heads/main/file_00000000238c61fa93487af7dd1843c3.png"
+         alt="The Outfits Logo">
+  </header>
 
-  <h1>The Outfits</h1>
-  <p>Luxury in Every Stitch</p>
-  <button id="pay">Pay Now</button>
+  <main>
+    <h1>The Outfits</h1>
+    <p class="lead">Luxury in Every Stitch.</p> <!-- full stop added as you requested -->
+    <button id="pay">Pay Now</button>
+  </main>
 
-  <!-- Razorpay Checkout Script -->
+  <!-- Razorpay checkout (official) -->
   <script src="https://checkout.razorpay.com/v1/checkout.js"></script>
 
   <script>
+    // Configure and open Razorpay checkout on button click
     document.getElementById("pay").addEventListener("click", function () {
       const options = {
-        key: "rzp_test_t6cp7rtRFjylLiztnWWj04IZ", // Razorpay test key
-        amount: 10000, // amount in paise = ₹100
+        key: "rzp_test_t6cp7rtRFjylLiztnWWj04IZ", // your test key (as in your paste)
+        amount: 10000, // paise (₹100)
         currency: "INR",
         name: "The Outfits",
-        description: "Luxury in Every Stitch",
-        image: "https://your-logo-link.com/logo512.png",
+        description: "Luxury in Every Stitch.",
+        image: "https://raw.githubusercontent.com/samfiat46-72/the-outfits/refs/heads/main/file_00000000238c61fa93487af7dd1843c3.png",
         handler: function (response) {
+          // You can replace this with a server call to verify payment later.
           alert("✅ Payment Successful! ID: " + response.razorpay_payment_id);
         },
         prefill: {
@@ -62,12 +123,14 @@
           color: "#d4a017"
         }
       };
+
       const rzp = new Razorpay(options);
       rzp.open();
     });
   </script>
-<footer style="text-align:center; margin-top:40px;">
-  <a href="privacy.html" style="color:#d4a017; text-decoration:none;">Privacy Policy</a>
-</footer>
+
+  <footer>
+    <a href="privacy.html">Privacy Policy</a>
+  </footer>
 </body>
 </html>
