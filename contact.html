@@ -6,41 +6,89 @@
   <title>Contact Us | The Outfits</title>
   <style>
     body {
-      font-family: Arial, sans-serif;
       background-color: #fefbe9;
+      font-family: "Poppins", sans-serif;
       color: #333;
-      margin: 40px;
-      line-height: 1.6;
+      margin: 0;
+      padding: 0;
+    }
+    header {
+      text-align: center;
+      padding: 30px 10px;
+    }
+    header img {
+      width: 130px;
     }
     h1 {
-      color: #d4a017;
       text-align: center;
+      color: #222;
     }
-    .contact-info {
-      max-width: 600px;
-      margin: auto;
-      background: #fff8e1;
+    form {
+      max-width: 500px;
+      margin: 40px auto;
+      background: #fff;
+      padding: 30px;
+      border-radius: 12px;
+      box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+    }
+    label {
+      display: block;
+      margin-bottom: 6px;
+      font-weight: 600;
+    }
+    input, textarea {
+      width: 100%;
+      padding: 12px;
+      margin-bottom: 16px;
+      border: 1px solid #ccc;
+      border-radius: 8px;
+      font-size: 15px;
+    }
+    button {
+      background-color: #d4a017;
+      color: white;
+      padding: 12px 24px;
+      border: none;
+      border-radius: 8px;
+      font-size: 16px;
+      cursor: pointer;
+      transition: 0.3s;
+    }
+    button:hover {
+      background-color: #b88900;
+    }
+    footer {
+      text-align: center;
       padding: 20px;
-      border-radius: 10px;
-      box-shadow: 0 0 10px rgba(0,0,0,0.1);
-    }
-    a {
-      color: #d4a017;
-      text-decoration: none;
-    }
-    a:hover {
-      text-decoration: underline;
+      margin-top: 50px;
+      color: #555;
     }
   </style>
 </head>
 <body>
+
+  <header>
+    <img src="https://raw.githubusercontent.com/samfiat46-72/the-outfits/refs/heads/main/file_00000000238c61fa93487af7dd1843c3.png" alt="The Outfits Logo">
+  </header>
+
   <h1>Contact Us</h1>
-  <div class="contact-info">
-    <p>Have questions or need assistance? Our team is here to help.</p>
-    <p><strong>Email:</strong> <a href="mailto:outfits955@gmail.com">outfits955@gmail.com</a></p>
-    <p><strong>Phone:</strong> +91 98765 43210</p>
-    <p><strong>Address:</strong> The Outfits, Mumbai, Maharashtra, India</p>
-    <p>We typically respond within 24–48 hours.</p>
-  </div>
+
+  <form action="https://formspree.io/f/your-form-id" method="POST">
+    <label for="name">Full Name</label>
+    <input type="text" id="name" name="name" required>
+
+    <label for="email">Email Address</label>
+    <input type="email" id="email" name="_replyto" required>
+
+    <label for="message">Message</label>
+    <textarea id="message" name="message" rows="5" required></textarea>
+
+    <button type="submit">Send Message</button>
+  </form>
+
+  <footer>
+    © 2025 The Outfits. All Rights Reserved.
+  </footer>
+
 </body>
 </html>
