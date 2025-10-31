@@ -1,169 +1,243 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Contact | The Outfits</title>
-    <link rel="stylesheet" href="style.css" />
-    <link rel="icon" type="image/png" href="file_00000000238c61fa93487af7dd1843c3.png" />
-  </head>
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Contact Us | The Outfits</title>
+  <link rel="stylesheet" href="styles.css" />
+  <style>
+    body {
+      font-family: "Poppins", Arial, sans-serif;
+      margin: 0;
+      padding: 0;
+      background-color: #fff;
+      color: #000;
+    }
 
-  <body>
-    <!-- ===== HEADER ===== -->
-    <header>
-      <div class="container header-container">
-        <a href="index.html" class="logo">
-          <img src="file_00000000238c61fa93487af7dd1843c3.png" alt="The Outfits Logo" class="logo-img" />
-        </a>
-        <nav>
-          <ul class="nav-links">
-            <li><a href="index.html">Home</a></li>
-            <li><a href="about.html">About</a></li>
-            <li><a href="collection.html">Collection</a></li>
-            <li><a href="gallery.html">Gallery</a></li>
-            <li><a href="shop.html">Shop</a></li>
-            <li><a href="contact.html" class="active">Contact</a></li>
-          </ul>
-        </nav>
-      </div>
-    </header>
+    header {
+      background-color: #fff;
+      border-bottom: 1px solid #ddd;
+      padding: 10px 20px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      position: sticky;
+      top: 0;
+      z-index: 100;
+    }
 
-    <!-- ===== CONTACT SECTION ===== -->
-    <main>
-      <section class="contact-section">
-        <div class="container">
-          <h1>Contact Us</h1>
-          <p>Have questions, feedback, or collaboration ideas? Fill out the form below and we’ll get back to you shortly.</p>
+    header img {
+      height: 60px;
+    }
 
-          <form action="https://formspree.io/f/mqagdyyw" method="POST" class="contact-form">
-            <label for="name">Full Name</label>
-            <input type="text" id="name" name="name" placeholder="Enter your name" required />
+    nav ul {
+      list-style: none;
+      margin: 0;
+      padding: 0;
+      display: flex;
+      gap: 20px;
+    }
 
-            <label for="email">Email Address</label>
-            <input type="email" id="email" name="_replyto" placeholder="Enter your email" required />
+    nav ul li a {
+      text-decoration: none;
+      color: #000;
+      font-weight: 500;
+      transition: color 0.2s ease;
+    }
 
-            <label for="message">Message</label>
-            <textarea id="message" name="message" placeholder="Write your message here..." rows="5" required></textarea>
+    nav ul li a:hover {
+      color: #b8860b;
+    }
 
-            <button type="submit">Send Message</button>
-          </form>
-        </div>
-      </section>
-    </main>
+    main {
+      padding: 80px 20px;
+      text-align: center;
+    }
 
-    <!-- ===== FOOTER ===== -->
-    <footer>
-      <div class="container">
-        <p>&copy; 2025 The Outfits. All rights reserved.</p>
-        <div class="social-links">
-          <a href="#">Instagram</a>
-          <a href="#">Facebook</a>
-          <a href="#">Twitter</a>
-        </div>
-      </div>
-    </footer>
+    h1 {
+      font-size: 26px;
+      margin-bottom: 12px;
+      letter-spacing: 0.5px;
+    }
 
-    <!-- ===== INLINE STYLES FOR CONTACT PAGE ===== -->
-    <style>
-      body {
-        margin: 0;
-        font-family: "Poppins", sans-serif;
-        background-color: #fff;
-        color: #111;
-      }
+    p {
+      font-size: 15px;
+      color: #555;
+      margin-bottom: 40px;
+    }
 
+    form {
+      max-width: 500px;
+      margin: 0 auto;
+      text-align: left;
+      background-color: #f9f9f9;
+      padding: 30px;
+      border-radius: 10px;
+      box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+    }
+
+    label {
+      font-size: 14px;
+      font-weight: 500;
+      display: block;
+      margin-bottom: 5px;
+    }
+
+    input, textarea {
+      width: 100%;
+      padding: 12px;
+      margin-bottom: 18px;
+      border: 1px solid #ccc;
+      border-radius: 6px;
+      font-size: 14px;
+      outline: none;
+      transition: border-color 0.2s ease;
+    }
+
+    input:focus, textarea:focus {
+      border-color: #b8860b;
+    }
+
+    button {
+      width: 100%;
+      padding: 14px;
+      background-color: #000;
+      color: #fff;
+      border: none;
+      border-radius: 6px;
+      font-size: 15px;
+      font-weight: 500;
+      cursor: pointer;
+      transition: background-color 0.3s ease;
+    }
+
+    button:hover {
+      background-color: #444;
+    }
+
+    footer {
+      background-color: #000;
+      color: #fff;
+      text-align: center;
+      padding: 25px 10px;
+      margin-top: 60px;
+      font-size: 14px;
+    }
+
+    footer a {
+      color: #fff;
+      margin: 0 8px;
+      text-decoration: none;
+      font-size: 14px;
+    }
+
+    footer a:hover {
+      color: #b8860b;
+    }
+
+    /* Responsive Styles */
+    @media (max-width: 768px) {
       header {
-        background: #fff;
-        border-bottom: 1px solid #eee;
-        padding: 10px 20px;
-      }
-
-      .header-container {
-        display: flex;
-        align-items: center;
-        justify-content: space-between;
-        max-width: 1200px;
-        margin: 0 auto;
-      }
-
-      .logo-img {
-        width: 120px;
-        height: auto;
-      }
-
-      .nav-links {
-        list-style: none;
-        display: flex;
-        gap: 20px;
-        margin: 0;
-        padding: 0;
-      }
-
-      .nav-links a {
-        text-decoration: none;
-        color: #111;
-        font-weight: 500;
-        transition: color 0.3s ease;
-      }
-
-      .nav-links a:hover,
-      .nav-links .active {
-        color: #555;
-      }
-
-      .contact-section {
-        padding: 80px 20px;
-        text-align: center;
-      }
-
-      .contact-form {
-        max-width: 500px;
-        margin: 40px auto;
-        display: flex;
         flex-direction: column;
-        gap: 15px;
+        align-items: flex-start;
       }
 
-      .contact-form input,
-      .contact-form textarea {
-        width: 100%;
-        padding: 10px;
-        border: 1px solid #ccc;
-        border-radius: 6px;
-        font-size: 16px;
+      header img {
+        height: 50px;
+        margin-bottom: 10px;
       }
 
-      .contact-form button {
-        background-color: #000;
-        color: #fff;
-        padding: 12px;
-        border: none;
-        border-radius: 6px;
-        cursor: pointer;
-        font-size: 16px;
-        transition: 0.3s ease;
+      nav ul {
+        flex-wrap: wrap;
+        gap: 10px;
       }
 
-      .contact-form button:hover {
-        background-color: #444;
+      main {
+        padding: 60px 15px;
       }
 
-      footer {
-        background: #111;
-        color: white;
-        text-align: center;
+      form {
         padding: 20px;
       }
 
-      .social-links a {
-        margin: 0 10px;
-        color: white;
-        text-decoration: none;
+      h1 {
+        font-size: 22px;
       }
 
-      .social-links a:hover {
-        text-decoration: underline;
+      p {
+        font-size: 14px;
       }
-    </style>
-  </body>
+    }
+
+    @media (max-width: 480px) {
+      nav ul {
+        flex-direction: column;
+        gap: 8px;
+      }
+
+      nav ul li a {
+        font-size: 14px;
+      }
+
+      form {
+        box-shadow: none;
+        background: none;
+        padding: 0;
+      }
+
+      button {
+        font-size: 14px;
+      }
+
+      footer {
+        font-size: 13px;
+      }
+    }
+  </style>
+</head>
+
+<body>
+  <header>
+    <a href="index.html">
+      <img src="file_00000000238c61fa93487af7dd1843c3.png" alt="The Outfits Logo" />
+    </a>
+    <nav>
+      <ul>
+        <li><a href="index.html">Home</a></li>
+        <li><a href="about.html">About</a></li>
+        <li><a href="collection.html">Collection</a></li>
+        <li><a href="gallery.html">Gallery</a></li>
+        <li><a href="shop.html">Shop</a></li>
+        <li><a href="contact.html">Contact</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <main>
+    <h1>Contact Us</h1>
+    <p>We’d love to hear from you! Use the form below to reach out with questions, feedback, or collaborations.</p>
+
+    <form action="https://formspree.io/f/mqagxxxx" method="POST">
+      <label for="name">Full Name</label>
+      <input type="text" id="name" name="name" placeholder="Enter your name" required />
+
+      <label for="email">Email Address</label>
+      <input type="email" id="email" name="email" placeholder="Enter your email" required />
+
+      <label for="message">Message</label>
+      <textarea id="message" name="message" rows="5" placeholder="Write your message here..." required></textarea>
+
+      <button type="submit">Send Message</button>
+    </form>
+  </main>
+
+  <footer>
+    <p>© 2025 The Outfits. All rights reserved.</p>
+    <div>
+      <a href="#">Instagram</a> |
+      <a href="#">Facebook</a> |
+      <a href="#">Twitter</a>
+    </div>
+  </footer>
+</body>
 </html>
