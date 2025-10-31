@@ -1,294 +1,68 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>The Outfits</title>
   <style>
-    body {
-      font-family: Arial, sans-serif;
-      margin: 0;
-      padding: 0;
-      background-color: #f9f9f9;
-      color: #222;
-    }
-
-    header {
-      text-align: center;
-      padding: 20px;
-      margin-bottom: 10px;
-    }
-
-    header img {
-      width: 120px;
-      height: auto;
-      display: inline-block;
-    }
-
-    /* 🌐 Navigation Bar */
-    .navbar {
-      background-color: #222;
-      padding: 10px 0;
-      text-align: center;
-    }
-
-    .navbar ul {
-      list-style: none;
-      margin: 0;
-      padding: 0;
-    }
-
-    .navbar li {
-      display: inline-block;
-      margin: 0 15px;
-    }
-
-    .navbar a {
-      color: #fff;
-      text-decoration: none;
-      font-size: 16px;
-      font-weight: bold;
-    }
-
-    .navbar a:hover {
-      color: #ffcc00;
-    }
-
-    main {
-      max-width: 720px;
-      margin: 20px auto;
-      padding: 20px;
-      background-color: #fff;
-      border-radius: 10px;
-      box-shadow: 0 0 10px rgba(0,0,0,0.1);
-    }
-
-    h1 {
-      font-size: 36px;
-      text-align: center;
-      color: #111;
-    }
-
-    p {
-      font-size: 18px;
-      line-height: 1.6;
-      text-align: center;
-    }
-
-    #pay {
-      display: block;
-      margin: 30px auto;
-      padding: 12px 28px;
-      font-size: 18px;
-      color: #fff;
-      background-color: #222;
-      border: none;
-      border-radius: 6px;
-      cursor: pointer;
-    }
-
-    #pay:hover {
-      background-color: #444;
-    }
-
-    footer {
-      text-align: center;
-      padding: 20px;
-      margin-top: 40px;
-      background-color: #f2f2f2;
-      font-size: 14px;
-      color: #555;
-    }
-
-    footer a {
-      color: #000;
-      text-decoration: none;
-      margin-left: 10px;
-    }
-
-    footer a:hover {
-      text-decoration: underline;
-    }
+    body { font-family: Arial, sans-serif; background:#f9f9f9; margin:0; color:#222; }
+    header { text-align:center; padding:18px; background:#fff; border-bottom:1px solid #eee; }
+    header img { width:120px; height:auto; }
+    nav { background:#222; display:flex; justify-content:center; flex-wrap:wrap; }
+    nav a { color:#fff; text-decoration:none; padding:12px 16px; font-weight:600; display:block; }
+    nav a:hover { color:#ffcc00; }
+    main { max-width:800px; margin:30px auto; padding:20px; background:#fff; border-radius:10px; box-shadow:0 6px 20px rgba(0,0,0,0.06); text-align:center; }
+    h1 { margin:0 0 12px; font-size:30px; color:#111; }
+    p.lead { margin:0 0 20px; color:#444; font-size:17px; line-height:1.5; }
+    #pay { background:#222; color:#fff; border:none; padding:12px 26px; border-radius:8px; font-size:16px; cursor:pointer; }
+    footer { background:#f2f2f2; text-align:center; padding:16px; font-size:14px; color:#555; margin-top:30px; }
+    footer a { color:#222; text-decoration:none; margin-left:8px; }
   </style>
 </head>
-
 <body>
+  <!-- Address (hidden for Razorpay): Kanakia 15, Mira Road E, Thane 401107, Mumbai, Maharashtra, India -->
   <header>
-    <img src="logo.png" alt="The Outfits Logo">
+    <img src="https://raw.githubusercontent.com/samfiat46-72/the-outfits/refs/heads/main/file_00000000238c61fa93487af7dd1843c3.png" alt="The Outfits Logo">
   </header>
 
-  <!-- 🌐 Navigation Bar -->
-  <nav class="navbar">
-    <ul>
-      <li><a href="index.html">Home</a></li>
-      <li><a href="contact.html">Contact</a></li>
-      <li><a href="privacy.html">Privacy Policy</a></li>
-      <li><a href="refunds.html">Refund & Cancellation</a></li>
-      <li><a href="terms.html">Terms & Conditions</a></li>
-      <li><a href="shipping.html">Shipping Policy</a></li>
-    </ul>
+  <nav>
+    <a href="index.html">Home</a>
+    <a href="contact.html">Contact</a>
+    <a href="privacy.html">Privacy Policy</a>
+    <a href="refunds.html">Refunds</a>
+    <a href="terms.html">Terms</a>
+    <a href="shipping.html">Shipping</a>
   </nav>
 
   <main>
-    <h1>Welcome to The Outfits</h1>
-    <p>Your one-stop destination for the latest trends and fashion essentials.</p>
-    <button id="pay">Pay Now</button>
+    <h1>The Outfits</h1>
+    <p class="lead">Luxury in Every Stitch. Your trusted online store for trendy clothing and essentials.</p>
+
+    <!-- Demo Razorpay integration (test key) -->
+    <button id="pay">Demo Purchase ₹1</button>
   </main>
 
   <footer>
-    © 2025 The Outfits. All rights reserved. |
-    <a href="contact.html">Contact Us</a>
+    © 2025 The Outfits. All rights reserved. | <a href="contact.html">Contact Us</a>
   </footer>
-</body>
-</html>      text-decoration: underline;
-    }
-  </style>
-</head>
-
-<body>
-  <header>
-    <img src="logo.png" alt="The Outfits Logo">
-  </header>
-
-  <nav class="navbar">
-    <ul>
-      <li><a href="index.html">Home</a></li>
-      <li><a href="contact.html">Contact</a></li>
-      <li><a href="privacy.html">Privacy Policy</a></li>
-      <li><a href="refunds.html">Refund & Cancellation</a></li>
-      <li><a href="terms.html">Terms & Conditions</a></li>
-      <li><a href="shipping.html">Shipping Policy</a></li>
-    </ul>
-  </nav>
-
-  <main>
-    <h1>Welcome to The Outfits</h1>
-    <p>Your one-stop destination for the latest trends and fashion essentials.</p>
-    <button id="pay">Pay Now</button>
-  </main>
-
-  <footer>
-    © 2025 The Outfits. All rights reserved. |
-    <a href="contact.html">Contact Us</a>
-  </footer>
-</body>
-</html>    footer a:hover {
-      text-decoration: underline;
-    }
-  </style>
-</head>
-
-<body>
-  <header>
-    <!-- ✅ Replace with your actual hosted logo URL -->
-    <img src="https://raw.githubusercontent.com/samfiat46-72/the-outfits/main/logo.png" alt="The Outfits Logo">
-  </header>
-
-  <!-- 🌐 Navigation Bar -->
-  <nav class="navbar">
-    <ul>
-      <li><a href="index.html">Home</a></li>
-      <li><a href="contact.html">Contact</a></li>
-      <li><a href="privacy.html">Privacy Policy</a></li>
-      <li><a href="refunds.html">Refund & Cancellation</a></li>
-      <li><a href="terms.html">Terms & Conditions</a></li>
-      <li><a href="shipping.html">Shipping Policy</a></li>
-    </ul>
-  </nav>
-
-  <main>
-    <h1>Welcome to The Outfits</h1>
-    <p>Your one-stop destination for the latest trends and fashion essentials.</p>
-    <button id="pay">Pay Now</button>
-  </main>
-
-  <footer>
-    © 2025 The Outfits. All rights reserved. |
-    <a href="contact.html">Contact Us</a>
-  </footer>
-</body>
-</html>
-    footer a:hover {
-      text-decoration: underline;
-    }
-  </style>
-</head>
-
-<body>
-  <header>
-    <img src="logo.png" alt="The Outfits Logo">
-  </header>
-
-  <!-- 🌐 Navigation Bar -->
-  <nav class="navbar">
-    <ul>
-      <li><a href="index.html">Home</a></li>
-      <li><a href="contact.html">Contact</a></li>
-      <li><a href="privacy.html">Privacy Policy</a></li>
-      <li><a href="refunds.html">Refund & Cancellation</a></li>
-      <li><a href="terms.html">Terms & Conditions</a></li>
-      <li><a href="shipping.html">Shipping Policy</a></li>
-    </ul>
-  </nav>
-
-  <main>
-    <h1>Welcome to The Outfits</h1>
-    <p>Your one-stop destination for the latest trends and fashion essentials.</p>
-
-    <button id="pay">Pay Now</button>
-  </main>
-
-  <footer>
-    © 2025 The Outfits. All rights reserved. |
-    <a href="contact.html">Contact Us</a>
-  </footer>
-
-</body>
-</html>    });
-  </script>
-
-  <footer>
-    © 2025 The Outfits. All rights reserved. | 
-    <a href="contact.html">Contact Us</a>
-  </footer>
-</body>
-</html>    <button id="pay">Pay Now</button>
-  </main>
-
-  <!-- Razorpay checkout (official) -->
-  <script src="https://checkout.razorpay.com/v1/checkout.js"></script>
 
   <script>
-    // Configure and open Razorpay checkout on button click
-    document.getElementById("pay").addEventListener("click", function () {
+    // Simple Razorpay test flow (keeps it visible for Razorpay review)
+    document.getElementById('pay').addEventListener('click', function () {
       const options = {
-        key: "rzp_test_t6cp7rtRFjylLiztnWWj04IZ", // your test key (as in your paste)
-        amount: 10000, // paise (₹100)
+        key: "rzp_test_t6cp7rtRFjylLiztnWWj04IZ", // test key
+        amount: 100, // paise => ₹1
         currency: "INR",
         name: "The Outfits",
-        description: "Luxury in Every Stitch.",
-        image: "https://raw.githubusercontent.com/samfiat46-72/the-outfits/refs/heads/main/file_00000000238c61fa93487af7dd1843c3.png",
-        handler: function (response) {
-          // You can replace this with a server call to verify payment later.
-          alert("✅ Payment Successful! ID: " + response.razorpay_payment_id);
-        },
-        prefill: {
-          name: "Customer Name",
-          email: "customer@example.com",
-          contact: "9999999999"
-        },
-        theme: {
-          color: "#d4a017"
-        }
+        description: "Demo purchase for verification",
+        prefill: { name: "Test Buyer", email: "outfits955@gmail.com", contact: "+919820307263" },
+        theme: { color: "#d4a017" }
       };
-
       const rzp = new Razorpay(options);
       rzp.open();
     });
   </script>
 
-  <footer>
-    <a href="privacy.html">Privacy Policy</a>
-  </footer>
+  <script src="https://checkout.razorpay.com/v1/checkout.js"></script>
 </body>
 </html>
