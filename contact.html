@@ -1,132 +1,154 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Contact Us | The Outfits</title>
   <style>
     body {
-      font-family: 'Poppins', sans-serif;
-      background-color: #f7f7f7;
+      font-family: Arial, sans-serif;
+      margin: 0;
+      padding: 0;
+      background-color: #f9f9f9;
+      color: #222;
+    }
+
+    header {
+      text-align: center;
+      padding: 20px;
+      margin-bottom: 10px;
+    }
+
+    header img {
+      width: 120px;
+      height: auto;
+    }
+
+    .navbar {
+      background-color: #222;
+      padding: 10px 0;
+      text-align: center;
+    }
+
+    .navbar ul {
+      list-style: none;
       margin: 0;
       padding: 0;
     }
 
-    header {
-      background-color: #000;
+    .navbar li {
+      display: inline-block;
+      margin: 0 15px;
+    }
+
+    .navbar a {
       color: #fff;
-      text-align: center;
+      text-decoration: none;
+      font-weight: bold;
+    }
+
+    .navbar a:hover {
+      color: #ffcc00;
+    }
+
+    main {
+      max-width: 720px;
+      margin: 20px auto;
+      background-color: #fff;
+      border-radius: 10px;
       padding: 20px;
+      box-shadow: 0 0 10px rgba(0,0,0,0.1);
     }
 
     h1 {
-      margin: 0;
-      font-size: 28px;
+      text-align: center;
+      color: #111;
     }
 
-    .container {
-      max-width: 600px;
-      margin: 40px auto;
-      background: #fff;
-      padding: 30px;
-      border-radius: 10px;
-      box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    p {
+      text-align: center;
+      font-size: 18px;
+      line-height: 1.6;
     }
 
     form {
       display: flex;
       flex-direction: column;
-    }
-
-    label {
-      margin-bottom: 5px;
-      font-weight: 600;
+      gap: 10px;
+      margin-top: 20px;
     }
 
     input, textarea {
-      padding: 12px;
-      margin-bottom: 20px;
+      padding: 10px;
       border: 1px solid #ccc;
-      border-radius: 8px;
+      border-radius: 6px;
       font-size: 16px;
     }
 
     button {
-      background-color: #000;
+      background-color: #222;
       color: #fff;
       border: none;
       padding: 12px;
-      font-size: 16px;
-      border-radius: 8px;
+      border-radius: 6px;
       cursor: pointer;
-      transition: 0.3s;
     }
 
     button:hover {
-      background-color: #333;
+      background-color: #444;
     }
 
     footer {
       text-align: center;
       padding: 20px;
-      background-color: #000;
-      color: #fff;
-      margin-top: 50px;
+      background-color: #f2f2f2;
+      margin-top: 40px;
       font-size: 14px;
+      color: #555;
+    }
+
+    footer a {
+      color: #000;
+      text-decoration: none;
+      margin-left: 10px;
+    }
+
+    footer a:hover {
+      text-decoration: underline;
     }
   </style>
 </head>
 <body>
-
   <header>
-    <h1>Contact Us</h1>
-    <p>We’d love to hear from you — reach out anytime!</p>
+    <img src="logo.png" alt="The Outfits Logo">
   </header>
 
-  <div class="container">
-    <form action="https://formspree.io/f/mqagdyyw" method="POST">
-      <label for="name">Full Name</label>
-      <input type="text" id="name" name="name" required placeholder="Enter your full name" />
+  <nav class="navbar">
+    <ul>
+      <li><a href="index.html">Home</a></li>
+      <li><a href="contact.html">Contact</a></li>
+      <li><a href="privacy.html">Privacy Policy</a></li>
+      <li><a href="refunds.html">Refund & Cancellation</a></li>
+      <li><a href="terms.html">Terms & Conditions</a></li>
+      <li><a href="shipping.html">Shipping Policy</a></li>
+    </ul>
+  </nav>
 
-      <label for="email">Email Address</label>
-      <input type="email" id="email" name="_replyto" required placeholder="Enter your email address" />
+  <main>
+    <h1>Contact Us</h1>
+    <p>We’d love to hear from you! Reach us through the form below or email us at <strong>outfits955@gmail.com</strong>.</p>
 
-      <label for="message">Your Message</label>
-      <textarea id="message" name="message" rows="5" required placeholder="Type your message here..."></textarea>
-
+    <form>
+      <input type="text" placeholder="Your Name" required>
+      <input type="email" placeholder="Your Email" required>
+      <textarea rows="5" placeholder="Your Message"></textarea>
       <button type="submit">Send Message</button>
-      <p id="successMessage" style="display:none; color:green; margin-top:10px;">
-  ✅ Thank you! Your message has been sent.
-      </p>
     </form>
-  </div>
+  </main>
 
-<footer>
-    &copy; 2025 The Outfits. All rights reserved.
-</footer>
-
-<!-- 👇 Paste this entire block below -->
-<script>
-const form = document.querySelector("form");
-const successMessage = document.getElementById("successMessage");
-
-form.addEventListener("submit", async (e) => {
-  e.preventDefault();
-  const data = new FormData(form);
-  const response = await fetch(form.action, {
-    method: form.method,
-    body: data,
-    headers: { Accept: "application/json" },
-  });
-  if (response.ok) {
-    successMessage.style.display = "block";
-    form.reset();
-  } else {
-    alert("Oops! There was a problem submitting your form.");
-  }
-});
-</script>
-<!-- 👆 Until here -->
-
+  <footer>
+    © 2025 The Outfits. All rights reserved. |
+    <a href="contact.html">Contact Us</a>
+  </footer>
 </body>
 </html>
