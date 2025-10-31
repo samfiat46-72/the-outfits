@@ -7,63 +7,139 @@
   <style>
     body {
       font-family: Arial, sans-serif;
-      background-color: #fefbe9;
+      margin: 0;
+      padding: 0;
+      background-color: #f9f9f9;
       color: #222;
-      margin: 40px;
-      line-height: 1.6;
     }
-    h1 {
-      color: #b88a00;
+
+    header {
+      text-align: center;
+      padding: 20px;
+      margin-bottom: 10px;
+    }
+
+    header img {
+      width: 120px;
+      height: auto;
+    }
+
+    .navbar {
+      background-color: #222;
+      padding: 10px 0;
       text-align: center;
     }
-    a {
-      color: #b88a00;
-      text-decoration: none;
+
+    .navbar ul {
+      list-style: none;
+      margin: 0;
+      padding: 0;
     }
+
+    .navbar li {
+      display: inline-block;
+      margin: 0 15px;
+    }
+
+    .navbar a {
+      color: #fff;
+      text-decoration: none;
+      font-weight: bold;
+    }
+
+    .navbar a:hover {
+      color: #ffcc00;
+    }
+
+    main {
+      max-width: 720px;
+      margin: 20px auto;
+      background-color: #fff;
+      border-radius: 10px;
+      padding: 20px;
+      box-shadow: 0 0 10px rgba(0,0,0,0.1);
+    }
+
+    h1 {
+      text-align: center;
+      color: #111;
+    }
+
+    p {
+      font-size: 16px;
+      line-height: 1.6;
+      margin-bottom: 15px;
+    }
+
     footer {
       text-align: center;
-      margin-top: 50px;
+      padding: 20px;
+      background-color: #f2f2f2;
+      margin-top: 40px;
       font-size: 14px;
+      color: #555;
+    }
+
+    footer a {
+      color: #000;
+      text-decoration: none;
+      margin-left: 10px;
+    }
+
+    footer a:hover {
+      text-decoration: underline;
     }
   </style>
 </head>
 <body>
+  <header>
+    <img src="logo.png" alt="The Outfits Logo">
+  </header>
 
-  <h1>Shipping Policy</h1>
-  <p>
-    At <strong>The Outfits</strong>, we strive to ensure that your orders are delivered in a timely and secure manner. All orders are processed within <strong>1–3 business days</strong> after receiving payment confirmation.
-  </p>
+  <!-- 🌐 Navigation Bar -->
+  <nav class="navbar">
+    <ul>
+      <li><a href="index.html">Home</a></li>
+      <li><a href="contact.html">Contact</a></li>
+      <li><a href="privacy.html">Privacy Policy</a></li>
+      <li><a href="refunds.html">Refund & Cancellation</a></li>
+      <li><a href="terms.html">Terms & Conditions</a></li>
+      <li><a href="shipping.html">Shipping Policy</a></li>
+    </ul>
+  </nav>
 
-  <h3>Delivery Time</h3>
-  <p>
-    Once dispatched, deliveries within India typically take <strong>5–7 business days</strong>. Delivery times may vary depending on your location and the courier partner’s network coverage.
-  </p>
+  <main>
+    <h1>Shipping Policy</h1>
+    <p>At <strong>The Outfits</strong>, we aim to deliver your favorite fashion pieces as quickly and safely as possible. Please review our shipping policy below.</p>
 
-  <h3>Shipping Charges</h3>
-  <p>
-    Standard shipping is <strong>free</strong> on all orders above ₹999. A nominal delivery charge may apply to orders below this amount.
-  </p>
+    <p><strong>1. Delivery Locations:</strong><br>
+    We currently ship across all major cities and towns in India. International shipping is not available at this time.</p>
 
-  <h3>Order Tracking</h3>
-  <p>
-    You will receive an email or SMS with tracking details once your order has been shipped. You can use the tracking number to monitor your package through our courier partner’s website.
-  </p>
+    <p><strong>2. Processing Time:</strong><br>
+    Orders are typically processed within 2-4 business days after payment confirmation. During high-demand periods, slight delays may occur.</p>
 
-  <h3>Delays and Exceptions</h3>
-  <p>
-    In rare cases, delivery may be delayed due to unforeseen circumstances such as weather conditions, public holidays, or logistics issues. We appreciate your patience in such situations.
-  </p>
+    <p><strong>3. Delivery Time:</strong><br>
+    Standard delivery usually takes between 5-10 business days, depending on your location and courier service.</p>
 
-  <h3>Contact Us</h3>
-  <p>
-    For any shipping-related queries, please contact us at  
-    <a href="mailto:support@theoutfits.in">support@theoutfits.in</a>
-  </p>
+    <p><strong>4. Shipping Charges:</strong><br>
+    We offer free shipping on orders above ₹999. For orders below this amount, a small delivery fee may apply.</p>
+
+    <p><strong>5. Order Tracking:</strong><br>
+    Once your order is shipped, a tracking ID will be shared via email or SMS so you can monitor your delivery status.</p>
+
+    <p><strong>6. Address Accuracy:</strong><br>
+    Please ensure that your shipping address and contact details are accurate at checkout to avoid delivery issues.</p>
+
+    <p><strong>7. Contact:</strong><br>
+    For any shipping-related queries, you can reach us at <strong>outfits955@gmail.com</strong>.</p>
+
+    <!-- Hidden for Razorpay verification only -->
+    <!-- Business Address: Kanakia 15, Mira Road E, Thane 401107, Mumbai, Maharashtra, India -->
+  </main>
 
   <footer>
-    &copy; 2025 The Outfits. All Rights Reserved.  
-    <br><a href="index.html">Back to Home</a>
+    © 2025 The Outfits. All rights reserved. |
+    <a href="contact.html">Contact Us</a>
   </footer>
-
 </body>
 </html>
