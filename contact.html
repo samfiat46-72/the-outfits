@@ -1,155 +1,126 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Contact Us | The Outfits</title>
-  <style>
-    body {
-      font-family: Arial, sans-serif;
-      margin: 0;
-      padding: 0;
-      background-color: #f9f9f9;
-      color: #222;
-    }
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Contact | The Outfits</title>
+    <link rel="stylesheet" href="style.css" />
+    <link rel="icon" type="image/png" href="file_00000000238c61fa93487af7dd1843c3.png" />
+  </head>
 
-    header {
-      text-align: center;
-      padding: 20px;
-      margin-bottom: 10px;
-    }
+  <body>
+    <!-- ===== HEADER ===== -->
+    <header>
+      <div class="container">
+        <a href="index.html" class="logo">
+          <img src="file_00000000238c61fa93487af7dd1843c3.png" alt="The Outfits Logo" />
+        </a>
+        <nav>
+          <ul class="nav-links">
+            <li><a href="index.html">Home</a></li>
+            <li><a href="about.html">About</a></li>
+            <li><a href="collection.html">Collection</a></li>
+            <li><a href="gallery.html">Gallery</a></li>
+            <li><a href="shop.html">Shop</a></li>
+            <li><a href="contact.html" class="active">Contact</a></li>
+          </ul>
+        </nav>
+      </div>
+    </header>
 
-    header img {
-      width: 120px;
-      height: auto;
-    }
+    <!-- ===== CONTACT SECTION ===== -->
+    <main>
+      <section class="contact-section">
+        <div class="container">
+          <h1>Contact Us</h1>
+          <p>
+            Have questions, feedback, or collaboration ideas? Fill out the form
+            below and we’ll get back to you shortly.
+          </p>
 
-    .navbar {
-      background-color: #222;
-      padding: 10px 0;
-      text-align: center;
-    }
+          <form action="https://formspree.io/f/mqagdyyw" method="POST" class="contact-form">
+            <label for="name">Full Name</label>
+            <input type="text" id="name" name="name" placeholder="Enter your name" required />
 
-    .navbar ul {
-      list-style: none;
-      margin: 0;
-      padding: 0;
-    }
+            <label for="email">Email Address</label>
+            <input type="email" id="email" name="_replyto" placeholder="Enter your email" required />
 
-    .navbar li {
-      display: inline-block;
-      margin: 0 15px;
-    }
+            <label for="message">Message</label>
+            <textarea id="message" name="message" placeholder="Write your message here..." rows="5" required></textarea>
 
-    .navbar a {
-      color: #fff;
-      text-decoration: none;
-      font-weight: bold;
-    }
+            <button type="submit">Send Message</button>
+          </form>
+        </div>
+      </section>
+    </main>
 
-    .navbar a:hover {
-      color: #ffcc00;
-    }
+    <!-- ===== FOOTER ===== -->
+    <footer>
+      <div class="container">
+        <p>&copy; 2025 The Outfits. All rights reserved.</p>
+        <div class="social-links">
+          <a href="#">Instagram</a>
+          <a href="#">Facebook</a>
+          <a href="#">Twitter</a>
+        </div>
+      </div>
+    </footer>
 
-    main {
-      max-width: 720px;
-      margin: 20px auto;
-      background-color: #fff;
-      border-radius: 10px;
-      padding: 20px;
-      box-shadow: 0 0 10px rgba(0,0,0,0.1);
-    }
+    <!-- ===== OPTIONAL STYLE FOR CONTACT ===== -->
+    <style>
+      .contact-section {
+        padding: 80px 20px;
+        text-align: center;
+      }
 
-    h1 {
-      text-align: center;
-      color: #111;
-    }
+      .contact-form {
+        max-width: 500px;
+        margin: 40px auto;
+        display: flex;
+        flex-direction: column;
+        gap: 15px;
+      }
 
-    p {
-      text-align: center;
-      font-size: 18px;
-      line-height: 1.6;
-    }
+      .contact-form input,
+      .contact-form textarea {
+        width: 100%;
+        padding: 10px;
+        border: 1px solid #ccc;
+        border-radius: 6px;
+        font-size: 16px;
+      }
 
-    form {
-      display: flex;
-      flex-direction: column;
-      gap: 10px;
-      margin-top: 20px;
-    }
+      .contact-form button {
+        background-color: #000;
+        color: #fff;
+        padding: 12px;
+        border: none;
+        border-radius: 6px;
+        cursor: pointer;
+        font-size: 16px;
+        transition: 0.3s ease;
+      }
 
-    input, textarea {
-      padding: 10px;
-      border: 1px solid #ccc;
-      border-radius: 6px;
-      font-size: 16px;
-    }
+      .contact-form button:hover {
+        background-color: #444;
+      }
 
-    button {
-      background-color: #222;
-      color: #fff;
-      border: none;
-      padding: 12px;
-      border-radius: 6px;
-      cursor: pointer;
-    }
+      footer {
+        background: #111;
+        color: white;
+        text-align: center;
+        padding: 20px;
+      }
 
-    button:hover {
-      background-color: #444;
-    }
+      .social-links a {
+        margin: 0 10px;
+        color: white;
+        text-decoration: none;
+      }
 
-    footer {
-      text-align: center;
-      padding: 20px;
-      background-color: #f2f2f2;
-      margin-top: 40px;
-      font-size: 14px;
-      color: #555;
-    }
-
-    footer a {
-      color: #000;
-      text-decoration: none;
-      margin-left: 10px;
-    }
-
-    footer a:hover {
-      text-decoration: underline;
-    }
-  </style>
-</head>
-<body>
-  <header>
-    <img src="https://raw.githubusercontent.com/samfiat46-72/the-outfits/refs/heads/main/file_00000000238c61fa93487af7dd1843c3.png" alt="The Outfits Logo">
-  </header>
-
-  <nav class="navbar">
-    <ul>
-      <li><a href="index.html">Home</a></li>
-      <li><a href="contact.html">Contact</a></li>
-      <li><a href="privacy.html">Privacy Policy</a></li>
-      <li><a href="refunds.html">Refund & Cancellation</a></li>
-      <li><a href="terms.html">Terms & Conditions</a></li>
-      <li><a href="shipping.html">Shipping Policy</a></li>
-    </ul>
-  </nav>
-
-  <main>
-    <h1>Contact Us</h1>
-    <p>We’d love to hear from you! Reach us through the form below or email us at <strong>outfits955@gmail.com</strong>.</p>
-
-    <form action="https://formspree.io/f/mqagdyyw" method="POST">
-      
-      <input type="text" placeholder="Your Name" required>
-      <input type="email" placeholder="Your Email" required>
-      <textarea rows="5" placeholder="Your Message"></textarea>
-      <button type="submit">Send Message</button>
-    </form>
-  </main>
-
-  <footer>
-    © 2025 The Outfits. All rights reserved. |
-    <a href="contact.html">Contact Us</a>
-  </footer>
-</body>
+      .social-links a:hover {
+        text-decoration: underline;
+      }
+    </style>
+  </body>
 </html>
