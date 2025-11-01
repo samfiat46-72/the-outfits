@@ -3,66 +3,340 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>The Outfits</title>
+  <title>The Outfits – Style Redefined</title>
+  <link rel="stylesheet" href="style.css" />
+  <script src="https://checkout.razorpay.com/v1/checkout.js"></script>
   <style>
-    body { font-family: Arial, sans-serif; background:#f9f9f9; margin:0; color:#222; }
-    header { text-align:center; padding:18px; background:#fff; border-bottom:1px solid #eee; }
-    header img { width:120px; height:auto; }
-    nav { background:#222; display:flex; justify-content:center; flex-wrap:wrap; }
-    nav a { color:#fff; text-decoration:none; padding:12px 16px; font-weight:600; display:block; }
-    nav a:hover { color:#ffcc00; }
-    main { max-width:800px; margin:30px auto; padding:20px; background:#fff; border-radius:10px; box-shadow:0 6px 20px rgba(0,0,0,0.06); text-align:center; }
-    h1 { margin:0 0 12px; font-size:30px; color:#111; }
-    p.lead { margin:0 0 20px; color:#444; font-size:17px; line-height:1.5; }
-    #pay { background:#222; color:#fff; border:none; padding:12px 26px; border-radius:8px; font-size:16px; cursor:pointer; }
-    footer { background:#f2f2f2; text-align:center; padding:16px; font-size:14px; color:#555; margin-top:30px; }
-    footer a { color:#222; text-decoration:none; margin-left:8px; }
+    body {
+      margin: 0;
+      font-family: 'Poppins', sans-serif;
+      background-color: #fdfaf5;
+      color: #333;
+    }
+
+    header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 1rem 2rem;
+      background-color: white;
+      box-shadow: 0 2px 6px rgba(0,0,0,0.05);
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+    }
+
+    header img {
+      height: 60px;
+    }
+
+    nav a {
+      margin: 0 1rem;
+      text-decoration: none;
+      color: #333;
+      font-weight: 500;
+      transition: color 0.3s ease;
+    }
+
+    nav a:hover {
+      color: #c49b63;
+    }
+
+    .welcome {
+      text-align: center;
+      background-color: #fff6eb;
+      padding: 1rem;
+      font-size: 1.4rem;
+      font-weight: 600;
+      color: #c49b63;
+    }
+
+    .carousel {
+      display: flex;
+      overflow-x: auto;
+      scroll-behavior: smooth;
+      gap: 1rem;
+      padding: 1rem;
+      background: #fff;
+    }
+
+    .carousel img {
+      height: 320px;
+      border-radius: 12px;
+      flex-shrink: 0;
+    }
+
+    .collections {
+      text-align: center;
+      padding: 2rem 1rem;
+    }
+
+    .collections h2 {
+      font-size: 2rem;
+      margin-bottom: 1.5rem;
+      color: #333;
+    }
+
+    .product-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 1.5rem;
+      padding: 0 2rem 3rem;
+    }
+
+    .product-card {
+      background: #fff;
+      border-radius: 16px;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.05);
+      padding: 1rem;
+      text-align: center;
+      transition: transform 0.3s ease;
+    }
+
+    .product-card:hover {
+      transform: translateY(-5px);
+    }
+
+    .product-card img {
+      width: 100%;
+      border-radius: 10px;
+      height: 280px;
+      object-fit: cover;
+    }
+
+    .product-card h3 {
+      margin: 0.5rem 0 0.2rem;
+    }
+
+    .product-card p {
+      color: #777;
+      font-size: 0.9rem;
+    }
+
+    .price {
+      font-size: 1.2rem;
+      font-weight: 600;
+      color: #c49b63;
+      margin: 0.4rem 0;
+    }
+
+    .buy-btn {
+      background-color: #c49b63;
+      color: white;
+      border: none;
+      padding: 0.6rem 1.2rem;
+      border-radius: 8px;
+      cursor: pointer;
+      transition: background 0.3s;
+    }
+
+    .buy-btn:hover {
+      background-color: #a27b4f;
+    }
+
+    .toast {
+      position: fixed;
+      bottom: 20px;
+      right: 20px;
+      background: #c49b63;
+      color: white;
+      padding: 12px 20px;
+      border-radius: 8px;
+      display: none;
+      font-weight: 500;
+      animation: fadeInOut 3s ease forwards;
+    }
+
+    @keyframes fadeInOut {
+      0% { opacity: 0; transform: translateY(20px); }
+      20% { opacity: 1; transform: translateY(0); }
+      80% { opacity: 1; transform: translateY(0); }
+      100% { opacity: 0; transform: translateY(20px); }
+    }
+
+    footer {
+      background-color: #fff;
+      padding: 1rem;
+      text-align: center;
+      color: #777;
+      font-size: 0.9rem;
+      border-top: 1px solid #eee;
+    }
   </style>
 </head>
+
 <body>
-  <!-- Address (hidden for Razorpay): Kanakia 15, Mira Road E, Thane 401107, Mumbai, Maharashtra, India -->
   <header>
-    <img src="https://raw.githubusercontent.com/samfiat46-72/the-outfits/refs/heads/main/file_00000000238c61fa93487af7dd1843c3.png" alt="The Outfits Logo">
+    <img src="file_00000000238c61fa93487af7dd1843c3.png" alt="The Outfits Logo">
+    <nav>
+      <a href="index.html">Home</a>
+      <a href="about.html">About</a>
+      <a href="contact.html">Contact</a>
+    </nav>
   </header>
 
-  <nav>
-    <a href="index.html">Home</a>
-    <a href="contact.html">Contact</a>
-    <a href="privacy.html">Privacy Policy</a>
-    <a href="refunds.html">Refunds</a>
-    <a href="terms.html">Terms</a>
-    <a href="shipping.html">Shipping</a>
-  </nav>
+  <div class="welcome">Welcome to The Outfits – Style Redefined</div>
 
-  <main>
-    <h1>The Outfits</h1>
-    <p class="lead">Luxury in Every Stitch. Your trusted online store for trendy clothing and essentials.</p>
+  <div class="carousel">
+    <img src="https://i.ibb.co/tDyHZvT/shirt1.jpg" alt="Shirt 1">
+    <img src="https://i.ibb.co/FDh8LCq/tshirt1.jpg" alt="T-shirt 1">
+    <img src="https://i.ibb.co/hLgSzTF/pant1.jpg" alt="Pant 1">
+    <img src="https://i.ibb.co/FmgMTXL/track1.jpg" alt="Track Pant 1">
+    <img src="https://i.ibb.co/Mg7dkbP/shoe1.jpg" alt="Shoe 1">
+  </div>
 
-    <!-- Demo Razorpay integration (test key) -->
-    <button id="pay">Demo Purchase ₹1</button>
-  </main>
+  <section class="collections">
+    <h2>Our Collections</h2>
+    <div class="product-grid">
+
+      <!-- Shirts -->
+      <div class="product-card">
+        <img src="https://i.ibb.co/tDyHZvT/shirt1.jpg" alt="Classic Shirt">
+        <h3>Classic White Shirt</h3>
+        <p>Timeless white cotton shirt.</p>
+        <div class="price">₹999</div>
+        <button class="buy-btn" onclick="buyNow('Classic White Shirt', 999)">Buy Now</button>
+      </div>
+
+      <div class="product-card">
+        <img src="https://i.ibb.co/n8vcQKr/shirt2.jpg" alt="Casual Blue Shirt">
+        <h3>Casual Blue Shirt</h3>
+        <p>Perfect for daily wear.</p>
+        <div class="price">₹1199</div>
+        <button class="buy-btn" onclick="buyNow('Casual Blue Shirt', 1199)">Buy Now</button>
+      </div>
+
+      <div class="product-card">
+        <img src="https://i.ibb.co/gRs1cDf/shirt3.jpg" alt="Pattern Shirt">
+        <h3>Pattern Shirt</h3>
+        <p>Stylish modern patterns.</p>
+        <div class="price">₹1399</div>
+        <button class="buy-btn" onclick="buyNow('Pattern Shirt', 1399)">Buy Now</button>
+      </div>
+
+      <!-- T-shirts -->
+      <div class="product-card">
+        <img src="https://i.ibb.co/FDh8LCq/tshirt1.jpg" alt="Basic Tee">
+        <h3>Basic White Tee</h3>
+        <p>Soft cotton, casual comfort.</p>
+        <div class="price">₹699</div>
+        <button class="buy-btn" onclick="buyNow('Basic White Tee', 699)">Buy Now</button>
+      </div>
+
+      <div class="product-card">
+        <img src="https://i.ibb.co/W5NvhvS/tshirt2.jpg" alt="Graphic Tee">
+        <h3>Graphic Tee</h3>
+        <p>Trendy prints for men.</p>
+        <div class="price">₹899</div>
+        <button class="buy-btn" onclick="buyNow('Graphic Tee', 899)">Buy Now</button>
+      </div>
+
+      <div class="product-card">
+        <img src="https://i.ibb.co/5kRmyph/tshirt3.jpg" alt="Black Tee">
+        <h3>Black Cotton Tee</h3>
+        <p>Essential streetwear piece.</p>
+        <div class="price">₹799</div>
+        <button class="buy-btn" onclick="buyNow('Black Cotton Tee', 799)">Buy Now</button>
+      </div>
+
+      <!-- Pants -->
+      <div class="product-card">
+        <img src="https://i.ibb.co/hLgSzTF/pant1.jpg" alt="Chino Pants">
+        <h3>Beige Chinos</h3>
+        <p>Smart & comfortable.</p>
+        <div class="price">₹1299</div>
+        <button class="buy-btn" onclick="buyNow('Beige Chinos', 1299)">Buy Now</button>
+      </div>
+
+      <div class="product-card">
+        <img src="https://i.ibb.co/YRgYzfb/pant2.jpg" alt="Denim Jeans">
+        <h3>Denim Jeans</h3>
+        <p>Classic dark blue fit.</p>
+        <div class="price">₹1499</div>
+        <button class="buy-btn" onclick="buyNow('Denim Jeans', 1499)">Buy Now</button>
+      </div>
+
+      <div class="product-card">
+        <img src="https://i.ibb.co/7b9MYj5/pant3.jpg" alt="Formal Pants">
+        <h3>Formal Pants</h3>
+        <p>Perfect for business wear.</p>
+        <div class="price">₹1799</div>
+        <button class="buy-btn" onclick="buyNow('Formal Pants', 1799)">Buy Now</button>
+      </div>
+
+      <!-- Track Pants -->
+      <div class="product-card">
+        <img src="https://i.ibb.co/FmgMTXL/track1.jpg" alt="Grey Track Pant">
+        <h3>Grey Track Pant</h3>
+        <p>Comfy cotton blend.</p>
+        <div class="price">₹899</div>
+        <button class="buy-btn" onclick="buyNow('Grey Track Pant', 899)">Buy Now</button>
+      </div>
+
+      <div class="product-card">
+        <img src="https://i.ibb.co/k36t6Dw/track2.jpg" alt="Black Track Pant">
+        <h3>Black Track Pant</h3>
+        <p>Everyday gym essential.</p>
+        <div class="price">₹999</div>
+        <button class="buy-btn" onclick="buyNow('Black Track Pant', 999)">Buy Now</button>
+      </div>
+
+      <div class="product-card">
+        <img src="https://i.ibb.co/Thk0XVm/track3.jpg" alt="Navy Track Pant">
+        <h3>Navy Track Pant</h3>
+        <p>Durable with stretch fit.</p>
+        <div class="price">₹1199</div>
+        <button class="buy-btn" onclick="buyNow('Navy Track Pant', 1199)">Buy Now</button>
+      </div>
+
+      <!-- Shoes -->
+      <div class="product-card">
+        <img src="https://i.ibb.co/Mg7dkbP/shoe1.jpg" alt="White Sneakers">
+        <h3>White Sneakers</h3>
+        <p>Trendy lightweight design.</p>
+        <div class="price">₹1799</div>
+        <button class="buy-btn" onclick="buyNow('White Sneakers', 1799)">Buy Now</button>
+      </div>
+
+      <div class="product-card">
+        <img src="https://i.ibb.co/5YghdFv/shoe2.jpg" alt="Running Shoes">
+        <h3>Running Shoes</h3>
+        <p>Flexible & comfortable sole.</p>
+        <div class="price">₹1999</div>
+        <button class="buy-btn" onclick="buyNow('Running Shoes', 1999)">Buy Now</button>
+      </div>
+
+    </div>
+  </section>
+
+  <div id="toast" class="toast">Thank you for your purchase!</div>
 
   <footer>
-    © 2025 The Outfits. All rights reserved. | <a href="contact.html">Contact Us</a>
+    © 2025 The Outfits. All Rights Reserved.
   </footer>
 
   <script>
-    // Simple Razorpay test flow (keeps it visible for Razorpay review)
-    document.getElementById('pay').addEventListener('click', function () {
-      const options = {
-        key: "rzp_test_t6cp7rtRFjylLiztnWWj04IZ", // test key
-        amount: 100, // paise => ₹1
+    function buyNow(product, amount) {
+      var options = {
+        key: "rzp_test_1DP5mmOlF5G5ag",
+        amount: amount * 100,
         currency: "INR",
         name: "The Outfits",
-        description: "Demo purchase for verification",
-        prefill: { name: "Test Buyer", email: "outfits955@gmail.com", contact: "+919820307263" },
-        theme: { color: "#d4a017" }
+        description: product,
+        theme: { color: "#c49b63" },
+        handler: function () {
+          showToast();
+        }
       };
-      const rzp = new Razorpay(options);
+      var rzp = new Razorpay(options);
       rzp.open();
-    });
-  </script>
+    }
 
-  <script src="https://checkout.razorpay.com/v1/checkout.js"></script>
+    function showToast() {
+      const toast = document.getElementById('toast');
+      toast.style.display = 'block';
+      setTimeout(() => { toast.style.display = 'none'; }, 3000);
+    }
+  </script>
 </body>
-</html>
+          </html>
