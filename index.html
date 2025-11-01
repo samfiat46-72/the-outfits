@@ -4,7 +4,6 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>The Outfits | Home</title>
-  <link rel="stylesheet" href="style.css" />
   <style>
     body {
       font-family: 'Poppins', sans-serif;
@@ -54,6 +53,7 @@
       margin: 0 15px;
       color: #000;
       font-weight: 500;
+      cursor: pointer; /* Added for better UX */
     }
 
     /* Carousel */
@@ -87,6 +87,7 @@
       cursor: pointer;
       padding: 8px 12px;
       border-radius: 50%;
+      z-index: 10;
     }
 
     .carousel .prev { left: 15px; }
@@ -183,11 +184,10 @@
     </nav>
   </header>
 
-  <!-- Carousel -->
   <div class="carousel">
-    <img src="https://images.unsplash.com/photo-1600185365483-26d7a4cc7519" class="active" alt="Fashion 1">
-    <img src="https://images.unsplash.com/photo-1593032465171-8d6ef25b3319" alt="Fashion 2">
-    <img src="https://images.unsplash.com/photo-1592878904946-b97d5b1c063b" alt="Fashion 3">
+    <img src="https://images.unsplash.com/photo-1600185365483-26d7a4cc7519" alt="Fashion Image 1">
+    <img src="https://images.unsplash.com/photo-1593032465171-8d6ef25b3319" alt="Fashion Image 2">
+    <img src="https://images.unsplash.com/photo-1592878904946-b97d5b1c063b" alt="Fashion Image 3">
     <button class="prev" onclick="changeSlide(-1)">‹</button>
     <button class="next" onclick="changeSlide(1)">›</button>
   </div>
@@ -195,20 +195,20 @@
   <h2 class="section-title">Our Collections</h2>
 
   <div class="product-grid">
-    <div class="product-card"><img src="https://www.istockphoto.com/photo-902651888-248977245" alt="Shirt"><h3>Classic Shirt</h3><p>Premium cotton comfort.</p><div class="price">₹899</div><button class="buy-btn">Buy Now</button></div>
-    <div class="product-card"><img src="https://images.unsplash.com/photo-1593032465171-8d6ef25b3319" alt="T-shirt"><h3>Urban Tee</h3><p>Soft and stylish street look.</p><div class="price">₹699</div><button class="buy-btn">Buy Now</button></div>
-    <div class="product-card"><img src="https://images.unsplash.com/photo-1592878904946-b97d5b1c063b" alt="Pant"><h3>Casual Pants</h3><p>Relaxed fit everyday wear.</p><div class="price">₹1199</div><button class="buy-btn">Buy Now</button></div>
-    <div class="product-card"><img src="https://images.unsplash.com/photo-1600185365483-26d7a4cc7519" alt="Track Pant"><h3>Track Pants</h3><p>Perfect for gym and comfort.</p><div class="price">₹999</div><button class="buy-btn">Buy Now</button></div>
-    <div class="product-card"><img src="https://images.unsplash.com/photo-1542291026-7eec264c27ff" alt="Shoes"><h3>Runner Shoes</h3><p>Lightweight running sneakers.</p><div class="price">₹1799</div><button class="buy-btn">Buy Now</button></div>
-    <div class="product-card"><img src="https://images.unsplash.com/photo-1600185365483-26d7a4cc7519" alt="Casual"><h3>Casual Shirt</h3><p>Chic design with soft texture.</p><div class="price">₹999</div><button class="buy-btn">Buy Now</button></div>
-    <div class="product-card"><img src="https://images.unsplash.com/photo-1581089781785-603411fa81e5" alt="Denim"><h3>Denim Shirt</h3><p>Rugged blue fashion icon.</p><div class="price">₹1199</div><button class="buy-btn">Buy Now</button></div>
-    <div class="product-card"><img src="https://images.unsplash.com/photo-1592878904946-b97d5b1c063b" alt="Slim Pant"><h3>Slim Fit Pant</h3><p>Modern fit with soft fabric.</p><div class="price">₹1399</div><button class="buy-btn">Buy Now</button></div>
-    <div class="product-card"><img src="https://images.unsplash.com/photo-1626880236836-3d86a06364b1" alt="Track"><h3>Sport Track</h3><p>Designed for daily comfort.</p><div class="price">₹899</div><button class="buy-btn">Buy Now</button></div>
-    <div class="product-card"><img src="https://images.unsplash.com/photo-1593032465171-8d6ef25b3319" alt="Tee"><h3>Basic Tee</h3><p>Minimalist design daily wear.</p><div class="price">₹699</div><button class="buy-btn">Buy Now</button></div>
-    <div class="product-card"><img src="https://images.unsplash.com/photo-1526170375885-4d8ecf77b99f" alt="Formal Shirt"><h3>Formal Shirt</h3><p>Sharp and professional style.</p><div class="price">₹1299</div><button class="buy-btn">Buy Now</button></div>
-    <div class="product-card"><img src="https://images.unsplash.com/photo-1542291026-7eec264c27ff" alt="Sneakers"><h3>Classic Sneakers</h3><p>Everyday casual footwear.</p><div class="price">₹1599</div><button class="buy-btn">Buy Now</button></div>
-    <div class="product-card"><img src="https://images.unsplash.com/photo-1600185365483-26d7a4cc7519" alt="Track Pant"><h3>Grey Track Pant</h3><p>Flexible and breathable.</p><div class="price">₹1099</div><button class="buy-btn">Buy Now</button></div>
-    <div class="product-card"><img src="https://images.unsplash.com/photo-1592878904946-b97d5b1c063b" alt="Pant"><h3>Stretch Pant</h3><p>Perfect balance of style & ease.</p><div class="price">₹1299</div><button class="buy-btn">Buy Now</button></div>
+    <div class="product-card"><img src="https://images.unsplash.com/photo-1526170375885-4d8ecf77b99f" alt="Classic White Shirt"><h3>Classic Shirt</h3><p>Premium cotton comfort.</p><div class="price">₹899</div><button class="buy-btn">Buy Now</button></div>
+    <div class="product-card"><img src="https://images.unsplash.com/photo-1593032465171-8d6ef25b3319" alt="Urban Graphic T-shirt"><h3>Urban Tee</h3><p>Soft and stylish street look.</p><div class="price">₹699</div><button class="buy-btn">Buy Now</button></div>
+    <div class="product-card"><img src="https://images.unsplash.com/photo-1592878904946-b97d5b1c063b" alt="Men's Casual Pants"><h3>Casual Pants</h3><p>Relaxed fit everyday wear.</p><div class="price">₹1199</div><button class="buy-btn">Buy Now</button></div>
+    <div class="product-card"><img src="https://images.unsplash.com/photo-1600185365483-26d7a4cc7519" alt="Sporty Black Track Pants"><h3>Track Pants</h3><p>Perfect for gym and comfort.</p><div class="price">₹999</div><button class="buy-btn">Buy Now</button></div>
+    <div class="product-card"><img src="https://images.unsplash.com/photo-1542291026-7eec264c27ff" alt="Red and Black Runner Shoes"><h3>Runner Shoes</h3><p>Lightweight running sneakers.</p><div class="price">₹1799</div><button class="buy-btn">Buy Now</button></div>
+    <div class="product-card"><img src="https://images.unsplash.com/photo-1600185365483-26d7a4cc7519" alt="Chic Casual Shirt"><h3>Casual Shirt</h3><p>Chic design with soft texture.</p><div class="price">₹999</div><button class="buy-btn">Buy Now</button></div>
+    <div class="product-card"><img src="https://images.unsplash.com/photo-1581089781785-603411fa81e5" alt="Rugged Denim Shirt"><h3>Denim Shirt</h3><p>Rugged blue fashion icon.</p><div class="price">₹1199</div><button class="buy-btn">Buy Now</button></div>
+    <div class="product-card"><img src="https://images.unsplash.com/photo-1592878904946-b97d5b1c063b" alt="Slim Fit Trousers"><h3>Slim Fit Pant</h3><p>Modern fit with soft fabric.</p><div class="price">₹1399</div><button class="buy-btn">Buy Now</button></div>
+    <div class="product-card"><img src="https://images.unsplash.com/photo-1626880236836-3d86a06364b1" alt="Sportswear Track Suit"><h3>Sport Track</h3><p>Designed for daily comfort.</p><div class="price">₹899</div><button class="buy-btn">Buy Now</button></div>
+    <div class="product-card"><img src="https://images.unsplash.com/photo-1593032465171-8d6ef25b3319" alt="Basic Crew Neck Tee"><h3>Basic Tee</h3><p>Minimalist design daily wear.</p><div class="price">₹699</div><button class="buy-btn">Buy Now</button></div>
+    <div class="product-card"><img src="https://images.unsplash.com/photo-1526170375885-4d8ecf77b99f" alt="Professional Formal Shirt"><h3>Formal Shirt</h3><p>Sharp and professional style.</p><div class="price">₹1299</div><button class="buy-btn">Buy Now</button></div>
+    <div class="product-card"><img src="https://images.unsplash.com/photo-1542291026-7eec264c27ff" alt="Casual White Sneakers"><h3>Classic Sneakers</h3><p>Everyday casual footwear.</p><div class="price">₹1599</div><button class="buy-btn">Buy Now</button></div>
+    <div class="product-card"><img src="https://images.unsplash.com/photo-1600185365483-26d7a4cc7519" alt="Grey Athletic Track Pant"><h3>Grey Track Pant</h3><p>Flexible and breathable.</p><div class="price">₹1099</div><button class="buy-btn">Buy Now</button></div>
+    <div class="product-card"><img src="https://images.unsplash.com/photo-1592878904946-b97d5b1c063b" alt="Stretch Fit Dress Pant"><h3>Stretch Pant</h3><p>Perfect balance of style & ease.</p><div class="price">₹1299</div><button class="buy-btn">Buy Now</button></div>
   </div>
 
   <footer>
@@ -219,11 +219,36 @@
     let index = 0;
     const slides = document.querySelectorAll(".carousel img");
 
+    /**
+     * Initializes the carousel by ensuring only the first slide is visible.
+     */
+    function initCarousel() {
+        slides.forEach((slide, i) => {
+            if (i === 0) {
+                slide.classList.add("active");
+            } else {
+                slide.classList.remove("active");
+            }
+        });
+    }
+
+    /**
+     * Changes the current slide in the carousel.
+     * @param {number} dir - The direction to move (1 for next, -1 for previous).
+     */
     function changeSlide(dir) {
+      // 1. Remove 'active' from the current slide
       slides[index].classList.remove("active");
+      
+      // 2. Calculate the new index, ensuring it wraps around (circular logic)
       index = (index + dir + slides.length) % slides.length;
+      
+      // 3. Add 'active' to the new slide
       slides[index].classList.add("active");
     }
+
+    // Start the carousel in its initial state
+    initCarousel();
   </script>
 
 </body>
