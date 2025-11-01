@@ -3,92 +3,116 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>The Outfits – Style Redefined</title>
+  <title>The Outfits | Home</title>
   <link rel="stylesheet" href="style.css" />
-  <script src="https://checkout.razorpay.com/v1/checkout.js"></script>
   <style>
     body {
-      margin: 0;
       font-family: 'Poppins', sans-serif;
-      background-color: #fdfaf5;
+      margin: 0;
+      background-color: #f9f8f4;
       color: #333;
+    }
+
+    /* Toast Welcome Message */
+    .welcome-toast {
+      position: fixed;
+      top: 10px;
+      right: 10px;
+      background-color: #222;
+      color: #fff;
+      padding: 12px 20px;
+      border-radius: 8px;
+      font-size: 14px;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+      z-index: 1000;
+      animation: fadeInOut 4s ease forwards;
+    }
+
+    @keyframes fadeInOut {
+      0% {opacity: 0; transform: translateY(-20px);}
+      10%,90% {opacity: 1; transform: translateY(0);}
+      100% {opacity: 0; transform: translateY(-20px);}
     }
 
     header {
       display: flex;
       justify-content: space-between;
       align-items: center;
-      padding: 1rem 2rem;
-      background-color: white;
-      box-shadow: 0 2px 6px rgba(0,0,0,0.05);
-      position: sticky;
-      top: 0;
-      z-index: 1000;
+      background-color: #fff;
+      padding: 15px 40px;
+      box-shadow: 0 2px 10px rgba(0,0,0,0.1);
     }
 
-    header img {
-      height: 60px;
+    .logo {
+      font-weight: 700;
+      font-size: 22px;
+      color: #000;
     }
 
     nav a {
-      margin: 0 1rem;
       text-decoration: none;
-      color: #333;
+      margin: 0 15px;
+      color: #000;
       font-weight: 500;
-      transition: color 0.3s ease;
     }
 
-    nav a:hover {
-      color: #c49b63;
-    }
-
-    .welcome {
-      text-align: center;
-      background-color: #fff6eb;
-      padding: 1rem;
-      font-size: 1.4rem;
-      font-weight: 600;
-      color: #c49b63;
-    }
-
+    /* Carousel */
     .carousel {
-      display: flex;
-      overflow-x: auto;
-      scroll-behavior: smooth;
-      gap: 1rem;
-      padding: 1rem;
-      background: #fff;
+      position: relative;
+      width: 100%;
+      max-height: 450px;
+      overflow: hidden;
     }
 
     .carousel img {
-      height: 320px;
-      border-radius: 12px;
-      flex-shrink: 0;
+      width: 100%;
+      height: 450px;
+      object-fit: cover;
+      display: none;
     }
 
-    .collections {
+    .carousel img.active {
+      display: block;
+    }
+
+    .carousel .prev,
+    .carousel .next {
+      position: absolute;
+      top: 50%;
+      transform: translateY(-50%);
+      background-color: rgba(0,0,0,0.5);
+      color: #fff;
+      border: none;
+      font-size: 24px;
+      cursor: pointer;
+      padding: 8px 12px;
+      border-radius: 50%;
+    }
+
+    .carousel .prev { left: 15px; }
+    .carousel .next { right: 15px; }
+
+    /* Section */
+    .section-title {
       text-align: center;
-      padding: 2rem 1rem;
+      font-size: 26px;
+      margin: 50px 0 20px;
+      font-weight: 600;
     }
 
-    .collections h2 {
-      font-size: 2rem;
-      margin-bottom: 1.5rem;
-      color: #333;
-    }
-
+    /* Products Grid */
     .product-grid {
       display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-      gap: 1.5rem;
-      padding: 0 2rem 3rem;
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      gap: 25px;
+      padding: 0 40px 60px;
     }
 
     .product-card {
-      background: #fff;
+      background-color: #fff;
       border-radius: 16px;
-      box-shadow: 0 4px 10px rgba(0,0,0,0.05);
-      padding: 1rem;
+      overflow: hidden;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.1);
       text-align: center;
       transition: transform 0.3s ease;
     }
@@ -99,244 +123,108 @@
 
     .product-card img {
       width: 100%;
-      border-radius: 10px;
-      height: 280px;
+      height: 250px;
       object-fit: cover;
     }
 
     .product-card h3 {
-      margin: 0.5rem 0 0.2rem;
+      margin: 12px 0 5px;
+      font-size: 18px;
+      font-weight: 600;
     }
 
     .product-card p {
-      color: #777;
-      font-size: 0.9rem;
+      font-size: 14px;
+      margin: 0 10px 8px;
+      color: #555;
     }
 
     .price {
-      font-size: 1.2rem;
+      font-size: 16px;
+      color: #000;
       font-weight: 600;
-      color: #c49b63;
-      margin: 0.4rem 0;
     }
 
     .buy-btn {
-      background-color: #c49b63;
-      color: white;
+      background-color: #000;
+      color: #fff;
       border: none;
-      padding: 0.6rem 1.2rem;
-      border-radius: 8px;
+      padding: 10px 20px;
+      margin-bottom: 15px;
+      border-radius: 25px;
       cursor: pointer;
-      transition: background 0.3s;
+      transition: 0.3s;
     }
 
     .buy-btn:hover {
-      background-color: #a27b4f;
-    }
-
-    .toast {
-      position: fixed;
-      bottom: 20px;
-      right: 20px;
-      background: #c49b63;
-      color: white;
-      padding: 12px 20px;
-      border-radius: 8px;
-      display: none;
-      font-weight: 500;
-      animation: fadeInOut 3s ease forwards;
-    }
-
-    @keyframes fadeInOut {
-      0% { opacity: 0; transform: translateY(20px); }
-      20% { opacity: 1; transform: translateY(0); }
-      80% { opacity: 1; transform: translateY(0); }
-      100% { opacity: 0; transform: translateY(20px); }
+      background-color: #444;
     }
 
     footer {
-      background-color: #fff;
-      padding: 1rem;
       text-align: center;
-      color: #777;
-      font-size: 0.9rem;
-      border-top: 1px solid #eee;
+      padding: 25px;
+      background-color: #fff;
+      color: #000;
+      font-size: 14px;
+      box-shadow: 0 -2px 10px rgba(0,0,0,0.05);
     }
   </style>
 </head>
-
 <body>
+
+  <div class="welcome-toast">Welcome to The Outfits 👕</div>
+
   <header>
-    <img src="file_00000000238c61fa93487af7dd1843c3.png" alt="The Outfits Logo">
+    <div class="logo">The Outfits</div>
     <nav>
-      <a href="index.html">Home</a>
-      <a href="about.html">About</a>
-      <a href="contact.html">Contact</a>
+      <a href="#">Home</a>
+      <a href="#">About</a>
+      <a href="#">Contact</a>
     </nav>
   </header>
 
-  <div class="welcome">Welcome to The Outfits – Style Redefined</div>
-
+  <!-- Carousel -->
   <div class="carousel">
-    <img src="https://i.ibb.co/tDyHZvT/shirt1.jpg" alt="Shirt 1">
-    <img src="https://i.ibb.co/FDh8LCq/tshirt1.jpg" alt="T-shirt 1">
-    <img src="https://i.ibb.co/hLgSzTF/pant1.jpg" alt="Pant 1">
-    <img src="https://i.ibb.co/FmgMTXL/track1.jpg" alt="Track Pant 1">
-    <img src="https://i.ibb.co/Mg7dkbP/shoe1.jpg" alt="Shoe 1">
+    <img src="https://images.unsplash.com/photo-1600185365483-26d7a4cc7519" class="active" alt="Fashion 1">
+    <img src="https://images.unsplash.com/photo-1593032465171-8d6ef25b3319" alt="Fashion 2">
+    <img src="https://images.unsplash.com/photo-1592878904946-b97d5b1c063b" alt="Fashion 3">
+    <button class="prev" onclick="changeSlide(-1)">‹</button>
+    <button class="next" onclick="changeSlide(1)">›</button>
   </div>
 
-  <section class="collections">
-    <h2>Our Collections</h2>
-    <div class="product-grid">
+  <h2 class="section-title">Our Collections</h2>
 
-      <!-- Shirts -->
-      <div class="product-card">
-        <img src="https://i.ibb.co/tDyHZvT/shirt1.jpg" alt="Classic Shirt">
-        <h3>Classic White Shirt</h3>
-        <p>Timeless white cotton shirt.</p>
-        <div class="price">₹999</div>
-        <button class="buy-btn" onclick="buyNow('Classic White Shirt', 999)">Buy Now</button>
-      </div>
-
-      <div class="product-card">
-        <img src="https://i.ibb.co/n8vcQKr/shirt2.jpg" alt="Casual Blue Shirt">
-        <h3>Casual Blue Shirt</h3>
-        <p>Perfect for daily wear.</p>
-        <div class="price">₹1199</div>
-        <button class="buy-btn" onclick="buyNow('Casual Blue Shirt', 1199)">Buy Now</button>
-      </div>
-
-      <div class="product-card">
-        <img src="https://i.ibb.co/gRs1cDf/shirt3.jpg" alt="Pattern Shirt">
-        <h3>Pattern Shirt</h3>
-        <p>Stylish modern patterns.</p>
-        <div class="price">₹1399</div>
-        <button class="buy-btn" onclick="buyNow('Pattern Shirt', 1399)">Buy Now</button>
-      </div>
-
-      <!-- T-shirts -->
-      <div class="product-card">
-        <img src="https://i.ibb.co/FDh8LCq/tshirt1.jpg" alt="Basic Tee">
-        <h3>Basic White Tee</h3>
-        <p>Soft cotton, casual comfort.</p>
-        <div class="price">₹699</div>
-        <button class="buy-btn" onclick="buyNow('Basic White Tee', 699)">Buy Now</button>
-      </div>
-
-      <div class="product-card">
-        <img src="https://i.ibb.co/W5NvhvS/tshirt2.jpg" alt="Graphic Tee">
-        <h3>Graphic Tee</h3>
-        <p>Trendy prints for men.</p>
-        <div class="price">₹899</div>
-        <button class="buy-btn" onclick="buyNow('Graphic Tee', 899)">Buy Now</button>
-      </div>
-
-      <div class="product-card">
-        <img src="https://i.ibb.co/5kRmyph/tshirt3.jpg" alt="Black Tee">
-        <h3>Black Cotton Tee</h3>
-        <p>Essential streetwear piece.</p>
-        <div class="price">₹799</div>
-        <button class="buy-btn" onclick="buyNow('Black Cotton Tee', 799)">Buy Now</button>
-      </div>
-
-      <!-- Pants -->
-      <div class="product-card">
-        <img src="https://i.ibb.co/hLgSzTF/pant1.jpg" alt="Chino Pants">
-        <h3>Beige Chinos</h3>
-        <p>Smart & comfortable.</p>
-        <div class="price">₹1299</div>
-        <button class="buy-btn" onclick="buyNow('Beige Chinos', 1299)">Buy Now</button>
-      </div>
-
-      <div class="product-card">
-        <img src="https://i.ibb.co/YRgYzfb/pant2.jpg" alt="Denim Jeans">
-        <h3>Denim Jeans</h3>
-        <p>Classic dark blue fit.</p>
-        <div class="price">₹1499</div>
-        <button class="buy-btn" onclick="buyNow('Denim Jeans', 1499)">Buy Now</button>
-      </div>
-
-      <div class="product-card">
-        <img src="https://i.ibb.co/7b9MYj5/pant3.jpg" alt="Formal Pants">
-        <h3>Formal Pants</h3>
-        <p>Perfect for business wear.</p>
-        <div class="price">₹1799</div>
-        <button class="buy-btn" onclick="buyNow('Formal Pants', 1799)">Buy Now</button>
-      </div>
-
-      <!-- Track Pants -->
-      <div class="product-card">
-        <img src="https://i.ibb.co/FmgMTXL/track1.jpg" alt="Grey Track Pant">
-        <h3>Grey Track Pant</h3>
-        <p>Comfy cotton blend.</p>
-        <div class="price">₹899</div>
-        <button class="buy-btn" onclick="buyNow('Grey Track Pant', 899)">Buy Now</button>
-      </div>
-
-      <div class="product-card">
-        <img src="https://i.ibb.co/k36t6Dw/track2.jpg" alt="Black Track Pant">
-        <h3>Black Track Pant</h3>
-        <p>Everyday gym essential.</p>
-        <div class="price">₹999</div>
-        <button class="buy-btn" onclick="buyNow('Black Track Pant', 999)">Buy Now</button>
-      </div>
-
-      <div class="product-card">
-        <img src="https://i.ibb.co/Thk0XVm/track3.jpg" alt="Navy Track Pant">
-        <h3>Navy Track Pant</h3>
-        <p>Durable with stretch fit.</p>
-        <div class="price">₹1199</div>
-        <button class="buy-btn" onclick="buyNow('Navy Track Pant', 1199)">Buy Now</button>
-      </div>
-
-      <!-- Shoes -->
-      <div class="product-card">
-        <img src="https://i.ibb.co/Mg7dkbP/shoe1.jpg" alt="White Sneakers">
-        <h3>White Sneakers</h3>
-        <p>Trendy lightweight design.</p>
-        <div class="price">₹1799</div>
-        <button class="buy-btn" onclick="buyNow('White Sneakers', 1799)">Buy Now</button>
-      </div>
-
-      <div class="product-card">
-        <img src="https://i.ibb.co/5YghdFv/shoe2.jpg" alt="Running Shoes">
-        <h3>Running Shoes</h3>
-        <p>Flexible & comfortable sole.</p>
-        <div class="price">₹1999</div>
-        <button class="buy-btn" onclick="buyNow('Running Shoes', 1999)">Buy Now</button>
-      </div>
-
-    </div>
-  </section>
-
-  <div id="toast" class="toast">Thank you for your purchase!</div>
+  <div class="product-grid">
+    <div class="product-card"><img src="https://images.unsplash.com/photo-1526170375885-4d8ecf77b99f" alt="Shirt"><h3>Classic Shirt</h3><p>Premium cotton comfort.</p><div class="price">₹899</div><button class="buy-btn">Buy Now</button></div>
+    <div class="product-card"><img src="https://images.unsplash.com/photo-1593032465171-8d6ef25b3319" alt="T-shirt"><h3>Urban Tee</h3><p>Soft and stylish street look.</p><div class="price">₹699</div><button class="buy-btn">Buy Now</button></div>
+    <div class="product-card"><img src="https://images.unsplash.com/photo-1592878904946-b97d5b1c063b" alt="Pant"><h3>Casual Pants</h3><p>Relaxed fit everyday wear.</p><div class="price">₹1199</div><button class="buy-btn">Buy Now</button></div>
+    <div class="product-card"><img src="https://images.unsplash.com/photo-1600185365483-26d7a4cc7519" alt="Track Pant"><h3>Track Pants</h3><p>Perfect for gym and comfort.</p><div class="price">₹999</div><button class="buy-btn">Buy Now</button></div>
+    <div class="product-card"><img src="https://images.unsplash.com/photo-1542291026-7eec264c27ff" alt="Shoes"><h3>Runner Shoes</h3><p>Lightweight running sneakers.</p><div class="price">₹1799</div><button class="buy-btn">Buy Now</button></div>
+    <div class="product-card"><img src="https://images.unsplash.com/photo-1600185365483-26d7a4cc7519" alt="Casual"><h3>Casual Shirt</h3><p>Chic design with soft texture.</p><div class="price">₹999</div><button class="buy-btn">Buy Now</button></div>
+    <div class="product-card"><img src="https://images.unsplash.com/photo-1581089781785-603411fa81e5" alt="Denim"><h3>Denim Shirt</h3><p>Rugged blue fashion icon.</p><div class="price">₹1199</div><button class="buy-btn">Buy Now</button></div>
+    <div class="product-card"><img src="https://images.unsplash.com/photo-1592878904946-b97d5b1c063b" alt="Slim Pant"><h3>Slim Fit Pant</h3><p>Modern fit with soft fabric.</p><div class="price">₹1399</div><button class="buy-btn">Buy Now</button></div>
+    <div class="product-card"><img src="https://images.unsplash.com/photo-1626880236836-3d86a06364b1" alt="Track"><h3>Sport Track</h3><p>Designed for daily comfort.</p><div class="price">₹899</div><button class="buy-btn">Buy Now</button></div>
+    <div class="product-card"><img src="https://images.unsplash.com/photo-1593032465171-8d6ef25b3319" alt="Tee"><h3>Basic Tee</h3><p>Minimalist design daily wear.</p><div class="price">₹699</div><button class="buy-btn">Buy Now</button></div>
+    <div class="product-card"><img src="https://images.unsplash.com/photo-1526170375885-4d8ecf77b99f" alt="Formal Shirt"><h3>Formal Shirt</h3><p>Sharp and professional style.</p><div class="price">₹1299</div><button class="buy-btn">Buy Now</button></div>
+    <div class="product-card"><img src="https://images.unsplash.com/photo-1542291026-7eec264c27ff" alt="Sneakers"><h3>Classic Sneakers</h3><p>Everyday casual footwear.</p><div class="price">₹1599</div><button class="buy-btn">Buy Now</button></div>
+    <div class="product-card"><img src="https://images.unsplash.com/photo-1600185365483-26d7a4cc7519" alt="Track Pant"><h3>Grey Track Pant</h3><p>Flexible and breathable.</p><div class="price">₹1099</div><button class="buy-btn">Buy Now</button></div>
+    <div class="product-card"><img src="https://images.unsplash.com/photo-1592878904946-b97d5b1c063b" alt="Pant"><h3>Stretch Pant</h3><p>Perfect balance of style & ease.</p><div class="price">₹1299</div><button class="buy-btn">Buy Now</button></div>
+  </div>
 
   <footer>
-    © 2025 The Outfits. All Rights Reserved.
+    © 2025 The Outfits | All Rights Reserved
   </footer>
 
   <script>
-    function buyNow(product, amount) {
-      var options = {
-        key: "rzp_test_1DP5mmOlF5G5ag",
-        amount: amount * 100,
-        currency: "INR",
-        name: "The Outfits",
-        description: product,
-        theme: { color: "#c49b63" },
-        handler: function () {
-          showToast();
-        }
-      };
-      var rzp = new Razorpay(options);
-      rzp.open();
-    }
+    let index = 0;
+    const slides = document.querySelectorAll(".carousel img");
 
-    function showToast() {
-      const toast = document.getElementById('toast');
-      toast.style.display = 'block';
-      setTimeout(() => { toast.style.display = 'none'; }, 3000);
+    function changeSlide(dir) {
+      slides[index].classList.remove("active");
+      index = (index + dir + slides.length) % slides.length;
+      slides[index].classList.add("active");
     }
   </script>
+
 </body>
-          </html>
+</html>
