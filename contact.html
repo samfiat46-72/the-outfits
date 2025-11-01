@@ -16,14 +16,16 @@
     header {
       text-align: center;
       padding: 20px;
+      margin-bottom: 10px;
     }
 
     header img {
       width: 120px;
       height: auto;
+      display: inline-block;
     }
 
-    /* 🌐 Navigation */
+    /* Navbar */
     .navbar {
       background-color: #222;
       padding: 10px 0;
@@ -52,61 +54,63 @@
       color: #ffcc00;
     }
 
-    /* Main Contact Form */
     main {
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      flex-direction: column;
-      min-height: 80vh;
-      padding: 20px;
-    }
-
-    .contact-box {
+      max-width: 600px;
+      margin: 40px auto;
+      padding: 30px;
       background-color: #fff;
       border-radius: 10px;
-      padding: 30px;
       box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-      width: 100%;
-      max-width: 450px;
       text-align: center;
     }
 
     h1 {
-      font-size: 28px;
+      font-size: 32px;
       margin-bottom: 20px;
     }
 
+    form {
+      display: flex;
+      flex-direction: column;
+      gap: 15px;
+    }
+
     input, textarea {
-      width: 90%;
-      padding: 10px;
-      margin: 10px 0;
+      width: 100%;
+      padding: 12px;
       border: 1px solid #ccc;
       border-radius: 6px;
       font-size: 16px;
     }
 
     button {
+      padding: 12px;
       background-color: #222;
       color: #fff;
-      padding: 12px 24px;
       border: none;
       border-radius: 6px;
-      cursor: pointer;
       font-size: 16px;
+      cursor: pointer;
     }
 
     button:hover {
       background-color: #444;
     }
 
+    #thankyou {
+      display: none;
+      font-size: 18px;
+      color: #111;
+      margin-top: 20px;
+    }
+
     footer {
       text-align: center;
       padding: 20px;
+      margin-top: 40px;
       background-color: #f2f2f2;
       font-size: 14px;
       color: #555;
-      margin-top: 40px;
     }
 
     footer a {
@@ -118,23 +122,6 @@
     footer a:hover {
       text-decoration: underline;
     }
-
-    @media (max-width: 600px) {
-      .navbar li {
-        display: block;
-        margin: 10px 0;
-      }
-      .contact-box {
-        width: 90%;
-      }
-    }
-
-    .success-message {
-      display: none;
-      color: green;
-      margin-top: 15px;
-      font-weight: bold;
-    }
   </style>
 </head>
 
@@ -143,7 +130,6 @@
     <img src="file_00000000238c61fa93487af7dd1843c3.png" alt="The Outfits Logo">
   </header>
 
-  <!-- Navigation -->
   <nav class="navbar">
     <ul>
       <li><a href="index.html">Home</a></li>
@@ -156,15 +142,17 @@
   </nav>
 
   <main>
-    <div class="contact-box">
-      <h1>Contact Us</h1>
-      <form id="contact-form" action="https://formspree.io/f/mqagdyyw" method="POST">
-        <input type="text" name="name" placeholder="Your Name" required>
-        <input type="email" name="_replyto" placeholder="Your Email" required>
-        <textarea name="message" rows="5" placeholder="Your Message" required></textarea>
-        <button type="submit">Send Message</button>
-        <div class="success-message" id="success">✅ Message Sent! Redirecting...</div>
-      </form>
+    <h1>Contact Us</h1>
+
+    <form id="contactForm" action="https://formspree.io/f/mqagdyyw" method="POST">
+      <input type="text" name="name" placeholder="Your Name" required>
+      <input type="email" name="email" placeholder="Your Email" required>
+      <textarea name="message" rows="5" placeholder="Your Message" required></textarea>
+      <button type="submit">Send Message</button>
+    </form>
+
+    <div id="thankyou">
+      <p>Your message just landed in our inbox! Hang tight — heading back home in a few seconds…</p>
     </div>
   </main>
 
@@ -173,37 +161,32 @@
     <a href="contact.html">Contact Us</a>
   </footer>
 
-  <!-- 🎵 Chime Sound -->
-  <audio id="chime" src="https://cdn.pixabay.com/download/audio/2022/03/15/audio_5d1f9ce7b6.mp3?filename=soft-notification-151583.mp3" preload="auto"></audio>
+  <audio id="dingSound" preload="auto">
+    <source src="https://actions.google.com/sounds/v1/cartoon/wood_plank_flicks.ogg" type="audio/ogg">
+  </audio>
 
   <script>
-    const form = document.getElementById('contact-form');
-    const success = document.getElementById('success');
-    const chime = document.getElementById('chime');
+    const form = document.getElementById('contactForm');
+    const thankyou = document.getElementById('thankyou');
+    const dingSound = document.getElementById('dingSound');
 
-    form.addEventListener('submit', function (e) {
+    form.addEventListener('submit', async (e) => {
       e.preventDefault();
-      const data = new FormData(form);
-
-      fetch(form.action, {
-        method: 'POST',
-        body: data,
+      const formData = new FormData(form);
+      const response = await fetch(form.action, {
+        method: form.method,
+        body: formData,
         headers: { 'Accept': 'application/json' }
-      }).then(response => {
-        if (response.ok) {
-          chime.play();
-          success.style.display = 'block';
-          setTimeout(() => {
-            success.style.opacity = '0';
-            window.location.href = 'index.html';
-          }, 5000);
-          form.reset();
-        } else {
-          alert('❌ Something went wrong. Please try again.');
-        }
-      }).catch(() => {
-        alert('⚠️ Network error. Please try again later.');
       });
+
+      if (response.ok) {
+        form.style.display = 'none';
+        thankyou.style.display = 'block';
+        dingSound.play();
+        setTimeout(() => window.location.href = 'index.html', 5000);
+      } else {
+        alert('Something went wrong. Please try again.');
+      }
     });
   </script>
 </body>
