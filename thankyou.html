@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Thank You | The Outfits</title>
+  <link rel="stylesheet" href="styles.css" />
+  <style>
+    body {
+      font-family: "Poppins", Arial, sans-serif;
+      background-color: #fff;
+      color: #000;
+      margin: 0;
+      padding: 0;
+      text-align: center;
+      overflow-x: hidden;
+    }
+
+    header {
+      background-color: #fff;
+      border-bottom: 1px solid #ddd;
+      padding: 10px 20px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+
+    header img {
+      height: 60px;
+      animation: fadeInDown 1s ease-out;
+    }
+
+    main {
+      padding: 100px 20px;
+      animation: fadeIn 1.5s ease-out forwards;
+      opacity: 0;
+    }
+
+    h1 {
+      font-size: 30px;
+      margin-bottom: 10px;
+      animation: slideUp 1s ease-out 0.5s forwards;
+      opacity: 0;
+    }
+
+    p {
+      font-size: 16px;
+      color: #555;
+      margin-bottom: 40px;
+      animation: slideUp 1s ease-out 0.8s forwards;
+      opacity: 0;
+    }
+
+    a {
+      display: inline-block;
+      padding: 12px 25px;
+      background-color: #000;
+      color: #fff;
+      border-radius: 6px;
+      text-decoration: none;
+      font-size: 15px;
+      font-weight: 500;
+      transition: all 0.3s ease;
+      opacity: 0;
+      animation: slideUp 1s ease-out 1.1s forwards;
+    }
+
+    a:hover {
+      background-color: #b8860b;
+      transform: scale(1.05);
+    }
+
+    footer {
+      background-color: #000;
+      color: #fff;
+      text-align: center;
+      padding: 25px 10px;
+      margin-top: 80px;
+      font-size: 14px;
+      animation: fadeInUp 1.5s ease-out 1s forwards;
+      opacity: 0;
+    }
+
+    footer a {
+      color: #fff;
+      margin: 0 8px;
+      text-decoration: none;
+    }
+
+    footer a:hover {
+      color: #b8860b;
+    }
+
+    /* Animations */
+    @keyframes fadeIn {
+      to { opacity: 1; }
+    }
+
+    @keyframes fadeInDown {
+      from { opacity: 0; transform: translateY(-20px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    @keyframes fadeInUp {
+      from { opacity: 0; transform: translateY(20px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    @keyframes slideUp {
+      from { opacity: 0; transform: translateY(20px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    @media (max-width: 600px) {
+      h1 {
+        font-size: 22px;
+      }
+      p {
+        font-size: 14px;
+      }
+      a {
+        font-size: 14px;
+      }
+      header img {
+        height: 50px;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <header>
+    <a href="index.html">
+      <img src="file_00000000238c61fa93487af7dd1843c3.png" alt="The Outfits Logo" />
+    </a>
+  </header>
+
+  <main>
+    <h1>Thank You!</h1>
+    <p>Your message has been sent successfully. We’ll get back to you soon.</p>
+    <a href="index.html">Back to Home</a>
+  </main>
+
+  <footer>
+    <p>© 2025 The Outfits. All rights reserved.</p>
+    <div>
+      <a href="#">Instagram</a> |
+      <a href="#">Facebook</a> |
+      <a href="#">Twitter</a>
+    </div>
+  </footer>
+
+</body>
+</html>
