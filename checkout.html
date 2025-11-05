@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Checkout — The Outfits</title>
+  <link rel="icon" href="/file_00000000238c61fa93487af7dd1843c3.png" />
+  <style>
+    body{font-family:Arial,Helvetica,sans-serif;background:#f9f3ec;color:#111;margin:0;padding:20px}
+    .wrap{max-width:720px;margin:40px auto;background:#fff;padding:26px;border-radius:10px;box-shadow:0 6px 18px rgba(0,0,0,.06);text-align:center}
+    h1{font-size:22px;margin:6px 0 12px}
+    .product-img{width:260px;height:260px;object-fit:cover;border-radius:8px;border:1px solid #eee}
+    .meta{margin-top:12px}
+    .price{font-weight:700;color:#b86f2d;margin:12px 0;font-size:20px}
+    button#rzpay{background:#222;color:#fff;border:none;padding:12px 24px;border-radius:8px;cursor:pointer;font-size:16px}
+    .small{font-size:13px;color:#666;margin-top:12px}
+    .hidden{display:none}
+    .toast{background:#f0f0f0;padding:14px;border-radius:8px;margin-top:16px}
+  </style>
+</head>
+<body>
+  <div class="wrap">
+    <img src="/file_00000000238c61fa93487af7dd1843c3.png" alt="logo" style="height:70px;display:block;margin:0 auto 12px" />
+    <h1 id="title">Checkout</h1>
+
+    <img id="prodImg" class="product-img" src="https://via.placeholder.com/260x260?text=Product" alt="product" />
+    <div class="meta">
+      <div id="prodName" style="font-weight:600;margin-top:10px"></div>
+      <div id="prodDesc" class="small"></div>
+      <div class="price" id="prodPrice"></div>
+      <button id="rzpay">Pay Now</button>
+
+      <div id="after" class="hidden">
+        <div class="toast" id="thanksText">Your payment was successful. Redirecting…</div>
+      </div>
+
+      <div class="small">Clicking pay will open Razorpay checkout (demo key). After approval we will replace with real key.</div>
+    </div>
+  </div>
+
+  <!-- Razorpay checkout library -->
+  <script src="https://checkout.razorpay.com/v1/checkout.js"></script>
+
+  <script>
+    // Demo chime (online). Will play once on success.
+    const CHIME_URL = "https://actions.google.com/sounds/v1/alarms/digital_watch_alarm_long.ogg";
+
+    // Demo Razorpay test key (public). Replace with your live key later.
+    const RAZORPAY_KEY = "rzp_test_1DP5mmOlF5G5ag";
+
+    // Helper: parse URL params
+    function getQuery() {
+      const q = {};
+      location.search.slice(1).split("&").forEach(pair=>{
+        if(!pair) return;
+        const [k,v] = pair.split("=").map(decodeURIComponent);
+        q[k]=v;
+      });
+      return q;
+    }
+
+    // Default product if no params
+    const defaults = {
+      id: "0",
+      name: "The Outfits — Sample Product",
+      desc: "Stylish product from The Outfits",
+      price: "999", // in rupees
+      img: "/file_00000000238c61fa93487af7dd1843c3.png"
+    };
+
+    const q = getQuery();
+    const product = {
+      id: q.id || defaults.id,
+      name: q.name || defaults.name,
+      desc: q.desc || defaults.desc,
+      price: q.price || defaults.price,
+      img: q.img || defaults.img
+    };
+
+    // Populate UI
+    document.getElementById("prodName").innerText = product.name;
+    document.getElementById("prodDesc").innerText = product.desc;
+    document.getElementById("prodPrice").innerText = "₹" + product.price;
+    document.getElementById("prodImg").src = product.img;
+
+    // When Pay Now clicked — open Razorpay Checkout (demo client-only flow)
+    document.getElementById("rzpay").addEventListener("click", function (e) {
+      e.preventDefault();
+
+      // Convert rupees to paise
+      const amountPaise = (Number(product.price || 0) * 100).toString();
+
+      const options = {
+        key: RAZORPAY_KEY,
+        amount: amountPaise,
+        currency: "INR",
+        name: "The Outfits",
+        description: product.name,
+        image: "/file_00000000238c61fa93487af7dd1843c3.png",
+        handler: function (response) {
+          // Payment success
+          showThankYou(response);
+        },
+        prefill: {
+          name: "",
+          email: ""
+        },
+        notes: {
+          product_id: product.id
+        },
+        theme: {
+          color: "#222"
+        }
+      };
+
+      const rzp = new Razorpay(options);
+      rzp.open();
+    });
+
+    function showThankYou(response) {
+      // Show thank-you message, play chime, then redirect to index after 5s
+      document.getElementById("after").classList.remove("hidden");
+      document.getElementById("thanksText").innerText =
+        "Your message just landed in our inbox! Hang tight — heading back home in a few seconds…";
+
+      // Play chime
+      const a = new Audio(CHIME_URL);
+      a.play().catch(()=>{ /* autoplay may be blocked on some devices */ });
+
+      // Redirect after 5s to homepage
+      setTimeout(()=> {
+        location.href = "/index.html";
+      }, 5000);
+    }
+
+  </script>
+</body>
+</html>
