@@ -1,151 +1,293 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>The Outfits</title>
-    <link rel="icon" href="file_00000000238c61fa93487af7dd1843c3.png" type="image/png">
-    <link rel="stylesheet" href="style.css">
-  </head>
-  <body>
-    <header>
-      <nav class="navbar">
-        <div class="logo">
-          <img src="file_00000000238c61fa93487af7dd1843c3.png" alt="The Outfits Logo">
-          <h1>The Outfits</h1>
-        </div>
-        <ul class="nav-links">
-          <li><a href="index.html" class="active">Home</a></li>
-          <li><a href="contact.html">Contact</a></li>
-          <li><a href="privacy.html">Privacy</a></li>
-          <li><a href="shipping.html">Shipping</a></li>
-          <li><a href="refunds.html">Refund</a></li>
-          <li><a href="terms.html">Terms</a></li>
-        </ul>
-      </nav>
-    </header>
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>The Outfits | Shop Modern & Stylish Fashion for Men and Women</title>
+  <link rel="icon" href="https://the-outfits.vercel.app/file_00000000238c61fa93487af7dd1843c3.png" />
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      margin: 0;
+      padding: 0;
+      background-color: #f9f9f9;
+      color: #222;
+    }
 
-    <section class="welcome-section">
-      <h2>Welcome to The Outfits</h2>
-      <p>Explore men's fashion essentials — Shirts, T-Shirts, Pants, Track Pants & Shoes</p>
+    header {
+      text-align: center;
+      padding: 20px;
+      margin-bottom: 10px;
+    }
+
+    header img {
+      width: 120px;
+      height: auto;
+      display: inline-block;
+    }
+
+    /* 🌐 Navigation Bar */
+    .navbar {
+      background-color: #222;
+      padding: 10px 0;
+      text-align: center;
+    }
+
+    .navbar ul {
+      list-style: none;
+      margin: 0;
+      padding: 0;
+    }
+
+    .navbar li {
+      display: inline-block;
+      margin: 0 15px;
+    }
+
+    .navbar a {
+      color: #fff;
+      text-decoration: none;
+      font-size: 16px;
+      font-weight: bold;
+    }
+
+    .navbar a:hover {
+      color: #ffcc00;
+    }
+
+    main {
+      max-width: 1100px;
+      margin: 20px auto;
+      padding: 20px;
+    }
+
+    h1 {
+      font-size: 36px;
+      text-align: center;
+      color: #111;
+    }
+
+    p.lead {
+      font-size: 18px;
+      line-height: 1.6;
+      text-align: center;
+    }
+
+    .collections {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 18px;
+      margin-top: 20px;
+    }
+
+    .card {
+      background: #fff;
+      padding: 18px;
+      border-radius: 10px;
+      box-shadow: 0 6px 18px rgba(0,0,0,0.06);
+      text-align: center;
+    }
+
+    .card img {
+      width: 100%;
+      height: 210px;
+      object-fit: cover;
+      border-radius: 8px;
+      background: #e9e9e9;
+    }
+
+    .card h3 { margin: 12px 0 6px; font-size: 16px; }
+    .card p { margin: 6px 0; color: #666; font-size: 14px; }
+    .price { color: #b36f2b; font-weight: 700; margin: 8px 0; }
+
+    .buy-now-btn, .buy-btn {
+      display: inline-block;
+      padding: 8px 14px;
+      border-radius: 6px;
+      background: #222;
+      color: #fff;
+      text-decoration: none;
+      font-weight: 600;
+      margin-top: 8px;
+    }
+
+    footer {
+      text-align: center;
+      padding: 20px;
+      margin-top: 40px;
+      background-color: #f2f2f2;
+      font-size: 14px;
+      color: #555;
+    }
+
+  </style>
+</head>
+<body>
+  <header>
+    <img src="file_00000000238c61fa93487af7dd1843c3.png" alt="The Outfits Logo">
+  </header>
+
+  <nav class="navbar">
+    <ul>
+      <li><a href="index.html">Home</a></li>
+      <li><a href="contact.html">Contact</a></li>
+      <li><a href="privacy.html">Privacy Policy</a></li>
+      <li><a href="refunds.html">Refund & Cancellation</a></li>
+      <li><a href="terms.html">Terms & Conditions</a></li>
+      <li><a href="shipping.html">Shipping Policy</a></li>
+    </ul>
+  </nav>
+
+  <main>
+    <section class="welcome">
+      <h1>Welcome to The Outfits</h1>
+      <p class="lead">Your one-stop destination for the latest trends and fashion essentials.</p>
     </section>
 
-    <section class="product-section">
-      <h2>Men's Collection</h2>
+    <h2>Our Collections</h2>
+    <div class="collections">
 
-      <!-- Shirts -->
-      <div class="product-category">
-        <h3>Shirts</h3>
-        <div class="product-grid">
-          <div class="product-card">
-            <img src="https://images.pexels.com/photos/2635315/pexels-photo-2635315.jpeg" alt="Shirt 1">
-            <h4>Classic Blue Shirt</h4>
-            <p>₹799</p>
-            <button onclick="location.href='checkout.html?product=Classic%20Blue%20Shirt&price=799'">Buy Now</button>
-          </div>
-          <div class="product-card">
-            <img src="https://unsplash.com/photos/man-in-black-and-white-plaid-button-up-shirt-wearing-black-sunglasses-4V4t0JcOM5E" alt="Shirt 2">
-            <h4>Checkered Shirt</h4>
-            <p>₹899</p>
-            <button onclick="location.href='checkout.html?product=Checkered%20Shirt&price=899'">Buy Now</button>
-          </div>
-          <div class="product-card">
-            <img src="https://www.shopify.com/stock-photos/photos/man-rolls-up-shirt-sleeves?q=shirt" alt="Shirt 3">
-            <h4>White Formal Shirt</h4>
-            <p>₹999</p>
-            <button onclick="location.href='checkout.html?product=White%20Formal%20Shirt&price=999'">Buy Now</button>
-          </div>
+      <!-- Shirt 1 -->
+      <div class="card">
+        <img src="https://images.pexels.com/photos/2635315/pexels-photo-2635315.jpeg" alt="Classic Cotton Shirt">
+        <h3>Classic Cotton Shirt</h3>
+        <p>Premium cotton fabric with modern fit.</p>
+        <p class="price">₹1199</p>
+        <a class="buy-now-btn" href="checkout.html?name=Classic%20Cotton%20Shirt&price=1199">Buy Now</a>
+      </div>
 
-      <!-- T-Shirts -->
-      <div class="product-category">
-        <h3>T-Shirts</h3>
-        <div class="product-grid">
-          <div class="product-card">
-            <img src="https://images.pexels.com/photos/1561011/pexels-photo-1561011.jpeg" alt="T-Shirt 1">
-            <h4>Casual White Tee</h4>
-            <p>₹499</p>
-            <button onclick="location.href='checkout.html?product=Casual%20White%20Tee&price=499'">Buy Now</button>
-          </div>
-          <div class="product-card">
-            <img src="https://images.pexels.com/photos/3053824/pexels-photo-3053824.jpeg" alt="T-Shirt 2">
-            <h4>Graphic Black Tee</h4>
-            <p>₹599</p>
-            <button onclick="location.href='checkout.html?product=Graphic%20Black%20Tee&price=599'">Buy Now</button>
-          </div>
-          <div class="product-card">
-            <img src="https://images.pexels.com/photos/4065148/pexels-photo-4065148.jpeg" alt="T-Shirt 3">
-            <h4>Classic Grey Tee</h4>
-            <p>₹549</p>
-            <button onclick="location.href='checkout.html?product=Classic%20Grey%20Tee&price=549'">Buy Now</button>
-          </div>
+      <!-- Shirt 2 -->
+      <div class="card">
+        <img src="https://images.pexels.com/photos/1043474/pexels-photo-1043474.jpeg" alt="Office Formal Shirt">
+        <h3>Office Formal Shirt</h3>
+        <p>Comfortable and stylish for wear.</p>
+        <p class="price">₹1399</p>
+        <a class="buy-now-btn" href="checkout.html?name=Office%20Formal%20Shirt&price=1399">Buy Now</a>
+      </div>
 
-      <!-- Pants -->
-      <div class="product-category">
-        <h3>Pants</h3>
-        <div class="product-grid">
-          <div class="product-card">
-            <img src="https://images.pexels.com/photos/7764611/pexels-photo-7764611.jpeg" alt="Pants 1">
-            <h4>Formal Navy Pants</h4>
-            <p>₹999</p>
-            <button onclick="location.href='checkout.html?product=Formal%20Navy%20Pants&price=999'">Buy Now</button>
-          </div>
-          <div class="product-card">
-            <img src="https://images.pexels.com/photos/17720471/pexels-photo-17720471.jpeg" alt="Pants 2">
-            <h4>Casual Khaki Pants</h4>
-            <p>₹899</p>
-            <button onclick="location.href='checkout.html?product=Casual%20Khaki%20Pants&price=899'">Buy Now</button>
-          </div>
-          <div class="product-card">
-            <img src="https://unsplash.com/photos/blue-denim-jeans-on-white-textile-YeGao3uk8kI" alt="Pants 3">
-            <h4>Denim Jeans</h4>
-            <p>₹1099</p>
-            <button onclick="location.href='checkout.html?product=Denim%20Jeans&price=1099'">Buy Now</button>
-          </div>
+      <!-- Shirt 3 -->
+      <div class="card">
+        <img src="https://images.pexels.com/photos/34155059/pexels-photo-34155059.jpeg" alt="Tiger print Shirt">
+        <h3>Tiger print Shirt</h3>
+        <p>Perfect blend of elegance and comfort.</p>
+        <p class="price">₹1599</p>
+        <a class="buy-now-btn" href="checkout.html?name=Tiger%20print%20Shirt&price=1599">Buy Now</a>
+      </div>
 
-      <!-- Track Pants -->
-      <div class="product-category">
-        <h3>Track Pants</h3>
-        <div class="product-grid">
-          <div class="product-card">
-            <img src="https://images.pexels.com/photos/34524195/pexels-photo-34524195.jpeg" alt="Track Pants 1">
-            <h4>Black Track Pants</h4>
-            <p>₹799</p>
-            <button onclick="location.href='checkout.html?product=Black%20Track%20Pants&price=799'">Buy Now</button>
-          </div>
-          <div class="product-card">
-            <img src="https://www.istockphoto.com/photo/womens-sweatpants-sport-gm1406303920-457904681" alt="Track Pants 2">
-            <h4>Grey Joggers</h4>
-            <p>₹699</p>
-            <button onclick="location.href='checkout.html?product=Grey%20Joggers&price=699'">Buy Now</button>
-          </div>
-          <div class="product-card">
-            <img src="https://www.istockphoto.com/photo/casual-sweatpants-gm1566750456-527601096" alt="Track Pants 3">
-            <h4>Casual Track Pants</h4>
-            <p>₹749</p>
-            <button onclick="location.href='checkout.html?product=Casual%20Track%20Pants&price=749'">Buy Now</button>
-          </div>
-          
-      <!-- Shoes -->
-      <div class="product-category">
-        <h3>Shoes</h3>
-        <div class="product-grid">
-          <div class="product-card">
-            <img src="https://images.pexels.com/photos/2529148/pexels-photo-2529148.jpeg" alt="Shoes 1">
-            <h4>White Sneakers</h4>
-            <p>₹1199</p>
-            <button onclick="location.href='checkout.html?product=White%20Sneakers&price=1199'">Buy Now</button>
-          </div>
-          <div class="product-card">
-            <img src="https://images.pexels.com/photos/6050929/pexels-photo-6050929.jpeg" alt="Shoes 2">
-            <h4>Running Shoes</h4>
-            <p>₹1299</p>
-            <button onclick="location.href='checkout.html?product=Running%20Shoes&price=1299'">Buy Now</button>
-          </div>
-        
-    </section>
+      <!-- T-Shirt 1 -->
+      <div class="card">
+        <img src="https://images.pexels.com/photos/1561011/pexels-photo-1561011.jpeg" alt="Stylish T-Shirt">
+        <h3>Stylish T-Shirt</h3>
+        <p>Soft cotton, easy everyday style.</p>
+        <p class="price">₹899</p>
+        <a class="buy-now-btn" href="checkout.html?name=Stylish%20T-Shirt&price=899">Buy Now</a>
+      </div>
 
-    <footer>
-      <p>© 2025 The Outfits. All rights reserved.</p>
-    </footer>
-  </body>
+      <!-- T-Shirt 2 -->
+      <div class="card">
+        <img src="https://images.pexels.com/photos/3053824/pexels-photo-3053824.jpeg" alt="Graphic White T-Shirt">
+        <h3>Graphic White T-Shirt</h3>
+        <p>Trendy print, great for casual days.</p>
+        <p class="price">₹1099</p>
+        <a class="buy-now-btn" href="checkout.html?name=Graphic%20White%20T-Shirt&price=1099">Buy Now</a>
+      </div>
+
+      <!-- T-Shirt 3 -->
+      <div class="card">
+        <img src="https://images.pexels.com/photos/4065148/pexels-photo-4065148.jpeg" alt="White Baggy T-Shirt">
+        <h3>White Baggy T-Shirt</h3>
+        <p>Stretchy and breathable activewear.</p>
+        <p class="price">₹999</p>
+        <a class="buy-now-btn" href="checkout.html?name=White%20Baggy%20T-Shirt&price=999">Buy Now</a>
+      </div>
+
+      <!-- Pants 1 -->
+      <div class="card">
+        <img src="https://images.pexels.com/photos/7764611/pexels-photo-7764611.jpeg" alt="Blue Denim Jeans">
+        <h3>Blue Denim Jeans</h3>
+        <p>Classic fit with modern comfort.</p>
+        <p class="price">₹1599</p>
+        <a class="buy-now-btn" href="checkout.html?name=Blue%20Denim%20Jeans&price=1599">Buy Now</a>
+      </div>
+
+      <!-- Pants 2 -->
+      <div class="card">
+        <img src="https://images.pexels.com/photos/17720471/pexels-photo-17720471.jpeg" alt="Stylish Pants">
+        <h3>Stylish Pants</h3>
+        <p>Perfect for both office and outings.</p>
+        <p class="price">₹1499</p>
+        <a class="buy-now-btn" href="checkout.html?name=Stylish%20Pants&price=1499">Buy Now</a>
+      </div>
+
+      <!-- Pants 3 -->
+      <div class="card">
+        <img src="https://images.pexels.com/photos/17720471/pexels-photo-17720471.jpeg" alt="Dark Wash Jeans">
+        <h3>Dark Wash Jeans</h3>
+        <p>Durable and stylish slim fit denim.</p>
+        <p class="price">₹1699</p>
+        <a class="buy-now-btn" href="checkout.html?name=Dark%20Wash%20Jeans&price=1699">Buy Now</a>
+      </div>
+
+      <!-- Track Pants 1 -->
+      <div class="card">
+        <img src="https://images.pexels.com/photos/34524195/pexels-photo-34524195.jpeg" alt="Sport Track Pants">
+        <h3>Sport Track Pants</h3>
+        <p>Soft and stretchable material.</p>
+        <p class="price">₹1299</p>
+        <a class="buy-now-btn" href="checkout.html?name=Sport%20Track%20Pants&price=1299">Buy Now</a>
+      </div>
+
+      <!-- Track Pants 2 -->
+      <div class="card">
+        <img src="https://images.istockphoto.com/photo/womens-sweatpants-sport-gm1406303920-457904681.jpg" alt="Gray Sweatpants">
+        <h3>Gray Sweatpants</h3>
+        <p>Relaxed fit, ideal for gym and lounge.</p>
+        <p class="price">₹1199</p>
+        <a class="buy-now-btn" href="checkout.html?name=Gray%20Sweatpants&price=1199">Buy Now</a>
+      </div>
+
+      <!-- Track Pants 3 -->
+      <div class="card">
+        <img src="https://images.istockphoto.com/photo/casual-sweatpants-gm1566750456-527601096.jpg" alt="Green Sweatpants">
+        <h3>Green Sweatpants</h3>
+        <p>Casual yet stylish for everyday wear.</p>
+        <p class="price">₹1399</p>
+        <a class="buy-now-btn" href="checkout.html?name=Green%20Sweatpants&price=1399">Buy Now</a>
+      </div>
+
+      <!-- Shoes 1 -->
+      <div class="card">
+        <img src="https://images.pexels.com/photos/2529148/pexels-photo-2529148.jpeg" alt="Stylish Sneakers">
+        <h3>Stylish Sneakers</h3>
+        <p>Lightweight, trendy design.</p>
+        <p class="price">₹1999</p>
+        <a class="buy-now-btn" href="checkout.html?name=Stylish%20Sneakers&price=1999">Buy Now</a>
+      </div>
+
+      <!-- Shoes 2 -->
+      <div class="card">
+        <img src="https://images.pexels.com/photos/6050929/pexels-photo-6050929.jpeg" alt="Red Jorden Shoes">
+        <h3>Red Jorden Shoes</h3>
+        <p>Perfect balance of style and comfort.</p>
+        <p class="price">₹1799</p>
+        <a class="buy-now-btn" href="checkout.html?name=Red%20Jorden%20Shoes&price=1799">Buy Now</a>
+      </div>
+
+    </div>
+  </main>
+
+  <footer>
+    © 2025 The Outfits. All rights reserved. |
+    <a href="contact.html">Contact Us</a>
+  </footer>
+
+  <!-- Optional: redirecting helper if you want a small script to show a message when user lands on checkout -->
+  <!-- Keep commented unless you want this behaviour:
+  <script>
+    // Example: If checkout.html expects parameters, it can show product details on that page.
+    // No changes made here per your request.
+  </script>
+  -->
+
+</body>
 </html>
