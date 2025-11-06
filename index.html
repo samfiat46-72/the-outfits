@@ -1,18 +1,10 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>The Outfits | Shop Modern & Stylish Fashion for Men and Women</title>
-  <meta name="google-site-verification" content="BMCOnVQDfPHOaEw1oqnSZc68xYzxLCjTPDWLoyyAyxI" />
   <link rel="icon" href="https://the-outfits.vercel.app/file_00000000238c61fa93487af7dd1843c3.png" />
-<meta name="description" content="Shop The Outfits — your destination for modern fashion. From casual T-shirts to classic formals, discover your style today." />
-<meta property="og:title" content="The Outfits | Shop Modern & Stylish Fashion" />
-<meta property="og:description" content="Shop The Outfits for stylish clothing — from casuals to classics. Perfect fits for every occasion." />
-<meta property="og:image" content="https://the-outfits.vercel.app/file_00000000238c61fa93487af7dd1843c3.png" />
-<meta property="og:url" content="https://the-outfits.vercel.app/index.html" />
-<meta name="twitter:card" content="summary_large_image" />
-<meta name="keywords" content="men's fashion, women's fashion, unisex fashion, shirts, t-shirts, pants, tracks, shoes, The Outfits" />
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <style>
     body {
       font-family: Arial, sans-serif;
@@ -25,13 +17,16 @@
     header {
       text-align: center;
       padding: 20px;
+      margin-bottom: 10px;
     }
 
     header img {
       width: 120px;
       height: auto;
+      display: inline-block;
     }
 
+    /* 🌐 Navigation Bar */
     .navbar {
       background-color: #222;
       padding: 10px 0;
@@ -61,116 +56,72 @@
     }
 
     main {
-      max-width: 1200px;
+      max-width: 1100px;
       margin: 20px auto;
       padding: 20px;
-      background: #fff;
-      border-radius: 10px;
-      box-shadow: 0 0 10px rgba(0,0,0,0.1);
     }
 
-    h1, h2 {
+    h1 {
+      font-size: 36px;
       text-align: center;
+      color: #111;
     }
 
-    .welcome {
+    p.lead {
+      font-size: 18px;
+      line-height: 1.6;
       text-align: center;
-      margin-bottom: 40px;
     }
 
     .collections {
       display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
-      gap: 20px;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 18px;
+      margin-top: 20px;
     }
 
     .card {
-      background-color: #fefefe;
-      border-radius: 12px;
-      overflow: hidden;
-      box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+      background: #fff;
+      padding: 18px;
+      border-radius: 10px;
+      box-shadow: 0 6px 18px rgba(0,0,0,0.06);
       text-align: center;
-      transition: transform 0.3s ease;
-    }
-
-    .card:hover {
-      transform: translateY(-5px);
     }
 
     .card img {
       width: 100%;
-      height: 280px;
+      height: 210px;
       object-fit: cover;
+      border-radius: 8px;
+      background: #e9e9e9;
     }
 
-    .card h3 {
-      margin: 10px 0 5px;
-    }
+    .card h3 { margin: 12px 0 6px; font-size: 16px; }
+    .card p { margin: 6px 0; color: #666; font-size: 14px; }
+    .price { color: #b36f2b; font-weight: 700; margin: 8px 0; }
 
-    .card p {
-      font-size: 15px;
-      padding: 0 10px;
-    }
-
-    .price {
-      font-weight: bold;
-      margin: 10px 0;
-    }
-
-    .buy-btn {
-      background-color: #222;
+    .buy-now-btn, .buy-btn {
+      display: inline-block;
+      padding: 8px 14px;
+      border-radius: 6px;
+      background: #222;
       color: #fff;
-      border: none;
-      padding: 10px 20px;
-      border-radius: 5px;
-      cursor: pointer;
-      margin-bottom: 15px;
-    }
-
-    .buy-btn:hover {
-      background-color: #444;
+      text-decoration: none;
+      font-weight: 600;
+      margin-top: 8px;
     }
 
     footer {
       text-align: center;
       padding: 20px;
+      margin-top: 40px;
       background-color: #f2f2f2;
       font-size: 14px;
       color: #555;
     }
 
-    footer a {
-      color: #000;
-      text-decoration: none;
-      margin-left: 10px;
-    }
-
-    #toast {
-      visibility: hidden;
-      min-width: 280px;
-      background-color: #333;
-      color: #fff;
-      text-align: center;
-      border-radius: 8px;
-      padding: 10px;
-      position: fixed;
-      z-index: 1;
-      left: 50%;
-      bottom: 30px;
-      transform: translateX(-50%);
-      font-size: 15px;
-    }
-
-    #toast.show {
-      visibility: visible;
-      animation: fadein 0.5s, fadeout 0.5s 2.5s;
-    }
-
-    @keyframes fadein { from {bottom: 0; opacity: 0;} to {bottom: 30px; opacity: 1;} }
-    @keyframes fadeout { from {bottom: 30px; opacity: 1;} to {bottom: 0; opacity: 0;} }
   </style>
 </head>
-
 <body>
   <header>
     <img src="file_00000000238c61fa93487af7dd1843c3.png" alt="The Outfits Logo">
@@ -190,150 +141,153 @@
   <main>
     <section class="welcome">
       <h1>Welcome to The Outfits</h1>
-      <p>Your one-stop destination for the latest trends and fashion essentials.</p>
+      <p class="lead">Your one-stop destination for the latest trends and fashion essentials.</p>
     </section>
 
     <h2>Our Collections</h2>
     <div class="collections">
-      <!-- Shirts -->
+
+      <!-- Shirt 1 -->
       <div class="card">
-        <img src="https://images.pexels.com/photos/2635315/pexels-photo-2635315.jpeg" alt="Shirt 1">
+        <img src="https://images.pexels.com/photos/2635315/pexels-photo-2635315.jpeg" alt="Classic Cotton Shirt">
         <h3>Classic Cotton Shirt</h3>
         <p>Premium cotton fabric with modern fit.</p>
         <p class="price">₹1199</p>
-        <button class="buy-btn" onclick="buyNow()">Buy Now</button>
+        <a class="buy-now-btn" href="checkout.html?name=Classic%20Cotton%20Shirt&price=1199">Buy Now</a>
       </div>
 
+      <!-- Shirt 2 -->
       <div class="card">
-        <img src="https://images.pexels.com/photos/1043474/pexels-photo-1043474.jpeg" alt="Shirt 2">
+        <img src="https://images.pexels.com/photos/1043474/pexels-photo-1043474.jpeg" alt="Office Formal Shirt">
         <h3>Office Formal Shirt</h3>
         <p>Comfortable and stylish for wear.</p>
         <p class="price">₹1399</p>
-        <button class="buy-btn" onclick="buyNow()">Buy Now</button>
+        <a class="buy-now-btn" href="checkout.html?name=Office%20Formal%20Shirt&price=1399">Buy Now</a>
       </div>
 
+      <!-- Shirt 3 -->
       <div class="card">
-        <img src="https://images.pexels.com/photos/34155059/pexels-photo-34155059.jpeg" alt="Shirt 3">
+        <img src="https://images.pexels.com/photos/34155059/pexels-photo-34155059.jpeg" alt="Tiger print Shirt">
         <h3>Tiger print Shirt</h3>
         <p>Perfect blend of elegance and comfort.</p>
         <p class="price">₹1599</p>
-        <button class="buy-btn" onclick="buyNow()">Buy Now</button>
+        <a class="buy-now-btn" href="checkout.html?name=Tiger%20print%20Shirt&price=1599">Buy Now</a>
       </div>
 
-      <!-- T-Shirts -->
+      <!-- T-Shirt 1 -->
       <div class="card">
-        <img src="https://images.pexels.com/photos/1561011/pexels-photo-1561011.jpeg" alt="T-Shirt 1">
+        <img src="https://images.pexels.com/photos/1561011/pexels-photo-1561011.jpeg" alt="Stylish T-Shirt">
         <h3>Stylish T-Shirt</h3>
         <p>Soft cotton, easy everyday style.</p>
         <p class="price">₹899</p>
-        <button class="buy-btn" onclick="buyNow()">Buy Now</button>
+        <a class="buy-now-btn" href="checkout.html?name=Stylish%20T-Shirt&price=899">Buy Now</a>
       </div>
 
+      <!-- T-Shirt 2 -->
       <div class="card">
-        <img src="https://images.pexels.com/photos/3053824/pexels-photo-3053824.jpeg" alt="T-Shirt 2">
+        <img src="https://images.pexels.com/photos/3053824/pexels-photo-3053824.jpeg" alt="Graphic White T-Shirt">
         <h3>Graphic White T-Shirt</h3>
         <p>Trendy print, great for casual days.</p>
         <p class="price">₹1099</p>
-        <button class="buy-btn" onclick="buyNow()">Buy Now</button>
+        <a class="buy-now-btn" href="checkout.html?name=Graphic%20White%20T-Shirt&price=1099">Buy Now</a>
       </div>
 
+      <!-- T-Shirt 3 -->
       <div class="card">
-        <img src="https://images.pexels.com/photos/4065148/pexels-photo-4065148.jpeg" alt="T-Shirt 3">
+        <img src="https://images.pexels.com/photos/4065148/pexels-photo-4065148.jpeg" alt="White Baggy T-Shirt">
         <h3>White Baggy T-Shirt</h3>
         <p>Stretchy and breathable activewear.</p>
         <p class="price">₹999</p>
-        <button class="buy-btn" onclick="buyNow()">Buy Now</button>
+        <a class="buy-now-btn" href="checkout.html?name=White%20Baggy%20T-Shirt&price=999">Buy Now</a>
       </div>
 
-      <!-- Pants -->
+      <!-- Pants 1 -->
       <div class="card">
-        <img src="https://images.pexels.com/photos/7764611/pexels-photo-7764611.jpeg" alt="Pants 1">
+        <img src="https://images.pexels.com/photos/7764611/pexels-photo-7764611.jpeg" alt="Blue Denim Jeans">
         <h3>Blue Denim Jeans</h3>
         <p>Classic fit with modern comfort.</p>
         <p class="price">₹1599</p>
-        <button class="buy-btn" onclick="buyNow()">Buy Now</button>
+        <a class="buy-now-btn" href="checkout.html?name=Blue%20Denim%20Jeans&price=1599">Buy Now</a>
       </div>
 
+      <!-- Pants 2 -->
       <div class="card">
-        <img src="https://images.pexels.com/photos/17720471/pexels-photo-17720471.jpeg" alt="Pants 2">
+        <img src="https://images.pexels.com/photos/17720471/pexels-photo-17720471.jpeg" alt="Stylish Pants">
         <h3>Stylish Pants</h3>
         <p>Perfect for both office and outings.</p>
         <p class="price">₹1499</p>
-        <button class="buy-btn" onclick="buyNow()">Buy Now</button>
+        <a class="buy-now-btn" href="checkout.html?name=Stylish%20Pants&price=1499">Buy Now</a>
       </div>
 
+      <!-- Pants 3 -->
       <div class="card">
-        <img src="https://images.pexels.com/photos/5758764/pexels-photo-5758764.jpeg" alt="Pants 3">
+        <img src="https://images.pexels.com/photos/17720471/pexels-photo-17720471.jpeg" alt="Dark Wash Jeans">
         <h3>Dark Wash Jeans</h3>
         <p>Durable and stylish slim fit denim.</p>
         <p class="price">₹1699</p>
-        <button class="buy-btn" onclick="buyNow()">Buy Now</button>
+        <a class="buy-now-btn" href="checkout.html?name=Dark%20Wash%20Jeans&price=1699">Buy Now</a>
       </div>
 
-      <!-- Track Pants -->
+      <!-- Track Pants 1 -->
       <div class="card">
-        <img src="https://images.pexels.com/photos/34524195/pexels-photo-34524195.jpeg" alt="Track Pants 1">
+        <img src="https://images.pexels.com/photos/34524195/pexels-photo-34524195.jpeg" alt="Sport Track Pants">
         <h3>Sport Track Pants</h3>
         <p>Soft and stretchable material.</p>
         <p class="price">₹1299</p>
-        <button class="buy-btn" onclick="buyNow()">Buy Now</button>
+        <a class="buy-now-btn" href="checkout.html?name=Sport%20Track%20Pants&price=1299">Buy Now</a>
       </div>
 
+      <!-- Track Pants 2 -->
       <div class="card">
-        <img src="https://images.pexels.com/photos/33055599/pexels-photo-33055599.jpeg" alt="Track Pants 2">
+        <img src="https://images.istockphoto.com/photo/womens-sweatpants-sport-gm1406303920-457904681.jpg" alt="Gray Sweatpants">
         <h3>Gray Sweatpants</h3>
         <p>Relaxed fit, ideal for gym and lounge.</p>
         <p class="price">₹1199</p>
-        <button class="buy-btn" onclick="buyNow()">Buy Now</button>
+        <a class="buy-now-btn" href="checkout.html?name=Gray%20Sweatpants&price=1199">Buy Now</a>
       </div>
 
+      <!-- Track Pants 3 -->
       <div class="card">
-        <img src="https://images.pexels.com/photos/33055635/pexels-photo-33055635.jpeg" alt="Track Pants 3">
+        <img src="https://images.istockphoto.com/photo/casual-sweatpants-gm1566750456-527601096.jpg" alt="Green Sweatpants">
         <h3>Green Sweatpants</h3>
         <p>Casual yet stylish for everyday wear.</p>
         <p class="price">₹1399</p>
-        <button class="buy-btn" onclick="buyNow()">Buy Now</button>
+        <a class="buy-now-btn" href="checkout.html?name=Green%20Sweatpants&price=1399">Buy Now</a>
       </div>
 
-      <!-- Shoes -->
+      <!-- Shoes 1 -->
       <div class="card">
-        <img src="https://images.pexels.com/photos/2529148/pexels-photo-2529148.jpeg" alt="Shoes 1">
+        <img src="https://images.pexels.com/photos/2529148/pexels-photo-2529148.jpeg" alt="Stylish Sneakers">
         <h3>Stylish Sneakers</h3>
         <p>Lightweight, trendy design.</p>
         <p class="price">₹1999</p>
-        <button class="buy-btn" onclick="buyNow()">Buy Now</button>
+        <a class="buy-now-btn" href="checkout.html?name=Stylish%20Sneakers&price=1999">Buy Now</a>
       </div>
 
+      <!-- Shoes 2 -->
       <div class="card">
-        <img src="https://images.pexels.com/photos/6050929/pexels-photo-6050929.jpeg" alt="Shoes 2">
+        <img src="https://images.pexels.com/photos/6050929/pexels-photo-6050929.jpeg" alt="Red Jorden Shoes">
         <h3>Red Jorden Shoes</h3>
         <p>Perfect balance of style and comfort.</p>
         <p class="price">₹1799</p>
-        <button class="buy-btn" onclick="buyNow()">Buy Now</button>
+        <a class="buy-now-btn" href="checkout.html?name=Red%20Jorden%20Shoes&price=1799">Buy Now</a>
       </div>
+
     </div>
   </main>
 
   <footer>
-    © 2025 The Outfits. All rights reserved. | 
+    © 2025 The Outfits. All rights reserved. |
     <a href="contact.html">Contact Us</a>
   </footer>
 
-  <div id="toast">Redirecting to secure Razorpay checkout...</div>
-
+  <!-- Optional: redirecting helper if you want a small script to show a message when user lands on checkout -->
+  <!-- Keep commented unless you want this behaviour:
   <script>
-    function showToast() {
-      var toast = document.getElementById("toast");
-      toast.className = "show";
-      setTimeout(() => toast.className = toast.className.replace("show", ""), 3000);
-    }
-
-    function buyNow() {
-      showToast();
-      setTimeout(() => {
-        window.open("https://razorpay.com/payment-link/demo/", "_blank");
-      }, 1000);
-    }
+    // Example: If checkout.html expects parameters, it can show product details on that page.
+    // No changes made here per your request.
   </script>
+  -->
+
 </body>
-  </html>
+</html>
