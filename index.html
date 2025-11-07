@@ -276,10 +276,96 @@
     </div>
   </main>
 
-  <footer>
-    © 2025 The Outfits. All rights reserved. |
-    <a href="contact.html">Contact Us</a>
-  </footer>
+  <!-- Futuristic Footer -->
+<footer class="footer">
+  <div class="footer-container">
+    <div class="footer-links">
+      <a href="index.html" class="active">Home</a>
+      <a href="contact.html">Contact</a>
+      <a href="privacy.html">Privacy Policy</a>
+      <a href="refunds.html">Refund Policy</a>
+      <a href="shipping.html">Shipping</a>
+      <a href="terms.html">Terms & Conditions</a>
+    </div>
+    <p class="footer-text">© 2025 The Outfits. All Rights Reserved.</p>
+  </div>
+</footer>
+
+<style>
+/* === Futuristic Footer Styling === */
+.footer {
+  background: #000;
+  color: white;
+  padding: 40px 0 20px;
+  text-align: center;
+  font-family: 'Poppins', sans-serif;
+  border-top: 1px solid rgba(255, 215, 0, 0.2);
+}
+
+.footer-container {
+  width: 90%;
+  margin: auto;
+}
+
+.footer-links {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 20px;
+  margin-bottom: 20px;
+}
+
+.footer-links a {
+  position: relative;
+  text-decoration: none;
+  color: white;
+  font-weight: 500;
+  transition: color 0.3s ease;
+}
+
+.footer-links a::after {
+  content: "";
+  position: absolute;
+  width: 0;
+  height: 2px;
+  left: 50%;
+  bottom: -4px;
+  background: linear-gradient(90deg, #FFD700, #ffcc33);
+  transition: all 0.3s ease;
+  transform: translateX(-50%);
+  border-radius: 4px;
+}
+
+.footer-links a:hover::after {
+  width: 100%;
+}
+
+.footer-links a:hover {
+  color: #FFD700;
+}
+
+.footer-links a.active {
+  color: #FFD700;
+}
+
+.footer-links a.active::after {
+  width: 100%;
+  box-shadow: 0 0 8px #FFD700;
+}
+
+.footer-text {
+  font-size: 14px;
+  opacity: 0.8;
+  letter-spacing: 0.5px;
+}
+
+@media (max-width: 600px) {
+  .footer-links {
+    flex-direction: column;
+    gap: 12px;
+  }
+}
+</style>
 
   <!-- Optional: redirecting helper if you want a small script to show a message when user lands on checkout -->
   <!-- Keep commented unless you want this behaviour:
