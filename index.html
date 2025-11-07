@@ -1,379 +1,322 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>The Outfits | Shop Modern & Stylish Fashion for Men and Women</title>
-  <link rel="icon" href="https://the-outfits.vercel.app/file_00000000238c61fa93487af7dd1843c3.png" />
-  <style>
-    body {
-      font-family: Arial, sans-serif;
-      margin: 0;
-      padding: 0;
-      background-color: #f9f9f9;
-      color: #222;
-    }
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>The Outfits | Trendy Collections</title>
+    <meta
+      name="description"
+      content="Discover premium outfits designed with style and comfort. New arrivals and best picks updated weekly at The Outfits."
+    />
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600&display=swap">
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+        font-family: 'Poppins', sans-serif;
+      }
 
-    header {
-      text-align: center;
-      padding: 20px;
-      margin-bottom: 10px;
-    }
+      body {
+        background-color: #ffffff;
+        color: #000000;
+      }
 
-    header img {
-      width: 120px;
-      height: auto;
-      display: inline-block;
-    }
+      header {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 1rem 2rem;
+        border-bottom: 1px solid #eee;
+        background-color: #fff;
+        position: sticky;
+        top: 0;
+        z-index: 10;
+      }
 
-    /* 🌐 Navigation Bar */
-    .navbar {
-      background-color: #222;
-      padding: 10px 0;
-      text-align: center;
-    }
+      header img {
+        height: 45px;
+      }
 
-    .navbar ul {
-      list-style: none;
-      margin: 0;
-      padding: 0;
-    }
+      nav a {
+        margin: 0 12px;
+        text-decoration: none;
+        color: #000;
+        font-weight: 500;
+        position: relative;
+      }
 
-    .navbar li {
-      display: inline-block;
-      margin: 0 15px;
-    }
+      nav a::after {
+        content: '';
+        position: absolute;
+        bottom: -4px;
+        left: 0;
+        width: 0%;
+        height: 2px;
+        background: linear-gradient(90deg, gold, #ffdf70);
+        transition: 0.3s ease;
+      }
 
-    .navbar a {
-      color: #fff;
-      text-decoration: none;
-      font-size: 16px;
-      font-weight: bold;
-    }
+      nav a:hover::after {
+        width: 100%;
+      }
 
-    .navbar a:hover {
-      color: #ffcc00;
-    }
+      .hero {
+        text-align: center;
+        padding: 4rem 2rem;
+      }
 
-    main {
-      max-width: 1100px;
-      margin: 20px auto;
-      padding: 20px;
-    }
+      .hero h1 {
+        font-size: 2rem;
+        font-weight: 600;
+        color: #111;
+      }
 
-    h1 {
-      font-size: 36px;
-      text-align: center;
-      color: #111;
-    }
+      .hero p {
+        margin-top: 10px;
+        color: #444;
+        font-size: 1rem;
+      }
 
-    p.lead {
-      font-size: 18px;
-      line-height: 1.6;
-      text-align: center;
-    }
+      section {
+        padding: 2rem 1rem;
+        max-width: 1200px;
+        margin: 0 auto;
+      }
 
-    .collections {
-      display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      gap: 18px;
-      margin-top: 20px;
-    }
+      .section-title {
+        text-align: center;
+        font-size: 1.4rem;
+        font-weight: 600;
+        color: #000;
+        margin-bottom: 1.5rem;
+        position: relative;
+      }
 
-    .card {
-      background: #fff;
-      padding: 18px;
-      border-radius: 10px;
-      box-shadow: 0 6px 18px rgba(0,0,0,0.06);
-      text-align: center;
-    }
+      .section-title::after {
+        content: '';
+        display: block;
+        width: 60px;
+        height: 3px;
+        background: linear-gradient(90deg, gold, #ffdf70);
+        margin: 8px auto 0;
+        border-radius: 2px;
+      }
 
-    .card img {
-      width: 100%;
-      height: 210px;
-      object-fit: cover;
-      border-radius: 8px;
-      background: #e9e9e9;
-    }
+      .product-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+        gap: 1.5rem;
+        justify-items: center;
+      }
 
-    .card h3 { margin: 12px 0 6px; font-size: 16px; }
-    .card p { margin: 6px 0; color: #666; font-size: 14px; }
-    .price { color: #b36f2b; font-weight: 700; margin: 8px 0; }
+      .product {
+        background: #fff;
+        border-radius: 15px;
+        box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+        overflow: hidden;
+        transition: transform 0.3s ease, box-shadow 0.3s ease;
+        text-align: center;
+        padding-bottom: 1rem;
+      }
 
-    .buy-now-btn, .buy-btn {
-      display: inline-block;
-      padding: 8px 14px;
-      border-radius: 6px;
-      background: #222;
-      color: #fff;
-      text-decoration: none;
-      font-weight: 600;
-      margin-top: 8px;
-    }
+      .product:hover {
+        transform: translateY(-5px);
+        box-shadow: 0 6px 16px rgba(0, 0, 0, 0.1);
+      }
 
-    footer {
-      text-align: center;
-      padding: 20px;
-      margin-top: 40px;
-      background-color: #f2f2f2;
-      font-size: 14px;
-      color: #555;
-    }
+      .product img {
+        width: 100%;
+        height: auto;
+        border-bottom: 1px solid #eee;
+      }
 
-  </style>
-</head>
-<body>
-  <header>
-    <img src="file_00000000238c61fa93487af7dd1843c3.png" alt="The Outfits Logo">
-  </header>
+      .product h3 {
+        margin: 0.8rem 0 0.3rem;
+        font-size: 1rem;
+        color: #000;
+      }
 
-  <nav class="navbar">
-    <ul>
-      <li><a href="index.html">Home</a></li>
-      <li><a href="contact.html">Contact</a></li>
-      <li><a href="privacy.html">Privacy Policy</a></li>
-      <li><a href="refunds.html">Refund & Cancellation</a></li>
-      <li><a href="terms.html">Terms & Conditions</a></li>
-      <li><a href="shipping.html">Shipping Policy</a></li>
-    </ul>
-  </nav>
+      .product p {
+        color: #666;
+        font-size: 0.9rem;
+      }
 
-  <main>
-    <section class="welcome">
-      <h1>Welcome to The Outfits</h1>
-      <p class="lead">Your one-stop destination for the latest trends and fashion essentials.</p>
+      .buy-now {
+        margin-top: 10px;
+        background: linear-gradient(90deg, gold, #ffdf70);
+        border: none;
+        color: #000;
+        padding: 8px 16px;
+        border-radius: 25px;
+        font-weight: 500;
+        cursor: pointer;
+        transition: 0.3s ease;
+      }
+
+      .buy-now:hover {
+        background: linear-gradient(90deg, #ffdf70, gold);
+        transform: scale(1.05);
+      }
+
+      footer {
+        text-align: center;
+        padding: 1.5rem;
+        background-color: #000;
+        color: #fff;
+        font-size: 0.9rem;
+        border-top: 1px solid #222;
+      }
+
+      footer a {
+        color: gold;
+        text-decoration: none;
+        margin: 0 8px;
+        font-weight: 500;
+        position: relative;
+      }
+
+      footer a::after {
+        content: '';
+        position: absolute;
+        bottom: -3px;
+        left: 0;
+        width: 0%;
+        height: 2px;
+        background: linear-gradient(90deg, gold, #ffdf70);
+        transition: 0.3s ease;
+      }
+
+      footer a:hover::after {
+        width: 100%;
+      }
+    </style>
+  </head>
+
+  <body>
+    <header>
+      <img src="logo.png" alt="The Outfits Logo" />
+      <nav>
+        <a href="index.html">Home</a>
+        <a href="contact.html">Contact</a>
+        <a href="privacy.html">Privacy</a>
+        <a href="terms.html">Terms</a>
+      </nav>
+    </header>
+
+    <section class="hero">
+      <h1>Elevate Your Style</h1>
+      <p>Explore the latest trends in fashion — designed to make you stand out.</p>
     </section>
 
-    <h2>Our Collections</h2>
-    <div class="collections">
-
-      <!-- Shirt 1 -->
-      <div class="card">
-        <img src="https://images.pexels.com/photos/2635315/pexels-photo-2635315.jpeg" alt="Classic Cotton Shirt">
-        <h3>Classic Cotton Shirt</h3>
-        <p>Premium cotton fabric with modern fit.</p>
-        <p class="price">₹1199</p>
-        <a class="buy-now-btn" href="checkout.html?name=Classic%20Cotton%20Shirt&price=1199">Buy Now</a>
+    <section>
+      <h2 class="section-title">New Arrivals</h2>
+      <div class="product-grid">
+        <!-- First 7 product cards -->
+        <div class="product">
+          <img src="product1.jpg" alt="Product 1" />
+          <h3>Product 1</h3>
+          <p>₹999</p>
+          <button class="buy-now" onclick="window.location.href='checkout.html'">Buy Now</button>
+        </div>
+        <div class="product">
+          <img src="product2.jpg" alt="Product 2" />
+          <h3>Product 2</h3>
+          <p>₹1099</p>
+          <button class="buy-now" onclick="window.location.href='checkout.html'">Buy Now</button>
+        </div>
+        <div class="product">
+          <img src="product3.jpg" alt="Product 3" />
+          <h3>Product 3</h3>
+          <p>₹899</p>
+          <button class="buy-now" onclick="window.location.href='checkout.html'">Buy Now</button>
+        </div>
+        <div class="product">
+          <img src="product4.jpg" alt="Product 4" />
+          <h3>Product 4</h3>
+          <p>₹1299</p>
+          <button class="buy-now" onclick="window.location.href='checkout.html'">Buy Now</button>
+        </div>
+        <div class="product">
+          <img src="product5.jpg" alt="Product 5" />
+          <h3>Product 5</h3>
+          <p>₹799</p>
+          <button class="buy-now" onclick="window.location.href='checkout.html'">Buy Now</button>
+        </div>
+        <div class="product">
+          <img src="product6.jpg" alt="Product 6" />
+          <h3>Product 6</h3>
+          <p>₹999</p>
+          <button class="buy-now" onclick="window.location.href='checkout.html'">Buy Now</button>
+        </div>
+        <div class="product">
+          <img src="product7.jpg" alt="Product 7" />
+          <h3>Product 7</h3>
+          <p>₹899</p>
+          <button class="buy-now" onclick="window.location.href='checkout.html'">Buy Now</button>
+        </div>
       </div>
+    </section>
 
-      <!-- Shirt 2 -->
-      <div class="card">
-        <img src="https://images.pexels.com/photos/1043474/pexels-photo-1043474.jpeg" alt="Office Formal Shirt">
-        <h3>Office Formal Shirt</h3>
-        <p>Comfortable and stylish for wear.</p>
-        <p class="price">₹1399</p>
-        <a class="buy-now-btn" href="checkout.html?name=Office%20Formal%20Shirt&price=1399">Buy Now</a>
+    <section>
+      <h2 class="section-title">Best Picks</h2>
+      <div class="product-grid">
+        <!-- Second 7 product cards -->
+        <div class="product">
+          <img src="product8.jpg" alt="Product 8" />
+          <h3>Product 8</h3>
+          <p>₹899</p>
+          <button class="buy-now" onclick="window.location.href='checkout.html'">Buy Now</button>
+        </div>
+        <div class="product">
+          <img src="product9.jpg" alt="Product 9" />
+          <h3>Product 9</h3>
+          <p>₹1099</p>
+          <button class="buy-now" onclick="window.location.href='checkout.html'">Buy Now</button>
+        </div>
+        <div class="product">
+          <img src="product10.jpg" alt="Product 10" />
+          <h3>Product 10</h3>
+          <p>₹799</p>
+          <button class="buy-now" onclick="window.location.href='checkout.html'">Buy Now</button>
+        </div>
+        <div class="product">
+          <img src="product11.jpg" alt="Product 11" />
+          <h3>Product 11</h3>
+          <p>₹899</p>
+          <button class="buy-now" onclick="window.location.href='checkout.html'">Buy Now</button>
+        </div>
+        <div class="product">
+          <img src="product12.jpg" alt="Product 12" />
+          <h3>Product 12</h3>
+          <p>₹999</p>
+          <button class="buy-now" onclick="window.location.href='checkout.html'">Buy Now</button>
+        </div>
+        <div class="product">
+          <img src="product13.jpg" alt="Product 13" />
+          <h3>Product 13</h3>
+          <p>₹1199</p>
+          <button class="buy-now" onclick="window.location.href='checkout.html'">Buy Now</button>
+        </div>
+        <div class="product">
+          <img src="product14.jpg" alt="Product 14" />
+          <h3>Product 14</h3>
+          <p>₹999</p>
+          <button class="buy-now" onclick="window.location.href='checkout.html'">Buy Now</button>
+        </div>
       </div>
+    </section>
 
-      <!-- Shirt 3 -->
-      <div class="card">
-        <img src="https://images.pexels.com/photos/34155059/pexels-photo-34155059.jpeg" alt="Tiger print Shirt">
-        <h3>Tiger print Shirt</h3>
-        <p>Perfect blend of elegance and comfort.</p>
-        <p class="price">₹1599</p>
-        <a class="buy-now-btn" href="checkout.html?name=Tiger%20print%20Shirt&price=1599">Buy Now</a>
-      </div>
-
-      <!-- T-Shirt 1 -->
-      <div class="card">
-        <img src="https://images.pexels.com/photos/1561011/pexels-photo-1561011.jpeg" alt="Stylish T-Shirt">
-        <h3>Stylish T-Shirt</h3>
-        <p>Soft cotton, easy everyday style.</p>
-        <p class="price">₹899</p>
-        <a class="buy-now-btn" href="checkout.html?name=Stylish%20T-Shirt&price=899">Buy Now</a>
-      </div>
-
-      <!-- T-Shirt 2 -->
-      <div class="card">
-        <img src="https://images.pexels.com/photos/3053824/pexels-photo-3053824.jpeg" alt="Graphic White T-Shirt">
-        <h3>Graphic White T-Shirt</h3>
-        <p>Trendy print, great for casual days.</p>
-        <p class="price">₹1099</p>
-        <a class="buy-now-btn" href="checkout.html?name=Graphic%20White%20T-Shirt&price=1099">Buy Now</a>
-      </div>
-
-      <!-- T-Shirt 3 -->
-      <div class="card">
-        <img src="https://images.pexels.com/photos/4065148/pexels-photo-4065148.jpeg" alt="White Baggy T-Shirt">
-        <h3>White Baggy T-Shirt</h3>
-        <p>Stretchy and breathable activewear.</p>
-        <p class="price">₹999</p>
-        <a class="buy-now-btn" href="checkout.html?name=White%20Baggy%20T-Shirt&price=999">Buy Now</a>
-      </div>
-
-      <!-- Pants 1 -->
-      <div class="card">
-        <img src="https://images.pexels.com/photos/7764611/pexels-photo-7764611.jpeg" alt="Blue Denim Jeans">
-        <h3>Blue Denim Jeans</h3>
-        <p>Classic fit with modern comfort.</p>
-        <p class="price">₹1599</p>
-        <a class="buy-now-btn" href="checkout.html?name=Blue%20Denim%20Jeans&price=1599">Buy Now</a>
-      </div>
-
-      <!-- Pants 2 -->
-      <div class="card">
-        <img src="https://images.pexels.com/photos/17720471/pexels-photo-17720471.jpeg" alt="Stylish Pants">
-        <h3>Stylish Pants</h3>
-        <p>Perfect for both office and outings.</p>
-        <p class="price">₹1499</p>
-        <a class="buy-now-btn" href="checkout.html?name=Stylish%20Pants&price=1499">Buy Now</a>
-      </div>
-
-      <!-- Pants 3 -->
-      <div class="card">
-        <img src="https://images.pexels.com/photos/1158623/pexels-photo-1158623.jpeg" alt="Dark Wash Jeans">
-        <h3>Black Jeans</h3>
-        <p>Durable and stylish slim fit denim.</p>
-        <p class="price">₹1699</p>
-        <a class="buy-now-btn" href="checkout.html?name=Black%20Jeans&price=1699">Buy Now</a>
-      </div>
-
-      <!-- Track Pants 1 -->
-      <div class="card">
-        <img src="https://images.pexels.com/photos/34524195/pexels-photo-34524195.jpeg" alt="Sport Track Pants">
-        <h3>Sport Track Pants</h3>
-        <p>Soft and stretchable material.</p>
-        <p class="price">₹1299</p>
-        <a class="buy-now-btn" href="checkout.html?name=Sport%20Track%20Pants&price=1299">Buy Now</a>
-      </div>
-
-      <!-- Track Pants 2 -->
-      <div class="card">
-        <img src="https://images.pexels.com/photos/33055599/pexels-photo-33055599.jpeg" alt="Gray Sweatpants">
-        <h3>Black Sweatpants</h3>
-        <p>Relaxed fit, ideal for gym and lounge.</p>
-        <p class="price">₹1199</p>
-        <a class="buy-now-btn" href="checkout.html?name=Black%20Sweatpants&price=1199">Buy Now</a>
-      </div>
-
-      <!-- Track Pants 3 -->
-      <div class="card">
-        <img src="https://images.pexels.com/photos/33055635/pexels-photo-33055635.jpeg" alt="Green Sweatpants">
-        <h3>Green Sweatpants</h3>
-        <p>Casual yet stylish for everyday wear.</p>
-        <p class="price">₹1399</p>
-        <a class="buy-now-btn" href="checkout.html?name=Green%20Sweatpants&price=1399">Buy Now</a>
-      </div>
-
-      <!-- Shoes 1 -->
-      <div class="card">
-        <img src="https://images.pexels.com/photos/2529148/pexels-photo-2529148.jpeg" alt="Stylish Sneakers">
-        <h3>Stylish Sneakers</h3>
-        <p>Lightweight, trendy design.</p>
-        <p class="price">₹1999</p>
-        <a class="buy-now-btn" href="checkout.html?name=Stylish%20Sneakers&price=1999">Buy Now</a>
-      </div>
-
-      <!-- Shoes 2 -->
-      <div class="card">
-        <img src="https://images.pexels.com/photos/6050929/pexels-photo-6050929.jpeg" alt="Red Jorden Shoes">
-        <h3>Red Jorden Shoes</h3>
-        <p>Perfect balance of style and comfort.</p>
-        <p class="price">₹1799</p>
-        <a class="buy-now-btn" href="checkout.html?name=Red%20Jorden%20Shoes&price=1799">Buy Now</a>
-      </div>
-
-    </div>
-  </main>
-
-  <!-- Futuristic Footer -->
-<footer class="footer">
-  <div class="footer-container">
-    <div class="footer-links">
-      <a href="index.html" class="active">Home</a>
-      <a href="contact.html">Contact</a>
-      <a href="privacy.html">Privacy Policy</a>
-      <a href="refunds.html">Refund Policy</a>
-      <a href="shipping.html">Shipping</a>
-      <a href="terms.html">Terms & Conditions</a>
-    </div>
-    <p class="footer-text">© 2025 The Outfits. All Rights Reserved.</p>
-  </div>
-</footer>
-
-<style>
-/* === Futuristic Footer Styling === */
-.footer {
-  background: #000;
-  color: white;
-  padding: 40px 0 20px;
-  text-align: center;
-  font-family: 'Poppins', sans-serif;
-  border-top: 1px solid rgba(255, 215, 0, 0.2);
-}
-
-.footer-container {
-  width: 90%;
-  margin: auto;
-}
-
-.footer-links {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: center;
-  gap: 20px;
-  margin-bottom: 20px;
-}
-
-.footer-links a {
-  position: relative;
-  text-decoration: none;
-  color: white;
-  font-weight: 500;
-  transition: color 0.3s ease;
-}
-
-.footer-links a::after {
-  content: "";
-  position: absolute;
-  width: 0;
-  height: 2px;
-  left: 50%;
-  bottom: -4px;
-  background: linear-gradient(90deg, #FFD700, #ffcc33);
-  transition: all 0.3s ease;
-  transform: translateX(-50%);
-  border-radius: 4px;
-}
-
-.footer-links a:hover::after {
-  width: 100%;
-}
-
-.footer-links a:hover {
-  color: #FFD700;
-}
-
-.footer-links a.active {
-  color: #FFD700;
-}
-
-.footer-links a.active::after {
-  width: 100%;
-  box-shadow: 0 0 8px #FFD700;
-}
-
-.footer-text {
-  font-size: 14px;
-  opacity: 0.8;
-  letter-spacing: 0.5px;
-}
-
-@media (max-width: 600px) {
-  .footer-links {
-    flex-direction: column;
-    gap: 12px;
-  }
-}
-</style>
-
-  <!-- Optional: redirecting helper if you want a small script to show a message when user lands on checkout -->
-  <!-- Keep commented unless you want this behaviour:
-  <script>
-    // Example: If checkout.html expects parameters, it can show product details on that page.
-    // No changes made here per your request.
-  </script>
-  -->
-
-</body>
-</html>
+    <footer>
+      <p>
+        <a href="index.html">Home</a> |
+        <a href="contact.html">Contact</a> |
+        <a href="privacy.html">Privacy Policy</a> |
+        <a href="terms.html">Terms</a> |
+        <a href="shipping.html">Shipping</a> |
+        <a href="refunds.html">Refund</a>
+      </p>
+      <p>© 2025 The Outfits. All Rights Reserved.</p>
+    </footer>
+  </body>
+  </html>
