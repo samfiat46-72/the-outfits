@@ -1,123 +1,95 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Checkout — The Outfits</title>
-  <link rel="stylesheet" href="style.css" />
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap">
   <style>
     body {
-      font-family: "Poppins", sans-serif;
-      background-color: #f9f1e7;
+      font-family: 'Poppins', sans-serif;
+      background-color: #faf4ec;
+      color: #2b2b2b;
+      text-align: center;
       margin: 0;
-      padding: 0;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      height: 100vh;
+      padding: 40px 20px;
     }
-
-    .checkout-card {
+    .checkout-container {
       background: white;
       padding: 30px;
-      border-radius: 15px;
-      box-shadow: 0 4px 10px rgba(0,0,0,0.1);
-      text-align: center;
-      width: 320px;
+      border-radius: 18px;
+      box-shadow: 0 8px 24px rgba(0, 0, 0, 0.1);
+      max-width: 360px;
+      margin: 40px auto;
     }
-
-    .checkout-card img {
-      width: 200px;
-      border-radius: 10px;
+    img.logo {
+      width: 120px;
       margin-bottom: 15px;
     }
-
-    .checkout-card h2 {
-      margin-bottom: 10px;
+    img.product {
+      width: 180px;
+      height: auto;
+      border-radius: 12px;
+      margin: 10px 0;
+      object-fit: cover;
     }
-
-    .checkout-card h3 {
+    h1 {
+      font-size: 1.6rem;
       margin: 10px 0;
     }
-
     .price {
-      color: #c49b63;
-      font-weight: 600;
-      font-size: 18px;
+      font-size: 1.4rem;
+      color: #c5a04f;
       margin: 10px 0;
+      font-weight: 600;
     }
-
     button {
-      background-color: #333;
+      background-color: #2b2b2b;
       color: white;
       border: none;
-      padding: 10px 25px;
-      border-radius: 5px;
+      padding: 12px 24px;
+      font-size: 1rem;
+      border-radius: 10px;
       cursor: pointer;
-      font-size: 15px;
     }
-
     button:hover {
-      background-color: #555;
+      background-color: #c5a04f;
+      color: #fff;
     }
-
     p.note {
-      font-size: 12px;
-      color: gray;
+      font-size: 0.8rem;
+      color: #6f6f6f;
       margin-top: 15px;
     }
   </style>
 </head>
 <body>
-
-  <div class="checkout-card">
-    <img src="file_00000000238c61fa93487af7dd1843c3.png" alt="The Outfits Logo" style="width:120px; margin-bottom:20px;">
-
-    <h2>Checkout</h2>
-
-    <img id="product-image" alt="Product Image">
-
+  <div class="checkout-container">
+    <img src="file_00000000238c61fa93487af7dd1843c3.png" alt="The Outfits Logo" class="logo">
+    <h1>Checkout</h1>
+    <img id="product-img" src="" alt="Product Image" class="product">
     <h3 id="product-name">Sample Product</h3>
     <p class="price" id="product-price">₹999</p>
-
-    <button id="rzp-button1">Pay Now</button>
+    <button id="pay-now">Pay Now</button>
     <p class="note">Clicking pay will open Razorpay checkout (demo key). After approval, we will replace with real key.</p>
   </div>
 
-  <script src="https://checkout.razorpay.com/v1/checkout.js"></script>
   <script>
-    // Get parameters from URL
-    const params = new URLSearchParams(window.location.search);
-    const productName = params.get("name") || "Sample Product";
-    const productPrice = params.get("price") || "999";
-    const productImg = params.get("img");
+    // Get query parameters from URL
+    const urlParams = new URLSearchParams(window.location.search);
+    const name = urlParams.get('name') || 'Sample Product';
+    const price = urlParams.get('price') || '999';
+    const image = urlParams.get('image') || 'https://images.pexels.com/photos/2635315/pexels-photo-2635315.jpeg';
 
-    // Update product details
-    document.getElementById("product-name").textContent = productName;
-    document.getElementById("product-price").textContent = "₹" + productPrice;
-    if (productImg) document.getElementById("product-image").src = productImg;
+    // Apply values dynamically
+    document.getElementById('product-name').textContent = name;
+    document.getElementById('product-price').textContent = `₹${price}`;
+    document.getElementById('product-img').src = image;
 
-    // Razorpay test integration
-    const options = {
-      key: "rzp_test_demoKey123", // Demo key
-      amount: productPrice * 100,
-      currency: "INR",
-      name: "The Outfits",
-      description: productName,
-      image: "images/logo.png",
-      handler: function (response) {
-        alert("Payment Successful! Payment ID: " + response.razorpay_payment_id);
-      },
-      theme: {
-        color: "#c49b63",
-      },
-    };
-
-    const rzp1 = new Razorpay(options);
-    document.getElementById("rzp-button1").onclick = function (e) {
-      rzp1.open();
-      e.preventDefault();
-    };
+    // Razorpay demo button (no change)
+    document.getElementById('pay-now').addEventListener('click', () => {
+      alert(`Proceeding to pay ₹${price} for ${name}`);
+    });
   </script>
 </body>
 </html>
