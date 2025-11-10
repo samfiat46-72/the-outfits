@@ -1,95 +1,205 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Checkout — The Outfits</title>
-  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Checkout | The Outfits</title>
+  <meta name="description" content="Secure checkout for The Outfits. Complete your purchase with confidence." />
+  <meta name="theme-color" content="#c5a04f" />
+
   <style>
     body {
       font-family: 'Poppins', sans-serif;
-      background-color: #faf4ec;
-      color: #2b2b2b;
-      text-align: center;
       margin: 0;
-      padding: 40px 20px;
+      padding: 0;
+      background-color: #f9f9f9;
+      color: #222;
     }
-    .checkout-container {
-      background: white;
-      padding: 30px;
-      border-radius: 18px;
-      box-shadow: 0 8px 24px rgba(0, 0, 0, 0.1);
-      max-width: 360px;
-      margin: 40px auto;
+
+    main {
+      max-width: 700px;
+      margin: 60px auto;
+      background: #fff;
+      padding: 25px;
+      border-radius: 10px;
+      box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+      text-align: center;
     }
-    img.logo {
-      width: 120px;
+
+    h1 {
+      color: #000;
       margin-bottom: 15px;
     }
-    img.product {
-      width: 180px;
-      height: auto;
-      border-radius: 12px;
-      margin: 10px 0;
-      object-fit: cover;
+
+    p {
+      color: #444;
+      font-size: 16px;
+      margin-bottom: 25px;
     }
-    h1 {
-      font-size: 1.6rem;
-      margin: 10px 0;
-    }
-    .price {
-      font-size: 1.4rem;
-      color: #c5a04f;
-      margin: 10px 0;
-      font-weight: 600;
-    }
+
     button {
-      background-color: #2b2b2b;
-      color: white;
+      background-color: #000;
+      color: #fff;
       border: none;
-      padding: 12px 24px;
-      font-size: 1rem;
-      border-radius: 10px;
+      padding: 12px 28px;
+      font-size: 16px;
+      border-radius: 6px;
       cursor: pointer;
+      transition: background-color 0.3s ease;
     }
+
     button:hover {
       background-color: #c5a04f;
-      color: #fff;
     }
-    p.note {
-      font-size: 0.8rem;
-      color: #6f6f6f;
-      margin-top: 15px;
+
+    footer {
+      text-align: center;
+      padding: 20px;
+      background-color: #f2f2f2;
+      font-size: 14px;
+      color: #555;
+      margin-top: 40px;
+    }
+
+    footer a {
+      color: #000;
+      text-decoration: none;
+      margin-left: 10px;
+    }
+
+    footer a:hover {
+      text-decoration: underline;
+    }
+
+    /* ✅ Navigation Bar Styling */
+    .navbar {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      background: #ffffff;
+      border-bottom: 1px solid #f2f2f2;
+      padding: 12px 20px;
+      box-shadow: 0 1px 4px rgba(0, 0, 0, 0.05);
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+    }
+
+    .navbar .logo a {
+      font-family: "Poppins", sans-serif;
+      font-size: 18px;
+      font-weight: 600;
+      text-decoration: none;
+      color: #000;
+    }
+
+    .nav-links {
+      list-style: none;
+      display: flex;
+      gap: 20px;
+      margin: 0;
+      padding: 0;
+    }
+
+    .nav-links li a {
+      text-decoration: none;
+      color: #000;
+      font-size: 16px;
+      font-weight: 500;
+      position: relative;
+      transition: color 0.3s ease;
+    }
+
+    .nav-links li a::after {
+      content: '';
+      position: absolute;
+      width: 0;
+      height: 2px;
+      left: 0;
+      bottom: -4px;
+      background: #c5a04f; /* gold hover */
+      transition: width 0.3s ease;
+      border-radius: 2px;
+    }
+
+    .nav-links li a:hover::after,
+    .nav-links li a.active::after {
+      width: 100%;
+    }
+
+    .nav-links li a:hover {
+      color: #c5a04f;
+    }
+
+    @media (max-width: 600px) {
+      .navbar {
+        flex-direction: column;
+        align-items: flex-start;
+        padding: 15px;
+      }
+
+      .nav-links {
+        flex-wrap: wrap;
+        justify-content: center;
+        gap: 15px;
+        width: 100%;
+        margin-top: 10px;
+      }
+
+      .navbar .logo {
+        margin-bottom: 5px;
+      }
     }
   </style>
 </head>
+
 <body>
-  <div class="checkout-container">
-    <img src="file_00000000238c61fa93487af7dd1843c3.png" alt="The Outfits Logo" class="logo">
+  <!-- ✅ Navigation -->
+  <nav class="navbar">
+    <div class="logo">
+      <a href="index.html">THE OUTFITS</a>
+    </div>
+    <ul class="nav-links">
+      <li><a href="index.html">Home</a></li>
+      <li><a href="contact.html">Contact</a></li>
+      <li><a href="privacy.html">Privacy</a></li>
+      <li><a href="refunds.html">Refund</a></li>
+      <li><a href="shipping.html">Shipping</a></li>
+      <li><a href="terms.html">Terms</a></li>
+    </ul>
+  </nav>
+
+  <main>
     <h1>Checkout</h1>
-    <img id="product-img" src="" alt="Product Image" class="product">
-    <h3 id="product-name">Sample Product</h3>
-    <p class="price" id="product-price">₹999</p>
-    <button id="pay-now">Pay Now</button>
-    <p class="note">Clicking pay will open Razorpay checkout (demo key). After approval, we will replace with real key.</p>
-  </div>
+    <p>Complete your purchase securely with The Outfits.</p>
+    <button id="pay">Pay Now</button>
+  </main>
 
+  <!-- ✅ Razorpay Checkout Script -->
+  <script src="https://checkout.razorpay.com/v1/checkout.js"></script>
   <script>
-    // Get query parameters from URL
-    const urlParams = new URLSearchParams(window.location.search);
-    const name = urlParams.get('name') || 'Sample Product';
-    const price = urlParams.get('price') || '999';
-    const image = urlParams.get('image') || 'https://images.pexels.com/photos/2635315/pexels-photo-2635315.jpeg';
-
-    // Apply values dynamically
-    document.getElementById('product-name').textContent = name;
-    document.getElementById('product-price').textContent = `₹${price}`;
-    document.getElementById('product-img').src = image;
-
-    // Razorpay demo button (no change)
-    document.getElementById('pay-now').addEventListener('click', () => {
-      alert(`Proceeding to pay ₹${price} for ${name}`);
+    document.getElementById("pay").addEventListener("click", function () {
+      const options = {
+        key: "rzp_test_t6cp7rtRFjylLiztnWWj04IZ", // demo key
+        amount: 10000,
+        currency: "INR",
+        name: "The Outfits",
+        description: "Luxury in Every Stitch.",
+        handler: function (response) {
+          alert("Payment Successful! ID: " + response.razorpay_payment_id);
+        },
+        theme: {
+          color: "#c5a04f"
+        }
+      };
+      const rzp = new Razorpay(options);
+      rzp.open();
     });
   </script>
+
+  <footer>
+    © 2025 The Outfits. All rights reserved. |
+    <a href="contact.html">Contact Us</a>
+  </footer>
 </body>
 </html>
