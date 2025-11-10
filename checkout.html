@@ -21,13 +21,13 @@
       text-align: center;
     }
 
-    /* Navbar */
+    /* ✅ Navbar */
     .navbar {
       display: flex;
       justify-content: space-between;
       align-items: center;
-      background: #fff;
-      padding: 14px 20px;
+      background: #ffffff;
+      padding: 14px 22px;
       border-bottom: 1px solid #f2f2f2;
       box-shadow: 0 1px 5px rgba(0,0,0,0.05);
       position: sticky;
@@ -36,15 +36,15 @@
     }
     .navbar .logo a {
       text-decoration: none;
-      font-size: 20px;
-      font-weight: 600;
+      font-size: 22px;
+      font-weight: 700;
       color: #000;
+      letter-spacing: 0.5px;
     }
     .nav-links {
       list-style: none;
       display: flex;
-      flex-wrap: wrap;
-      gap: 16px;
+      gap: 20px;
       justify-content: center;
       padding: 0;
       margin: 0;
@@ -53,13 +53,14 @@
       text-decoration: none;
       color: #000;
       font-weight: 500;
-      transition: color 0.3s;
+      font-size: 15px;
+      transition: color 0.3s ease;
     }
     .nav-links a:hover {
-      color: #c5a04f;
+      color: #b8914a;
     }
 
-    /* Checkout Container */
+    /* ✅ Checkout Container */
     .checkout-container {
       max-width: 420px;
       margin: 70px auto 40px;
@@ -68,20 +69,15 @@
       border-radius: 15px;
       box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
     }
-    .checkout-logo {
-      width: 150px;
-      height: auto;
-      margin-bottom: 15px;
+    .checkout-container h1 {
+      font-size: 24px;
+      margin-bottom: 10px;
     }
     .product-image {
       width: 100%;
-      max-width: 230px;
-      border-radius: 10px;
+      max-width: 260px;
+      border-radius: 12px;
       margin-top: 10px;
-      display: none; /* hidden until product image loads */
-    }
-    h1 {
-      font-size: 24px;
       margin-bottom: 10px;
     }
     .product-name {
@@ -110,6 +106,7 @@
       opacity: 0.9;
       transform: scale(1.02);
     }
+
     footer {
       text-align: center;
       font-size: 14px;
@@ -126,7 +123,7 @@
       color: #b8914a;
     }
 
-    /* Responsive */
+    /* ✅ Responsive (mobile-friendly) */
     @media (max-width: 600px) {
       .navbar {
         flex-direction: column;
@@ -139,7 +136,6 @@
       }
       .checkout-container {
         width: 90%;
-        margin: 60px auto;
         padding: 20px;
       }
     }
@@ -165,10 +161,8 @@
 
   <!-- ✅ Checkout Section -->
   <div class="checkout-container">
-    <img class="checkout-logo" src="https://the-outfits.vercel.app/file_00000000238c61fa93487af7dd1843c3.png" alt="The Outfits Logo" />
     <h1>Checkout</h1>
-
-    <img class="product-image" src="" alt="Product Image">
+    <img class="product-image" src="" alt="Product Image" />
     <h2 class="product-name">Sample Product</h2>
     <p class="product-price">₹999</p>
 
@@ -181,20 +175,21 @@
     <a href="contact.html">Contact Us</a>
   </footer>
 
-  <!-- ✅ Dynamic Product Script -->
+  <!-- ✅ Product Script -->
   <script>
     const urlParams = new URLSearchParams(window.location.search);
-    const productName = urlParams.get('name') || 'Sample Product';
-    const productPrice = urlParams.get('price') || '999';
-    const productImg = urlParams.get('img');
+    const name = urlParams.get('name') || 'Sample Product';
+    const price = urlParams.get('price') || '999';
+    const img = urlParams.get('img');
 
-    document.querySelector('.product-name').textContent = productName;
-    document.querySelector('.product-price').textContent = `₹${productPrice}`;
+    document.querySelector('.product-name').textContent = name;
+    document.querySelector('.product-price').textContent = `₹${price}`;
 
     const productImage = document.querySelector('.product-image');
-    if (productImg) {
-      productImage.src = productImg;
-      productImage.style.display = 'block';
+    if (img) {
+      productImage.src = decodeURIComponent(img);
+    } else {
+      productImage.src = 'https://images.pexels.com/photos/1043474/pexels-photo-1043474.jpeg';
     }
   </script>
 </body>
