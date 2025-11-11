@@ -194,17 +194,80 @@
   </head>
 
   <body>
-    <header>
-      <img src="file_00000000238c61fa93487af7dd1843c3.png" alt="The Outfits Logo" />
-      <nav>
-        href="index.html">Home</a></li>
-      <li><a href="contact.html" class="active">Contact</a></li>
-      <li><a href="privacy.html">Privacy</a></li>
-      <li><a href="refunds.html">Refund</a></li>
-      <li><a href="shipping.html">Shipping</a></li>
-      <li><a href="terms.html">Terms</a></li>
-      </nav>
-    </header>
+    
+      <!-- ✅ Navigation Bar -->
+<nav class="navbar">
+  <div class="logo">
+    <a href="index.html">THE OUTFITS</a>
+  </div>
+  <ul class="nav-links">
+    <li><a href="index.html">Home</a></li>
+    <li><a href="contact.html">Contact</a></li>
+    <li><a href="privacy.html">Privacy</a></li>
+    <li><a href="refunds.html">Refund</a></li>
+    <li><a href="shipping.html">Shipping</a></li>
+    <li><a href="terms.html">Terms</a></li>
+  </ul>
+</nav>
+
+<style>
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background: #ffffff;
+  padding: 12px 20px;
+  border-bottom: 1px solid #f2f2f2;
+  box-shadow: 0 1px 4px rgba(0, 0, 0, 0.05);
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+}
+
+.logo a {
+  font-family: "Poppins", sans-serif;
+  font-size: 20px;
+  font-weight: 600;
+  color: #000;
+  text-decoration: none;
+  letter-spacing: 0.5px;
+}
+
+.nav-links {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  gap: 18px;
+}
+
+.nav-links a {
+  text-decoration: none;
+  color: #000;
+  font-family: "Poppins", sans-serif;
+  font-size: 15px;
+  font-weight: 500;
+  transition: color 0.3s ease, border-bottom 0.3s ease;
+}
+
+.nav-links a:hover {
+  color: #b8914a;
+  border-bottom: 2px solid #b8914a;
+}
+
+@media (max-width: 600px) {
+  .navbar {
+    flex-direction: column;
+    align-items: flex-start;
+    padding: 15px;
+  }
+  .nav-links {
+    flex-wrap: wrap;
+    justify-content: flex-start;
+    gap: 10px;
+  }
+}
+</style>
     
     <section class="hero">
       <h1>Elevate Your Style</h1>
