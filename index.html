@@ -198,7 +198,7 @@
       <!-- ✅ Navigation Bar -->
 <nav class="navbar">
   <div class="logo">
-    <img src="https://raw.githubusercontent.com/samfiat46-72/the-outfits/main/1logo.png" alt="The Outfits Logo">
+    <img src="https://raw.githubusercontent.com/samfiat46-72/the-outfits/main/1logo.png" alt="The Outfits Logo" class="site-logo">
 </div>
   <ul class="nav-links">
     <li><a href="index.html">Home</a></li>
@@ -223,6 +223,24 @@
     z-index: 1000;
     height: 70px;
   }
+  /* NEW LOGO FIX */
+.site-logo {
+    width: 140px;
+    display: block;
+    margin: 0 auto;
+}
+
+.navbar {
+    display: flex;
+    flex-direction: column; 
+    align-items: center;
+    background: #ffffff;
+    padding: 10px 0;
+    border-bottom: 1px solid #f2f2f2;
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+}
 
 .logo a {
   font-family: "Poppins", sans-serif;
@@ -232,10 +250,6 @@
   text-decoration: none;
   letter-spacing: 0.5px;
 }
-.logo img {
-    width: 90px;
-    height: auto;
-  }
 
 .nav-links {
   list-style: none;
