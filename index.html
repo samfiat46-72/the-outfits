@@ -151,15 +151,57 @@
       footer a:hover::after {
         width: 100%;
       }
+      /* NEW PERFECT NAVBAR */
+.navbar {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px 20px;
+    background: #ffffff;
+    border-bottom: 1px solid #eee;
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+}
+
+/* Left Logo */
+.site-logo {
+    width: 110px;
+    height: auto;
+    display: block;
+}
+
+/* Right Menu */
+.nav-right {
+    list-style: none;
+    display: flex;
+    gap: 18px;
+    margin: 0;
+    padding: 0;
+}
+
+.nav-right a {
+    font-size: 17px;
+    font-weight: 500;
+    color: #000;
+    text-decoration: none;
+}
+
+.nav-right a:hover {
+    color: #b8914a;
+}
     </style>
   </head>
 
   <body>
     
-      <!-- ✅ Navigation Bar -->
+<!-- Navigation Bar -->
 <nav class="navbar">
     <div class="nav-left">
-        <img src="https://raw.githubusercontent.com/samfiat46-72/the-outfits/main/1logo.png" class="site-logo" alt="The Outfits Logo">
+        <img src="https://raw.githubusercontent.com/samfiat46-72/the-outfits/main/1logo.png"
+             class="site-logo"
+             alt="The Outfits Logo">
     </div>
 
     <ul class="nav-right">
@@ -171,44 +213,6 @@
         <li><a href="terms.html">Terms</a></li>
     </ul>
 </nav>
-
-<style>  
-/* NEW PERFECT NAVBAR */
-.navbar {
-    width: 100%;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding: 10px 20px;
-    background: #ffffff;
-    border-bottom: 1px solid #eaeaea;
-    position: sticky;
-    top: 0;
-    z-index: 1000;
-}
-
-/* LEFT LOGO */
-.site-logo {
-    width: 110px;
-    height: auto;
-    display: block;
-}
-
-/* RIGHT MENU */
-.nav-right {
-    list-style: none;
-    display: flex;
-    gap: 18px;
-    margin: 0;
-    padding: 0;
-}
-
-.nav-right a {
-    font-size: 18px;
-    font-weight: 500;
-    color: #000;
-    text-decoration: none;
-}
     
     <section class="hero">
       <h1>Elevate Your Style</h1>
