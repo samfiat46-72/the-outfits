@@ -22,45 +22,6 @@
         color: #000000;
       }
 
-      header {
-        display: flex;
-        justify-content: space-between;
-        align-items: center;
-        padding: 1rem 2rem;
-        border-bottom: 1px solid #eee;
-        background-color: #fff;
-        position: sticky;
-        top: 0;
-        z-index: 10;
-      }
-
-      header img {
-        height: 45px;
-      }
-
-      nav a {
-        margin: 0 12px;
-        text-decoration: none;
-        color: #000;
-        font-weight: 500;
-        position: relative;
-      }
-
-      nav a::after {
-        content: '';
-        position: absolute;
-        bottom: -4px;
-        left: 0;
-        width: 0%;
-        height: 2px;
-        background: linear-gradient(90deg, gold, #ffdf70);
-        transition: 0.3s ease;
-      }
-
-      nav a:hover::after {
-        width: 100%;
-      }
-
       .hero {
         text-align: center;
         padding: 4rem 2rem;
@@ -197,91 +158,57 @@
     
       <!-- ✅ Navigation Bar -->
 <nav class="navbar">
-  <div class="logo">
-  <img src="https://raw.githubusercontent.com/samfiat46-72/the-outfits/main/1logo.png" alt="The Outfits Logo">
-  </div>
-  <ul class="nav-links">
-    <li><a href="index.html">Home</a></li>
-    <li><a href="contact.html">Contact</a></li>
-    <li><a href="privacy.html">Privacy</a></li>
-    <li><a href="refunds.html">Refund</a></li>
-    <li><a href="shipping.html">Shipping</a></li>
-    <li><a href="terms.html">Terms</a></li>
-  </ul>
+    <div class="nav-left">
+        <img src="https://raw.githubusercontent.com/samfiat46-72/the-outfits/main/1logo.png" class="site-logo" alt="The Outfits Logo">
+    </div>
+
+    <ul class="nav-right">
+        <li><a href="index.html">Home</a></li>
+        <li><a href="contact.html">Contact</a></li>
+        <li><a href="privacy.html">Privacy</a></li>
+        <li><a href="refunds.html">Refund</a></li>
+        <li><a href="shipping.html">Shipping</a></li>
+        <li><a href="terms.html">Terms</a></li>
+    </ul>
 </nav>
 
-<style>
-/* NAVBAR FIX */
+<style>  
+/* NEW PERFECT NAVBAR */
 .navbar {
+    width: 100%;
     display: flex;
-    flex-direction: column;
+    justify-content: space-between;
     align-items: center;
+    padding: 10px 20px;
     background: #ffffff;
-    padding: 10px 0;
-    border-bottom: 1px solid #f2f2f2;
+    border-bottom: 1px solid #eaeaea;
     position: sticky;
     top: 0;
     z-index: 1000;
 }
 
-/* LOGO FIX */
-.logo {
-    display: flex;
-    align-items: center;
-}
-
-.logo img {
-    width: 120px;
+/* LEFT LOGO */
+.site-logo {
+    width: 110px;
     height: auto;
     display: block;
+}
+
+/* RIGHT MENU */
+.nav-right {
+    list-style: none;
+    display: flex;
+    gap: 18px;
     margin: 0;
     padding: 0;
 }
 
-.logo a {
-  font-family: "Poppins", sans-serif;
-  font-size: 20px;
-  font-weight: 600;
-  color: #000;
-  text-decoration: none;
-  letter-spacing: 0.5px;
+.nav-right a {
+    font-size: 18px;
+    font-weight: 500;
+    color: #000;
+    text-decoration: none;
 }
-
-.nav-links {
-  list-style: none;
-  margin: 0;
-  padding: 0;
-  display: flex;
-  gap: 18px;
-}
-
-.nav-links a {
-  text-decoration: none;
-  color: #000;
-  font-family: "Poppins", sans-serif;
-  font-size: 15px;
-  font-weight: 500;
-  transition: color 0.3s ease, border-bottom 0.3s ease;
-}
-
-.nav-links a:hover {
-  color: #b8914a;
-  border-bottom: 2px solid #b8914a;
-}
-
-@media (max-width: 600px) {
-  .navbar {
-    flex-direction: column;
-    align-items: flex-start;
-    padding: 15px;
-  }
-  .nav-links {
-    flex-wrap: wrap;
-    justify-content: flex-start;
-    gap: 10px;
-  }
-}
-</style>
     
     <section class="hero">
       <h1>Elevate Your Style</h1>
