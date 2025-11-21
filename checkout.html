@@ -1,196 +1,130 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <meta name="title" content="Checkout | The Outfits — Luxury in Every Stitch" />
-  <meta name="description" content="Complete your purchase securely with The Outfits. Experience premium fashion and smooth checkout." />
-  <meta property="og:title" content="Checkout | The Outfits — Luxury in Every Stitch" />
-  <meta property="og:description" content="Complete your purchase securely with The Outfits." />
-  <meta property="og:image" content="https://the-outfits.vercel.app/file_00000000238c61fa93487af7dd1843c3.png" />
-  <meta name="twitter:card" content="summary_large_image" />
-  <title>Checkout — The Outfits</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Checkout - The Outfits</title>
 
   <style>
     body {
-      font-family: 'Poppins', sans-serif;
-      background-color: #faf6f1;
-      color: #222;
+      font-family: Arial, sans-serif;
       margin: 0;
       padding: 0;
+      background-color: #f9f9f9;
+      color: #222;
+    }
+
+    .navbar {
+      background-color: #000;
+      padding: 10px 0;
+      text-align: center;
+    }
+    .navbar ul {
+      list-style: none;
+      margin: 0;
+      padding: 0;
+    }
+    .navbar li {
+      display: inline-block;
+      margin: 0 15px;
+    }
+    .navbar a {
+      color: gold;
+      font-weight: bold;
+      text-decoration: none;
+      font-size: 16px;
+    }
+
+    .checkout-box {
+      width: 90%;
+      max-width: 450px;
+      margin: 30px auto;
+      padding: 20px;
+      background: #fff;
+      border-radius: 12px;
+      box-shadow: 0 0 10px rgba(0,0,0,0.1);
       text-align: center;
     }
 
-    /* ✅ Navbar */
-    .navbar {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      background: #ffffff;
-      padding: 14px 22px;
-      border-bottom: 1px solid #f2f2f2;
-      box-shadow: 0 1px 5px rgba(0,0,0,0.05);
-      position: sticky;
-      top: 0;
-      z-index: 1000;
-    }
-    .navbar .logo a {
-      text-decoration: none;
-      font-size: 22px;
-      font-weight: 700;
-      color: #000;
-      letter-spacing: 0.5px;
-    }
-    .nav-links {
-      list-style: none;
-      display: flex;
-      gap: 20px;
-      justify-content: center;
-      padding: 0;
-      margin: 0;
-    }
-    .nav-links a {
-      text-decoration: none;
-      color: #000;
-      font-weight: 500;
-      font-size: 15px;
-      transition: color 0.3s ease;
-    }
-    .nav-links a:hover {
-      color: #b8914a;
+    .product-img {
+      width: 100%;
+      border-radius: 10px;
+      margin-bottom: 15px;
     }
 
-    /* ✅ Checkout Container */
-    .checkout-container {
-      max-width: 420px;
-      margin: 70px auto 40px;
-      background: white;
-      padding: 25px;
-      border-radius: 15px;
-      box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
-    }
-    .checkout-container h1 {
-      font-size: 24px;
-      margin-bottom: 10px;
-    }
-    .product-image {
-      width: 100%;
-      max-width: 260px;
-      border-radius: 12px;
-      margin-top: 10px;
-      margin-bottom: 10px;
-    }
-    .product-name {
-      font-size: 18px;
-      font-weight: 600;
-      margin-top: 10px;
-    }
-    .product-price {
-      font-size: 18px;
-      font-weight: bold;
-      color: #b8914a;
-      margin-top: 5px;
-    }
     button {
-      background-color: #000;
-      color: white;
+      background-color: black;
+      color: gold;
+      padding: 12px 20px;
       border: none;
-      padding: 10px 25px;
-      font-size: 16px;
-      border-radius: 5px;
+      border-radius: 8px;
+      font-size: 18px;
       cursor: pointer;
-      margin-top: 15px;
-      transition: 0.2s ease;
+      width: 100%;
     }
     button:hover {
-      opacity: 0.9;
-      transform: scale(1.02);
-    }
-
-    footer {
-      text-align: center;
-      font-size: 14px;
-      color: #777;
-      margin-top: 50px;
-      padding-bottom: 10px;
-    }
-    footer a {
-      color: #000;
-      text-decoration: none;
-      font-weight: 500;
-    }
-    footer a:hover {
-      color: #b8914a;
-    }
-
-    /* ✅ Responsive (mobile-friendly) */
-    @media (max-width: 600px) {
-      .navbar {
-        flex-direction: column;
-        align-items: flex-start;
-      }
-      .nav-links {
-        justify-content: flex-start;
-        gap: 10px;
-        flex-wrap: wrap;
-      }
-      .checkout-container {
-        width: 90%;
-        padding: 20px;
-      }
+      opacity: 0.85;
     }
   </style>
 </head>
 
 <body>
 
-  <!-- ✅ Navbar -->
+  <!-- NAVBAR -->
   <nav class="navbar">
-    <div class="logo">
-      <a href="index.html">THE OUTFITS</a>
-    </div>
-    <ul class="nav-links">
+    <ul>
       <li><a href="index.html">Home</a></li>
       <li><a href="contact.html">Contact</a></li>
-      <li><a href="privacy.html">Privacy</a></li>
-      <li><a href="refunds.html">Refund</a></li>
-      <li><a href="shipping.html">Shipping</a></li>
-      <li><a href="terms.html">Terms</a></li>
+      <li><a href="privacy.html">Privacy Policy</a></li>
+      <li><a href="refunds.html">Refund & Cancellation</a></li>
+      <li><a href="terms.html">Terms & Conditions</a></li>
+      <li><a href="shipping.html">Shipping Policy</a></li>
     </ul>
   </nav>
 
-  <!-- ✅ Checkout Section -->
-  <div class="checkout-container">
-    <h1>Checkout</h1>
-    <img class="product-image" src="" alt="Product Image" />
-    <h2 class="product-name">Sample Product</h2>
-    <p class="product-price">₹999</p>
+  <div class="checkout-box">
+    <h2>Checkout</h2>
 
-    <p>Clicking pay will open Razorpay checkout (demo key). After approval, we will replace with real key.</p>
-    <button id="payButton">Pay Now</button>
+    <img id="productImage" class="product-img" src="" alt="Product">
+
+    <h3 id="productName"></h3>
+    <p><strong>Price:</strong> ₹<span id="productPrice"></span></p>
+
+    <button onclick="payNow()">Pay Now</button>
   </div>
 
-  <footer>
-    © 2025 The Outfits. All rights reserved. |
-    <a href="contact.html">Contact Us</a>
-  </footer>
+  <!-- Razorpay Script -->
+  <script src="https://checkout.razorpay.com/v1/checkout.js"></script>
 
-  <!-- ✅ Product Script -->
   <script>
+    // Get product details from URL
     const urlParams = new URLSearchParams(window.location.search);
-    const name = urlParams.get('name') || 'Sample Product';
-    const price = urlParams.get('price') || '999';
-    const img = urlParams.get('img');
+    const productName = urlParams.get("name");
+    const productPrice = urlParams.get("price");
+    const productImage = urlParams.get("img");
 
-    document.querySelector('.product-name').textContent = name;
-    document.querySelector('.product-price').textContent = `₹${price}`;
+    document.getElementById("productName").innerText = productName;
+    document.getElementById("productPrice").innerText = productPrice;
+    document.getElementById("productImage").src = productImage;
 
-    const productImage = document.querySelector('.product-image');
-    if (img) {
-      productImage.src = decodeURIComponent(img);
-    } else {
-      productImage.src = 'https://images.pexels.com/photos/1043474/pexels-photo-1043474.jpeg';
+    function payNow() {
+      var options = {
+        key: "rzp_live_RiXHePk5XFtAha", 
+        amount: productPrice * 100,
+        currency: "INR",
+        name: "The Outfits",
+        description: productName,
+        image: "https://raw.githubusercontent.com/samfiat46-72/the-outfits/main/1logo.png",
+
+        handler: function (response) {
+          window.location.href = "thankyou.html";
+        }
+      };
+
+      var rzp = new Razorpay(options);
+      rzp.open();
     }
   </script>
+
 </body>
 </html>
