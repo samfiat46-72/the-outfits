@@ -1,119 +1,212 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Checkout - The Outfits</title>
 
+  <!-- Navigation + Logo Styling -->
   <style>
     body {
       font-family: Arial, sans-serif;
       margin: 0;
       padding: 0;
-      background-color: #f9f9f9;
-      color: #222;
+      background: #ffffff;
     }
 
-    .navbar {
-      background-color: #000;
-      padding: 10px 0;
+    header {
+      text-align: left;
+      padding: 15px 20px;
+    }
+
+    header img {
+      width: 110px;
+      height: auto;
+    }
+
+    nav {
+      background: #000;
+      padding: 12px 0;
       text-align: center;
     }
-    .navbar ul {
-      list-style: none;
-      margin: 0;
-      padding: 0;
-    }
-    .navbar li {
-      display: inline-block;
-      margin: 0 15px;
-    }
-    .navbar a {
-      color: gold;
-      font-weight: bold;
-      text-decoration: none;
+
+    nav a {
+      color: white;
+      margin: 0 12px;
       font-size: 16px;
+      text-decoration: none;
+      padding-bottom: 6px;
+      border-bottom: 2px solid transparent;
+      transition: 0.3s;
     }
 
-    .checkout-box {
-      width: 90%;
-      max-width: 450px;
+    nav a.active {
+      border-bottom: 2px solid #d4a017;
+    }
+
+    nav a:hover {
+      color: #d4a017;
+    }
+
+    .container {
+      max-width: 600px;
       margin: 30px auto;
-      padding: 20px;
       background: #fff;
-      border-radius: 12px;
-      box-shadow: 0 0 10px rgba(0,0,0,0.1);
+      padding: 25px;
+      border-radius: 10px;
+      box-shadow: 0 0 10px #00000015;
       text-align: center;
     }
 
     .product-img {
       width: 100%;
+      max-height: 320px;
+      object-fit: contain;
       border-radius: 10px;
       margin-bottom: 15px;
     }
 
     button {
-      background-color: black;
-      color: gold;
-      padding: 12px 20px;
+      background: #000;
+      color: #fff;
+      padding: 12px 25px;
       border: none;
-      border-radius: 8px;
       font-size: 18px;
+      border-radius: 6px;
       cursor: pointer;
-      width: 100%;
+      margin-top: 15px;
+      transition: 0.3s;
     }
+
     button:hover {
-      opacity: 0.85;
+      background: #444;
     }
   </style>
+
+  <script src="https://checkout.razorpay.com/v1/checkout.js"></script>
 </head>
 
 <body>
 
-  <!-- NAVBAR -->
-  <nav class="navbar">
-    <ul>
-      <li><a href="index.html">Home</a></li>
-      <li><a href="contact.html">Contact</a></li>
-      <li><a href="privacy.html">Privacy Policy</a></li>
-      <li><a href="refunds.html">Refund & Cancellation</a></li>
-      <li><a href="terms.html">Terms & Conditions</a></li>
-      <li><a href="shipping.html">Shipping Policy</a></li>
-    </ul>
+  <!-- HEADER -->
+  <header>
+    <img src="https://raw.githubusercontent.com/samfiat46-72/the-outfits/main/1logo.png" alt="The Outfits Logo" />
+  </header>
+
+  <!-- NAVIGATION -->
+  <nav>
+    <a href="index.html">Home</a>
+    <a href="contact.html">Contact</a>
+    <a href="privacy.html">Privacy Policy</a>
+    <a href="refunds.html">Refund & Cancellation</a>
+    <a href="terms.html">Terms & Conditions</a>
+    <a href="shipping.html">Shipping Policy</a>
   </nav>
 
-  <div class="checkout-box">
-    <h2>Checkout</h2>
+  <!-- MAIN CONTENT -->
+  <div class="container">
+    <h2 id="pname">Loading Product...</h2>
+    <img id="pimg" class="product-img" src="" alt="Product Image">
+    <h3 id="pprice"></h3>
 
-    <img id="productImage" class="product-img" src="" alt="Product">
-
-    <h3 id="productName"></h3>
-    <p><strong>Price:</strong> ₹<span id="productPrice"></span></p>
-
-    <button onclick="payNow()">Pay Now</button>
+    <button id="payBtn">Pay Now</button>
   </div>
 
-  <!-- Razorpay Script -->
-  <script src="https://checkout.razorpay.com/v1/checkout.js"></script>
-
   <script>
-    // Get product details from URL
+    // --------------------------
+    // ALL 16 PRODUCTS
+    // --------------------------
+    const products = {
+      "Classic Brown Shirt": {
+        price: 499,
+        image: "https://raw.githubusercontent.com/samfiat46-72/the-outfits/main/file_000000007858720986492e98d02007b0.png"
+      },
+      "Classic Black Shirt": {
+        price: 499,
+        image: "https://raw.githubusercontent.com/samfiat46-72/the-outfits/main/file_000000005b0071fa9bf9d3be21d57de1%20(1).png"
+      },
+      "Casual Red Half Sleeves Shirt": {
+        price: 499,
+        image: "https://raw.githubusercontent.com/samfiat46-72/the-outfits/main/file_000000004e8c7207ab5183d81ef59441.png"
+      },
+      "Casual White Half Sleeves Shirt": {
+        price: 499,
+        image: "https://raw.githubusercontent.com/samfiat46-72/the-outfits/main/file_00000000197072078cf4117611fb025c.png"
+      },
+      "Stylish T-Shirt": {
+        price: 399,
+        image: "https://raw.githubusercontent.com/samfiat46-72/the-outfits/main/file_000000004f28720681774458c21e9aa4.png"
+      },
+      "Premium T-Shirt": {
+        price: 399,
+        image: "https://raw.githubusercontent.com/samfiat46-72/the-outfits/main/file_00000000bcb472068ac83e1cbe3c59a6.png"
+      },
+      "Casual T-Shirt": {
+        price: 399,
+        image: "https://raw.githubusercontent.com/samfiat46-72/the-outfits/main/file_000000004e7c7206a6f0978ff6a75981.png"
+      },
+      "Body Fit T-Shirt": {
+        price: 399,
+        image: "https://raw.githubusercontent.com/samfiat46-72/the-outfits/main/file_0000000043447206a33a5410f218627a.png"
+      },
+      "Stylish Zipper Jacket": {
+        price: 599,
+        image: "https://raw.githubusercontent.com/samfiat46-72/the-outfits/main/file_000000004d947206a95b615109630ed5.png"
+      },
+      "Premium Zipper Jacket": {
+        price: 599,
+        image: "https://raw.githubusercontent.com/samfiat46-72/the-outfits/main/file_00000000bb20720985adceedf0c60ea4.png"
+      },
+      "Cool Zipper Jacket": {
+        price: 599,
+        image: "https://raw.githubusercontent.com/samfiat46-72/the-outfits/main/file_000000000e747209b83eb81088e179a8.png"
+      },
+      "Stylish Zipper Jacket 2": {
+        price: 599,
+        image: "https://raw.githubusercontent.com/samfiat46-72/the-outfits/main/file_0000000065707209bf0fa12884a75aef.png"
+      },
+      "Cream Formal Pant": {
+        price: 699,
+        image: "https://raw.githubusercontent.com/samfiat46-72/the-outfits/main/file_00000000b3d472099ab2579c282473ff.png"
+      },
+      "Brown Formal Pant": {
+        price: 699,
+        image: "https://raw.githubusercontent.com/samfiat46-72/the-outfits/main/file_000000004cd07209ba9b3c8ec999bb93.png"
+      },
+      "Green Cargo": {
+        price: 799,
+        image: "https://raw.githubusercontent.com/samfiat46-72/the-outfits/main/file_00000000eddc7207a609976d8f910b18%20(1).png"
+      },
+      "Grey Cargo": {
+        price: 799,
+        image: "https://raw.githubusercontent.com/samfiat46-72/the-outfits/main/file_00000000c0847207a911de4823145cf6.png"
+      }
+    };
+
+    // --------------------------
+    // LOAD SELECTED PRODUCT
+    // --------------------------
     const urlParams = new URLSearchParams(window.location.search);
-    const productName = urlParams.get("name");
-    const productPrice = urlParams.get("price");
-    const productImage = urlParams.get("img");
+    const pname = urlParams.get("name");
 
-    document.getElementById("productName").innerText = productName;
-    document.getElementById("productPrice").innerText = productPrice;
-    document.getElementById("productImage").src = productImage;
+    if (products[pname]) {
+      document.getElementById("pname").textContent = pname;
+      document.getElementById("pimg").src = products[pname].image;
+      document.getElementById("pprice").textContent = "₹" + products[pname].price;
+    }
 
-    function payNow() {
-      var options = {
-        key: "rzp_live_RiXHePk5XFtAha", 
-        amount: productPrice * 100,
+    // --------------------------
+    // RAZORPAY LIVE PAYMENT
+    // --------------------------
+    document.getElementById("payBtn").onclick = function () {
+      const price = products[pname].price * 100;
+
+      const options = {
+        key: "rzp_live_RiXHePk5XFtAha",
+        amount: price,
         currency: "INR",
         name: "The Outfits",
-        description: productName,
+        description: pname,
         image: "https://raw.githubusercontent.com/samfiat46-72/the-outfits/main/1logo.png",
 
         handler: function (response) {
@@ -121,9 +214,9 @@
         }
       };
 
-      var rzp = new Razorpay(options);
+      const rzp = new Razorpay(options);
       rzp.open();
-    }
+    };
   </script>
 
 </body>
