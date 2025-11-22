@@ -377,6 +377,42 @@ section {
 /* ---------- Optional: mobile nav collapse (simple) ---------- */
 /* If you later want a hamburger, we can add JS + CSS to toggle .nav-right */
     </style>
+    <style>
+#bottom-nav {
+  position: fixed;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  height: 64px;
+  background: #fff;
+  box-shadow: 0 -6px 18px rgba(0,0,0,0.08);
+  z-index: 9999;
+  border-top-left-radius: 10px;
+  border-top-right-radius: 10px;
+  font-family: "Poppins", Arial, sans-serif;
+}
+#bottom-nav ul {
+  list-style: none;
+  margin: 0;
+  padding: 6px 10px 8px;
+  display: flex;
+  justify-content: space-between;
+  gap: 6px;
+  align-items: center;
+}
+#bottom-nav a {
+  display: inline-flex;
+  flex-direction: column;
+  align-items: center;
+  color: #444;
+  text-decoration: none;
+  font-size: 11px;
+}
+.active svg {
+  transform: scale(1.1);
+  color: #b8914a;
+}
+    </style>
   </head>
 
   <body>
@@ -614,110 +650,5 @@ if ("serviceWorker" in navigator) {
   </ul>
 </nav>
 
-<style>
-  /* Bottom nav container */
-  #bottom-nav {
-    position: fixed;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    height: 64px;
-    background: #fff;
-    box-shadow: 0 -6px 18px rgba(0,0,0,0.08);
-    z-index: 9999;
-    border-top-left-radius: 10px;
-    border-top-right-radius: 10px;
-    font-family: "Poppins", Arial, sans-serif;
-  }
-
-  #bottom-nav ul {
-    list-style: none;
-    margin: 0;
-    padding: 6px 10px 8px;
-    display: flex;
-    justify-content: space-between;
-    gap: 6px;
-    align-items: center;
-    max-width: 1200px;
-    margin-left: auto;
-    margin-right: auto;
-  }
-
-  #bottom-nav li {
-    flex: 1 1 0;
-    text-align: center;
-  }
-
-  #bottom-nav a {
-    display: inline-flex;
-    flex-direction: column;
-    align-items: center;
-    gap: 4px;
-    text-decoration: none;
-    color: #444;
-    font-size: 11px;
-    padding: 2px 6px;
-    position: relative;
-    transition: color .15s ease, transform .12s ease;
-  }
-  
-</style>
-    <script>
-(function(){
-
-  const anchors = document.querySelectorAll('#bottom-nav a');
-  const path = location.pathname.split('/').pop() || 'index.html';
-
-  const map = {
-    'index.html':'home',
-    '':'home',
-    'checkout.html':'cart',
-    'contact.html':'home',
-    'privacy.html':'home',
-    'terms.html':'home',
-    'shipping.html':'home',
-    'thankyou.html':'orders'
-  };
-
-  let currentTab = 'home';
-  if (map[path]) currentTab = map[path];
-
-  anchors.forEach(a=>{
-    if (a.dataset.tab === currentTab) a.classList.add('active');
-    a.addEventListener('click', ()=>{
-      a.classList.add('active');
-      setTimeout(()=>a.classList.remove('active'), 400);
-    });
-  });
-
-  const badge = document.getElementById('cart-badge');
-  function updateBadge() {
-    let count = 0;
-    try {
-      count = parseInt(localStorage.getItem('theOutfits_cart_count') || '0', 10);
-    } catch(e){ count = 0; }
-    badge.textContent = count > 99 ? '99+' : count;
-    badge.style.display = count > 0 ? 'inline-block' : 'none';
-  }
-  updateBadge();
-
-  window.theOutfits = window.theOutfits || {};
-  window.theOutfits.setCartCount = function(n){
-    n = parseInt(n || 0,10);
-    localStorage.setItem('theOutfits_cart_count', String(n));
-    updateBadge();
-  };
-
-  window.theOutfits.incrementCart = function(by){
-    const old = parseInt(localStorage.getItem('theOutfits_cart_count')||'0',10);
-    window.theOutfits.setCartCount(old + (parseInt(by||1,10)));
-  };
-
-  window.addEventListener('storage', (e)=>{
-    if (e.key === 'theOutfits_cart_count') updateBadge();
-  });
-
-})();
-    </script>
   </body>
   </html>
