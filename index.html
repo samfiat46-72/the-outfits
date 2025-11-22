@@ -515,5 +515,220 @@ if ("serviceWorker" in navigator) {
   navigator.serviceWorker.register("/service-worker.js");
 }
   </script>
+    <!-- Bottom fixed navigation (gold accent) -->
+<nav id="bottom-nav" aria-label="Primary" role="navigation">
+  <ul>
+    <li>
+      <a href="index.html" data-tab="home" aria-label="Home">
+        <!-- Home icon -->
+        <svg viewBox="0 0 24 24" width="24" height="24" aria-hidden="true">
+          <path fill="currentColor" d="M12 3l8 6v11a1 1 0 0 1-1 1h-5v-6H10v6H5a1 1 0 0 1-1-1V9l8-6z"/>
+        </svg>
+        <span>Home</span>
+      </a>
+    </li>
+    <li>
+      <a href="index.html#categories" data-tab="categories" aria-label="Categories">
+        <!-- Categories icon -->
+        <svg viewBox="0 0 24 24" width="24" height="24" aria-hidden="true">
+          <path fill="currentColor" d="M3 5h8v8H3zM13 5h8v8h-8zM3 15h8v4H3zM13 15h8v4h-8z"/>
+        </svg>
+        <span>Categories</span>
+      </a>
+    </li>
+    <li>
+      <a href="index.html#mall" data-tab="mall" aria-label="Mall">
+        <!-- Mall / Star icon -->
+        <svg viewBox="0 0 24 24" width="28" height="28" aria-hidden="true">
+          <path fill="currentColor" d="M12 2l2.5 5L20 9l-4 3 1 6-5-3-5 3 1-6L4 9l5.5-2L12 2z"/>
+        </svg>
+        <span>Mall</span>
+      </a>
+    </li>
+    <li>
+      <a href="checkout.html" data-tab="cart" aria-label="Cart" id="cart-link">
+        <!-- Cart icon -->
+        <svg viewBox="0 0 24 24" width="24" height="24" aria-hidden="true">
+          <path fill="currentColor" d="M7 4h-2l-1 2h2l3.6 7.59L8.25 18A1 1 0 0 0 9 20h8a1 1 0 0 0 .85-1.54L16.2 13H9.1"/>
+        </svg>
+        <span>Cart</span>
+        <b id="cart-badge" aria-hidden="true">0</b>
+      </a>
+    </li>
+    <li>
+      <a href="thankyou.html" data-tab="orders" aria-label="My Orders">
+        <!-- Orders icon -->
+        <svg viewBox="0 0 24 24" width="24" height="24" aria-hidden="true">
+          <path fill="currentColor" d="M3 6h18v2H3zM3 10h18v2H3zM3 14h18v2H3z"/>
+        </svg>
+        <span>My Orders</span>
+      </a>
+    </li>
+  </ul>
+</nav>
+
+<style>
+  /* Bottom nav container */
+  #bottom-nav {
+    position: fixed;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    height: 64px;
+    background: #fff;
+    box-shadow: 0 -6px 18px rgba(0,0,0,0.08);
+    z-index: 9999;
+    border-top-left-radius: 10px;
+    border-top-right-radius: 10px;
+    font-family: "Poppins", Arial, sans-serif;
+  }
+
+  #bottom-nav ul {
+    list-style: none;
+    margin: 0;
+    padding: 6px 10px 8px;
+    display: flex;
+    justify-content: space-between;
+    gap: 6px;
+    align-items: center;
+    max-width: 1200px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  #bottom-nav li {
+    flex: 1 1 0;
+    text-align: center;
+  }
+
+  #bottom-nav a {
+    display: inline-flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 4px;
+    text-decoration: none;
+    color: #444;
+    font-size: 11px;
+    padding: 2px 6px;
+    position: relative;
+    transition: color .15s ease, transform .12s ease;
+  }
+
+  /* Gold accent for icons and active state */
+  #bottom-nav a svg { 
+    display: block;
+    width: 22px;
+    height: 22px;
+    color: #b8914a; /* gold color */
+    opacity: .95;
+    transition: transform .12s ease, color .12s ease;
+  }
+
+  #bottom-nav a span { display: block; line-height: 1; margin-top: 2px; }
+
+  /* badge (cart) */
+  #cart-badge {
+    position: absolute;
+    top: 4px;
+    right: 22%;
+    min-width: 18px;
+    height: 18px;
+    line-height: 18px;
+    font-size: 10px;
+    border-radius: 9px;
+    background: #b8914a; /* gold */
+    color: white;
+    display: inline-block;
+    padding: 0 5px;
+    box-shadow: 0 2px 6px rgba(0,0,0,0.15);
+    transform: translateY(-4px);
+  }
+
+  /* Active state: bigger + darker */
+  #bottom-nav a.active {
+    color: #222;
+  }
+  #bottom-nav a.active svg {
+    transform: translateY(-2px) scale(1.05);
+    color: #b8914a;
+  }
+
+  /* prevent site bottom content being hidden */
+  body { padding-bottom: 78px; } /* adjust if nav height changes */
+
+  /* Small-screen tweaks */
+  @media (max-width:420px) {
+    #bottom-nav { height:68px; }
+    #bottom-nav a svg { width:22px; height:22px; }
+    #bottom-nav ul { padding-left:10px; padding-right:10px; }
+  }
+
+  /* If you want iconic center button highlight (Mall) */
+  #bottom-nav li:nth-child(3) a svg {
+    border-radius: 10px;
+    padding: 2px;
+  }
+</style>
+
+<script>
+  (function(){
+    // Active tab highlight based on URL
+    const anchors = document.querySelectorAll('#bottom-nav a');
+    const path = location.pathname.split('/').pop() || 'index.html';
+
+    // Map common names -> tab
+    const map = {
+      'index.html':'home',
+      '':'home',
+      'checkout.html':'cart',
+      'contact.html':'home',
+      'privacy.html':'home',
+      'terms.html':'home',
+      'shipping.html':'home',
+      'thankyou.html':'orders'
+    };
+
+    let currentTab = 'home';
+    if (map[path]) currentTab = map[path];
+
+    anchors.forEach(a=>{
+      if (a.dataset.tab === currentTab) a.classList.add('active');
+      a.addEventListener('click', ()=> {
+        // add small click animation
+        a.classList.add('active');
+        setTimeout(()=>a.classList.remove('active'), 400);
+      });
+    });
+
+    // Simple cart badge using localStorage (so page-to-page persists)
+    const badge = document.getElementById('cart-badge');
+    function updateBadge() {
+      let count = 0;
+      try {
+        count = parseInt(localStorage.getItem('theOutfits_cart_count') || '0', 10);
+      } catch(e){ count = 0; }
+      badge.textContent = count > 99 ? '99+' : count;
+      badge.style.display = count > 0 ? 'inline-block' : 'none';
+    }
+    updateBadge();
+
+    // Expose helper so you can change count from other scripts:
+    window.theOutfits = window.theOutfits || {};
+    window.theOutfits.setCartCount = function(n){
+      n = parseInt(n || 0,10);
+      localStorage.setItem('theOutfits_cart_count', String(n));
+      updateBadge();
+    };
+    window.theOutfits.incrementCart = function(by){
+      const old = parseInt(localStorage.getItem('theOutfits_cart_count')||'0',10);
+      window.theOutfits.setCartCount(old + (parseInt(by||1,10)));
+    };
+
+    // Optionally: update badge if localStorage changed in other tab
+    window.addEventListener('storage', (e)=>{
+      if (e.key === 'theOutfits_cart_count') updateBadge();
+    });
+  })();
+</script>
   </body>
   </html>
