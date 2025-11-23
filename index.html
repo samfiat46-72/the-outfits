@@ -364,28 +364,188 @@
         .nav-right { gap: 20px; }
         #bottom-nav { display: none; } /* Hide bottom nav on desktop */
       }
+      <!-- PASTE INSIDE <head> -->
+<style>
+/* --- Meesho-style top header --- */
+.mheader {
+  display:flex;
+  align-items:center;
+  gap:12px;
+  padding:10px 14px;
+  border-bottom:1px solid #f2f2f2;
+  background:#fff;
+  position:sticky;
+  top:0;
+  z-index:1200;
+}
+
+.mheader .left {
+  display:flex;
+  align-items:center;
+  gap:10px;
+  min-width:120px;
+}
+
+.mheader .logo {
+  width:86px;
+  height:auto;
+  display:block;
+}
+
+.mheader .pincode {
+  font-size:13px;
+  color:#333;
+  background:#f6f6f7;
+  padding:6px 10px;
+  border-radius:8px;
+  display:flex;
+  gap:8px;
+  align-items:center;
+}
+
+.mheader .search {
+  flex:1;
+  display:flex;
+  align-items:center;
+  gap:10px;
+  background:#f6f6f7;
+  padding:8px 12px;
+  border-radius:10px;
+  margin:0 12px;
+}
+
+.mheader .search input{
+  flex:1;
+  border:0;
+  outline:none;
+  background:transparent;
+  font-size:15px;
+  color:#111;
+}
+
+.mheader .icons {
+  display:flex;
+  gap:10px;
+  align-items:center;
+}
+
+.icon-btn {
+  width:38px;
+  height:38px;
+  display:inline-flex;
+  align-items:center;
+  justify-content:center;
+  border-radius:8px;
+  background:transparent;
+  border:0;
+  cursor:pointer;
+  font-size:18px;
+  color:#333;
+}
+
+/* Category carousel minimal style */
+.cat-row {
+  display:flex;
+  gap:12px;
+  overflow-x:auto;
+  padding:10px 14px;
+  background:#fff;
+  border-bottom:1px solid #fbfbfb;
+  -webkit-overflow-scrolling:touch;
+}
+.cat-item {
+  display:flex;
+  flex-direction:column;
+  align-items:center;
+  gap:6px;
+  min-width:72px;
+  padding:8px;
+  border-radius:10px;
+  background:#fff;
+  text-align:center;
+  font-size:13px;
+  color:#333;
+  flex:0 0 auto;
+}
+.cat-item img { width:44px; height:44px; object-fit:cover; border-radius:8px; }
+
+/* small responsive tweaks */
+@media (max-width:520px){
+  .mheader .pincode { display:none; }
+  .mheader .search { margin:0 8px; }
+  .mheader .logo { width:78px; }
+}
+  /* Filter / Sort Bar - Meesho style */
+.filter-row {
+  display: flex;
+  justify-content: space-between;
+  padding: 10px 12px;
+  background: #fff;
+  border-bottom: 1px solid #eee;
+  position: sticky;
+  top: 70px;
+  z-index: 900;
+}
+
+.f-btn {
+  background: #fff;
+  border: 1px solid #ddd;
+  padding: 6px 12px;
+  font-size: 13px;
+  border-radius: 8px;
+  color: #333;
+  cursor: pointer;
+}
+
+.f-btn:hover {
+  background: #f7f7f7;
+  }
+</style>
     </style>
 
   </head>
 
   <body>
-    
-<nav class="navbar">
-    <div class="nav-left">
-        <img src="https://raw.githubusercontent.com/samfiat46-72/the-outfits/main/1logo.png"
-             class="site-logo"
-             alt="The Outfits Logo">
+    <!-- PASTE IN BODY where old <nav> was -->
+<header class="mheader" role="banner" aria-label="Site header">
+  <div class="left">
+    <img src="https://raw.githubusercontent.com/samfiat46-72/the-outfits/main/1logo.png" alt="The Outfits" class="logo">
+    <div class="pincode" aria-hidden="true">
+      <svg width="14" height="14" viewBox="0 0 24 24" fill="none"><path d="M12 2C8 2 5 5.2 5 9.5 5 14.8 12 22 12 22s7-7.2 7-12.5C19 5.2 16 2 12 2z" fill="#c5a04f"/></svg>
+      <span>Deliver to</span>
     </div>
+  </div>
 
-    <ul class="nav-right">
-      <li><a href="index.html" class="active">Home</a></li>
-      <li><a href="contact.html">Contact</a></li>
-      <li><a href="privacy.html">Privacy</a></li>
-      <li><a href="refunds.html">Refund</a></li>
-      <li><a href="shipping.html">Shipping</a></li>
-      <li><a href="terms.html">Terms</a></li>
-    </ul>
-</nav>
+  <div class="search" role="search">
+    <svg width="18" height="18" viewBox="0 0 24 24" fill="none"><path d="M21 21l-4.35-4.35" stroke="#999" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/><circle cx="11" cy="11" r="6" stroke="#999" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>
+    <input type="search" placeholder="Search for products, brands and more" aria-label="Search">
+    <button class="icon-btn" aria-hidden="true" title="Voice search">🎤</button>
+  </div>
+
+  <div class="icons" aria-hidden="true">
+    <button class="icon-btn" title="Account">👤</button>
+    <button class="icon-btn" title="Cart">🛒</button>
+  </div>
+</header>
+
+<!-- Category row (Meesho style) -->
+<div class="cat-row" role="region" aria-label="Categories">
+  <!-- Example categories: replace src/text or keep as placeholders -->
+  <div class="cat-item"><img src="https://raw.githubusercontent.com/samfiat46-72/the-outfits/main/file_000000007858720986492e98d02007b0.png" alt=""><span>Shirts</span></div>
+  <div class="cat-item"><img src="https://raw.githubusercontent.com/samfiat46-72/the-outfits/main/file_000000005b0071fa9bf9d3be21d57de1%20(1).png" alt=""><span>T-Shirts</span></div>
+  <div class="cat-item"><img src="https://raw.githubusercontent.com/samfiat46-72/the-outfits/main/file_000000004e8c7207ab5183d81ef59441.png" alt=""><span>Half Shirts</span></div>
+  <div class="cat-item"><img src="https://raw.githubusercontent.com/samfiat46-72/the-outfits/main/file_000000004f28720681774458c21e9aa4.png" alt=""><span>Trousers</span></div>
+  <div class="cat-item"><img src="https://raw.githubusercontent.com/samfiat46-72/the-outfits/main/file_00000000bcb472068ac83e1cbe3c59a6.png" alt=""><span>Tees</span></div>
+  <div class="cat-item"><img src="https://raw.githubusercontent.com/samfiat46-72/the-outfits/main/file_00000000eddc7207a609976d8f910b18%20(1).png" alt=""><span>Cargos</span></div>
+  <!-- add more items as needed -->
+</div>
+    <!-- Filter / Sort Row (Meesho style) -->
+<div class="filter-row" role="region" aria-label="Filter Bar">
+  <button class="f-btn">⇅ Sort</button>
+  <button class="f-btn">Category ▼</button>
+  <button class="f-btn">Gender ▼</button>
+  <button class="f-btn">⚙ Filters</button>
+</div>
     
     <section class="hero">
       <h1>Elevate Your Style</h1>
