@@ -501,6 +501,66 @@
   background: #f7f7f7;
   }
 </style>
+  /* PART D : CATEGORY SECTION */
+<style>
+.category-section {
+    padding: 20px;
+    margin-top: 20px;
+}
+
+.category-container {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 15px;
+}
+
+.category-card {
+    background: #fff;
+    padding: 15px;
+    border-radius: 12px;
+    box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+    text-align: center;
+    transition: 0.3s;
+}
+
+.category-card img {
+    width: 100%;
+    border-radius: 12px;
+}
+
+.category-card p {
+    margin-top: 10px;
+    font-size: 15px;
+    font-weight: 600;
+}
+  /* PART E : HOME BANNER SLIDER */
+.banner-slider {
+    width: 100%;
+    overflow-x: scroll;
+    white-space: nowrap;
+    scroll-snap-type: x mandatory;
+    -webkit-overflow-scrolling: touch;
+    margin: 20px 0;
+}
+
+.banner-slider::-webkit-scrollbar {
+    display: none; /* Hide scrollbar for cleaner look */
+}
+
+.banner-slide {
+    display: inline-block;
+    width: 100%;
+    scroll-snap-align: center;
+    border-radius: 12px;
+    overflow: hidden;
+}
+
+.banner-slide img {
+    width: 100%;
+    height: auto;
+    border-radius: 12px;
+    object-fit: cover;
+}
     </style>
 
   </head>
@@ -546,7 +606,50 @@
   <button class="f-btn">Gender ▼</button>
   <button class="f-btn">⚙ Filters</button>
 </div>
-    
+  <!-- PART D : CATEGORY CARDS -->
+<section class="category-section">
+    <h2 class="section-title">Top Categories to Choose From</h2>
+
+    <div class="category-container">
+
+        <div class="category-card">
+            <img src="images/women-western.jpg" alt="Women Western">
+            <p>Women Western</p>
+        </div>
+
+        <div class="category-card">
+            <img src="images/men-wear.jpg" alt="Men Wear">
+            <p>Men Wear</p>
+        </div>
+
+        <div class="category-card">
+            <img src="images/kids-wear.jpg" alt="Kids Wear">
+            <p>Kids Wear</p>
+        </div>
+
+        <div class="category-card">
+            <img src="images/home-kitchen.jpg" alt="Home & Kitchen">
+            <p>Home & Kitchen</p>
+        </div>
+
+    </div>
+</section>
+    <!-- PART E : HOME BANNER SLIDER -->
+<div class="banner-slider">
+
+    <div class="banner-slide">
+        <img src="https://images.unsplash.com/photo-1512436991641-6745cdb1723f?auto=format&fit=crop&w=900&q=60" alt="Fashion Sale">
+    </div>
+
+    <div class="banner-slide">
+        <img src="https://images.unsplash.com/photo-1539109136881-3be0616acf4c?auto=format&fit=crop&w=900&q=60" alt="New Collections">
+    </div>
+
+    <div class="banner-slide">
+        <img src="https://images.unsplash.com/photo-1521335629791-ce4aec67dd47?auto=format&fit=crop&w=900&q=60" alt="Trendy Styles">
+    </div>
+
+</div>
     <section class="hero">
       <h1>Elevate Your Style</h1>
       <p>Explore the latest trends in fashion — designed to make you stand out.</p>
