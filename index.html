@@ -573,5 +573,83 @@ if ("serviceWorker" in navigator) {
     </li>
   </ul>
 </nav>
-  </body>
+
+<script>
+// 1. Bottom Navigation Active State Handler
+document.addEventListener('DOMContentLoaded', () => {
+    const bottomNavLinks = document.querySelectorAll('#bottom-nav a');
+    const currentPath = window.location.pathname.split('/').pop() || 'index.html';
+    
+    // Function to check if a link matches the current page
+    const getTabName = (href) => {
+        if (href.includes('index.html')) return 'home';
+        if (href.includes('checkout.html')) return 'cart';
+        if (href.includes('thankyou.html')) return 'orders';
+        return ''; // Default
+    };
+
+    // Remove active class from all first
+    bottomNavLinks.forEach(link => {
+        link.classList.remove('active');
+    });
+
+    // Determine the active link based on the page name
+    let activeLinkFound = false;
+    
+    // Check for exact page match first (Home, Cart, Orders)
+    bottomNavLinks.forEach(link => {
+        const linkHref = link.getAttribute('href').split('/').pop();
+        if (linkHref === currentPath) {
+            link.classList.add('active');
+            activeLinkFound = true;
+        }
+    });
+
+    // If no exact match (e.g., currently on index.html, but clicked the Categories or Mall links which point to index.html#anchor)
+    if (!activeLinkFound && currentPath === 'index.html') {
+        // Default to Home if on index.html and no other tab is specifically clicked/anchored
+        const homeLink = document.querySelector('#bottom-nav a[data-tab="home"]');
+        if (homeLink) {
+             homeLink.classList.add('active');
+        }
+    }
+
+
+    // 2. Cart Badge Logic (Simple demonstration)
+    const cartBadge = document.getElementById('cart-badge');
+    const buyButtons = document.querySelectorAll('.buy-now-btn');
+    
+    // Initialize cart count from localStorage or default to 0
+    let cartCount = parseInt(localStorage.getItem('cartCount')) || 0;
+
+    const updateCartDisplay = () => {
+        cartBadge.textContent = cartCount;
+        if (cartCount > 0) {
+            cartBadge.style.display = 'block';
+        } else {
+            cartBadge.style.display = 'none';
+        }
+        localStorage.setItem('cartCount', cartCount);
+    };
+
+    // Add click event listener to all "Buy Now" buttons
+    buyButtons.forEach(button => {
+        button.addEventListener('click', (event) => {
+            // Prevent default navigation if you plan to handle cart additions via AJAX later,
+            // but for now, we just update the count before the navigation happens.
+            // event.preventDefault(); 
+            
+            cartCount++;
+            updateCartDisplay();
+            
+            // Allow the default link behavior (navigation to checkout.html)
+            // window.location.href = button.href;
+        });
+    });
+
+    // Initial display update
+    updateCartDisplay();
+});
+</script>
+</body>
 </html>
