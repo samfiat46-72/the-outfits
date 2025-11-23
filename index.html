@@ -1,7 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
   <head>
-    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>The Outfits | Trendy Collections</title>
@@ -12,6 +11,7 @@
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600&display=swap">
     <link rel="manifest" href="manifest.json">
     <style>
+      /* --- GENERAL STYLES --- */
       * {
         margin: 0;
         padding: 0;
@@ -22,6 +22,7 @@
       body {
         background-color: #ffffff;
         color: #000000;
+        padding-bottom: 74px; /* ADDED: To prevent content overlap with the 64px fixed bottom nav */
       }
 
       .hero {
@@ -105,7 +106,7 @@
         font-size: 0.9rem;
       }
 
-      .buy-now {
+      .buy-now-btn { /* Use .buy-now-btn class from HTML */
         margin-top: 10px;
         background: linear-gradient(90deg, gold, #ffdf70);
         border: none;
@@ -117,307 +118,256 @@
         transition: 0.3s ease;
       }
 
-      .buy-now:hover {
+      .buy-now-btn:hover {
         background: linear-gradient(90deg, #ffdf70, gold);
         transform: scale(1.05);
       }
 
+      /* --- NAVBAR STYLES --- */
+      .navbar {
+          width: 100%;
+          display: flex;
+          justify-content: space-between;
+          align-items: center;
+          padding: 8px 16px;
+          background: #ffffff;
+          border-bottom: 1px solid #eee;
+          position: sticky;
+          top: 0;
+          z-index: 1000;
+          box-shadow: 0 2px 5px rgba(0,0,0,0.08);
+      }
+
+      .site-logo {
+          width: 150px;
+          height: auto;
+          display: block;
+      }
+
+      .nav-right {
+          list-style: none;
+          display: flex;
+          gap: 18px;
+          margin: 0;
+          padding: 0;
+      }
+
+      .nav-right a {
+          font-size: 17px;
+          font-weight: 500;
+          color: #000;
+          text-decoration: none;
+      }
+
+      .nav-right a:hover {
+          color: #b8914a;
+      }
+      
+      .nav-right a.active {
+          color: #c5a04f;
+      }
+
+      /* --- FOOTER STYLES --- */
       footer {
         text-align: center;
-        padding: 1.5rem;
-        background-color: #000;
-        color: #fff;
-        font-size: 0.9rem;
-        border-top: 1px solid #222;
+        padding: 20px 0;
+        margin-top: 40px;
+        background-color: #f2f2f2;
+        font-size: 14px;
+        color: #555;
       }
 
       footer a {
-        color: gold;
+        color: #000;
         text-decoration: none;
-        margin: 0 8px;
-        font-weight: 500;
-        position: relative;
-      }
-
-      footer a::after {
-        content: '';
-        position: absolute;
-        bottom: -3px;
-        left: 0;
-        width: 0%;
-        height: 2px;
-        background: linear-gradient(90deg, gold, #ffdf70);
+        margin-left: 10px;
         transition: 0.3s ease;
       }
 
-      footer a:hover::after {
-        width: 100%;
+      footer a:hover {
+        color: #b8914a;
+        text-decoration: underline;
       }
-      /* NEW PERFECT NAVBAR */
-.navbar {
-    width: 100%;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding: 8px 16px;
-    background: #ffffff;
-    border-bottom: 1px solid #eee;
-    position: sticky;
-    top: 0;
-    z-index: 1000;
-    box-shadow: 0 2px 5px rgba(0,0,0,0.08);
-}
+      
+      /* --- CONSOLIDATED BOTTOM NAVIGATION BAR CSS (FIXED) --- */
+      #bottom-nav {
+        position: fixed;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        height: 64px;
+        background: #fff;
+        box-shadow: 0 -6px 18px rgba(0,0,0,0.08);
+        z-index: 9999;
+        border-top-left-radius: 10px;
+        border-top-right-radius: 10px;
+        border-top: 1px solid #ddd; 
+        font-family: "Poppins", Arial, sans-serif;
+        display: flex;
+        justify-content: space-around;
+        align-items: center;
+      }
+      #bottom-nav ul {
+        list-style: none;
+        margin: 0;
+        padding: 0;
+        width: 100%;
+        height: 100%;
+        display: flex;
+        justify-content: space-around;
+        align-items: center;
+      }
+      #bottom-nav li {
+        flex-grow: 1; 
+      }
+      #bottom-nav a {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        width: 100%;
+        height: 100%;
+        color: #444;
+        text-decoration: none;
+        font-size: 11px;
+        padding-top: 4px; 
+      }
+      /* Style for SVG icons */
+      #bottom-nav a svg {
+        width: 24px;
+        height: 24px;
+        margin-bottom: 2px;
+        color: #444; /* Default color for icons */
+      }
 
-/* Left Logo */
-.site-logo {
-    width: 150px;
-    height: auto;
-    display: block;
-}
+      .active svg, #bottom-nav a.active {
+        color: #b8914a; /* Highlight color for active state */
+      }
 
-/* Right Menu */
-.nav-right {
-    list-style: none;
-    display: flex;
-    gap: 18px;
-    margin: 0;
-    padding: 0;
-}
+      /* Cart Badge Styling */
+      #bottom-nav li:nth-child(4) { 
+        position: relative;
+      }
+      #cart-badge {
+        position: absolute;
+        top: 6px; 
+        right: 12px;
+        background: red;
+        color: #fff;
+        font-size: 10px;
+        padding: 2px 5px;
+        border-radius: 50%;
+        display: none; 
+        line-height: 1;
+        min-width: 15px; 
+        text-align: center;
+      }
+      
+      /* --- RESPONSIVE OVERRIDES (MOBILE-FIRST) --- */
+      html, body {
+        -webkit-text-size-adjust: 100%;
+        -ms-text-size-adjust: 100%;
+      }
 
-.nav-right a {
-    font-size: 17px;
-    font-weight: 500;
-    color: #000;
-    text-decoration: none;
-}
+      img, picture, .product img {
+        max-width: 100%;
+        height: auto;
+        display: block;
+      }
 
-.nav-right a:hover {
-    color: #b8914a;
-}
- /* Highlight active menu link */
-.nav-right a.active {
-    color: #c5a04f;
-}
-/* ===========================
-   Responsive overrides (mobile-first)
-   Paste these at the END of your existing <style> block
-   =========================== */
+      body {
+        font-size: 16px;
+        line-height: 1.45;
+      }
 
-/* Make layout scale nicely */
-html, body {
-  -webkit-text-size-adjust: 100%;
-  -ms-text-size-adjust: 100%;
-}
+      .navbar {
+        width: 100%;
+        padding: 12px 16px;
+        border-bottom: 1px solid #f2f2f2;
+      }
 
-/* Global images and media */
-img, picture, .product img {
-  max-width: 100%;
-  height: auto;
-  display: block;
-}
+      .site-logo {
+        width: 90px;
+        margin: 0;
+      }
 
-/* Mobile base: stack layout, readable text */
-body {
-  font-size: 16px; /* base for small screens */
-  line-height: 1.45;
-}
+      .nav-right, .nav-links {
+        display: flex;
+        gap: 14px;
+        align-items: center;
+        list-style: none;
+        margin: 0;
+        padding: 0;
+      }
 
-/* Navbar: mobile friendly */
-.navbar {
-  width: 100%;
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  gap: 12px;
-  padding: 12px 16px;
-  background: #fff;
-  border-bottom: 1px solid #f2f2f2;
-  position: sticky;
-  top: 0;
-  z-index: 1000;
-}
+      .nav-right a, .nav-links a {
+        display: inline-block;
+        padding: 8px 4px;
+        font-size: 15px;
+        color: #000;
+        text-decoration: none;
+      }
 
-/* Logo smaller on mobile */
-.site-logo {
-  width: 90px;   /* mobile logo size */
-  height: auto;
-  display: block;
-  margin: 0;
-}
+      .nav-right a.active, .nav-links a.active {
+        color: #c5a04f;
+      }
 
-/* Nav links: wrap under logo on small widths */
-.nav-right, .nav-links {
-  display: flex;
-  gap: 14px;
-  align-items: center;
-  list-style: none;
-  margin: 0;
-  padding: 0;
-}
+      .product-grid {
+        display: grid;
+        grid-template-columns: 1fr;
+        gap: 1rem;
+        padding: 1rem;
+      }
 
-/* keep links tappable */
-.nav-right a, .nav-links a {
-  display: inline-block;
-  padding: 8px 4px;
-  font-size: 15px;
-  color: #000;
-  text-decoration: none;
-}
+      .product {
+        padding-bottom: 1rem;
+        border-radius: 12px;
+        overflow: hidden;
+      }
 
-/* active/underline style */
-.nav-right a.active, .nav-links a.active {
-  color: #c5a04f;
-}
+      .hero {
+        padding: 2rem 1rem;
+      }
 
-/* grid -> single column on small devices */
-.product-grid {
-  display: grid;
-  grid-template-columns: 1fr;
-  gap: 1rem;
-  padding: 1rem;
-}
+      section {
+        padding: 1.25rem 1rem;
+        max-width: 1100px;
+        margin: 0 auto;
+      }
 
-/* product card adjustments */
-.product {
-  padding-bottom: 1rem;
-  border-radius: 12px;
-  overflow: hidden;
-}
+      .buy-now-btn {
+        padding: 10px 18px;
+        font-size: 16px;
+        border-radius: 20px;
+      }
 
-/* hero spacing */
-.hero {
-  padding: 2rem 1rem;
-  text-align: center;
-}
+      /* ---------- MEDIA QUERIES ---------- */
 
-/* section max width */
-section {
-  padding: 1.25rem 1rem;
-  max-width: 1100px;
-  margin: 0 auto;
-}
+      @media (min-width: 480px) {
+        .site-logo { width: 110px; }
+        .product-grid { grid-template-columns: repeat(2, 1fr); gap: 1.25rem; }
+        .nav-right a { font-size: 15px; }
+      }
 
-/* Buttons — larger touch targets */
-.buy-now-btn {
-  padding: 10px 18px;
-  font-size: 16px;
-  border-radius: 20px;
-}
+      @media (min-width: 768px) {
+        .site-logo { width: 130px; }
+        .product-grid { grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 1.5rem; }
+        .hero { padding: 3rem 2rem; }
+      }
 
-/* ---------- MEDIA QUERIES ---------- */
+      @media (min-width: 1024px) {
+        body { font-size: 16px; padding-bottom: 0; } /* Remove bottom padding on desktop */
+        .site-logo { width: 150px; }
+        .navbar { padding: 14px 40px; }
+        .nav-right { gap: 20px; }
+        #bottom-nav { display: none; } /* Hide bottom nav on desktop */
+      }
 
-/* Medium phones / small tablets */
-@media (min-width: 480px) {
-  .site-logo { width: 110px; }
-  .product-grid { grid-template-columns: repeat(2, 1fr); gap: 1.25rem; }
-  .nav-right a { font-size: 15px; }
-}
-
-/* Tablets and up: restore multi-column product grid */
-@media (min-width: 768px) {
-  .site-logo { width: 130px; }
-  .product-grid { grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 1.5rem; }
-  .hero { padding: 3rem 2rem; }
-}
-
-/* Desktop improvements */
-@media (min-width: 1024px) {
-  body { font-size: 16px; }
-  .site-logo { width: 150px; }
-  .navbar { padding: 14px 40px; }
-  .nav-right { gap: 20px; }
-}
-
-  /* Bottom Navigation Bar */
-#bottom-nav {
-  position: fixed;
-  bottom: 0;
-  left: 0;
-  width: 100%;
-  height: 65px;
-  background: #ffffff;
-  display: flex;
-  justify-content: space-around;
-  align-items: center;
-  border-top: 1px solid #ddd;
-  z-index: 9999;
-}
-
-#bottom-nav a {
-  text-align: center;
-  flex: 1;
-  padding-top: 5px;
-  color: #000;
-  text-decoration: none;
-  font-size: 12px;
-  position: relative;
-}
-
-#bottom-nav a .material-icons {
-  font-size: 24px;
-  display: block;
-  margin-bottom: 2px;
-}
-
-#bottom-nav a.active {
-  color: #b8914a;
-}
-
-#cart-badge {
-  position: absolute;
-  top: 2px;
-  right: 25px;
-  background: red;
-  color: #fff;
-  font-size: 10px;
-  padding: 2px 5px;
-  border-radius: 50%;
-  display: none;
-}
-/* ---------- Optional: mobile nav collapse (simple) ---------- */
-/* If you later want a hamburger, we can add JS + CSS to toggle .nav-right */
-    </style>
-    <style>
-#bottom-nav {
-  position: fixed;
-  left: 0;
-  right: 0;
-  bottom: 0;
-  height: 64px;
-  background: #fff;
-  box-shadow: 0 -6px 18px rgba(0,0,0,0.08);
-  z-index: 9999;
-  border-top-left-radius: 10px;
-  border-top-right-radius: 10px;
-  font-family: "Poppins", Arial, sans-serif;
-}
-#bottom-nav ul {
-  list-style: none;
-  margin: 0;
-  padding: 6px 10px 8px;
-  display: flex;
-  justify-content: space-between;
-  gap: 6px;
-  align-items: center;
-}
-#bottom-nav a {
-  display: inline-flex;
-  flex-direction: column;
-  align-items: center;
-  color: #444;
-  text-decoration: none;
-  font-size: 11px;
-}
-.active svg {
-  transform: scale(1.1);
-  color: #b8914a;
-}
     </style>
   </head>
 
   <body>
     
-<!-- Navigation Bar -->
 <nav class="navbar">
     <div class="nav-left">
         <img src="https://raw.githubusercontent.com/samfiat46-72/the-outfits/main/1logo.png"
@@ -443,9 +393,8 @@ section {
     <section>
       <h2 class="section-title">New Arrivals</h2>
       <div class="product-grid">
-        <!-- First 8 product cards -->
         <div class="product">
-          <img src="https://raw.githubusercontent.com/samfiat46-72/the-outfits/main/file_000000007858720986492e98d02007b0.png" alt="Brown Shirt">"
+          <img src="https://raw.githubusercontent.com/samfiat46-72/the-outfits/main/file_000000007858720986492e98d02007b0.png" alt="Brown Shirt">
           <h3>Classic Brown Shirt</h3>
           <p>Premium cotton fabric with modern fit.</p>
           <p class="price">₹499</p>
@@ -488,7 +437,7 @@ section {
         </div>
         <div class="product">
           <img src="https://raw.githubusercontent.com/samfiat46-72/the-outfits/main/file_000000004e7c7206a6f0978ff6a75981.png" alt="Green T - Shirt">
-          <h3>Casual T-Shirt/h3>
+          <h3>Casual T-Shirt</h3>
           <p>Classic fit with modern comfort.</p>
           <p>₹399</p>
           <a class="buy-now-btn" href="checkout.html?name=Casual%20T-Shirt&price=399&img=https%3A%2F%2Fraw.githubusercontent.com%2Fsamfiat46-72%2Fthe-outfits%2Fmain%2Ffile_000000004e7c7206a6f0978ff6a75981.png">Buy Now</a>
@@ -506,7 +455,6 @@ section {
     <section>
       <h2 class="section-title">Best Picks</h2>
       <div class="product-grid">
-        <!-- Second 8 product cards -->
         <div class="product">
           <img src="https://raw.githubusercontent.com/samfiat46-72/the-outfits/main/file_000000004d947206a95b615109630ed5.png" alt="White Zipper Jacket">
           <h3>Stylish zipper Jacket</h3>
@@ -567,42 +515,19 @@ section {
     </section>
 
     <footer>
-  © 2025 The Outfits. All rights reserved. |
-  <a href="contact.html">Contact Us</a>
-</footer>
+      © 2025 The Outfits. All rights reserved. |
+      <a href="contact.html">Contact Us</a>
+    </footer>
 
-<style>
-  footer {
-    text-align: center;
-    padding: 20px 0;
-    margin-top: 40px;
-    background-color: #f2f2f2;
-    font-size: 14px;
-    color: #555;
-  }
-
-  footer a {
-    color: #000;
-    text-decoration: none;
-    margin-left: 10px;
-    transition: 0.3s ease;
-  }
-
-  footer a:hover {
-    color: #b8914a;
-    text-decoration: underline;
-  }
-</style>
   <script>
 if ("serviceWorker" in navigator) {
   navigator.serviceWorker.register("/service-worker.js");
 }
   </script>
-<!-- Bottom fixed navigation (gold accent) -->
 <nav id="bottom-nav" aria-label="Primary" role="navigation">
   <ul>
     <li>
-      <a href="index.html" data-tab="home" aria-label="Home">
+      <a href="index.html" data-tab="home" class="active" aria-label="Home">
         <svg viewBox="0 0 24 24" width="24" height="24" aria-hidden="true">
           <path fill="currentColor" d="M12 3l8 6v11a1 1 0 0 1-1 1h-5v-6H10v6H5a1 1 0 0 1-1-1V9l8-6z"/>
         </svg>
@@ -621,7 +546,7 @@ if ("serviceWorker" in navigator) {
 
     <li>
       <a href="index.html#mall" data-tab="mall" aria-label="Mall">
-        <svg viewBox="0 0 24 24" width="28" height="28" aria-hidden="true">
+        <svg viewBox="0 0 24 24" width="24" height="24" aria-hidden="true">
           <path fill="currentColor" d="M12 2l2.5 5L20 9l-4 3 1 6-5-3-5 3 1-6L4 9l5.5-2L12 2z"/>
         </svg>
         <span>Mall</span>
@@ -649,4 +574,4 @@ if ("serviceWorker" in navigator) {
   </ul>
 </nav>
   </body>
-  </html>
+</html>
