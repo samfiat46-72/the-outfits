@@ -6,11 +6,19 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
   <style>
+
+    /* GLOBAL FIX (MOST IMPORTANT) */
+    * {
+      overflow: visible !important;
+    }
+
     body {
       font-family: Arial, sans-serif;
       line-height: 1.6;
       margin: 20px;
-      padding-bottom: 80px; /* space for bottom nav */
+      padding-bottom: 90px; 
+      overflow-y: visible !important;
+      overflow-x: visible !important;
     }
 
     /* Bottom navigation bar styles */
@@ -25,7 +33,7 @@
       display: flex;
       justify-content: space-around;
       align-items: center;
-      z-index: 9999;
+      z-index: 999999 !important;
     }
 
     .nav-item {
@@ -42,15 +50,8 @@
       margin-bottom: 3px;
     }
 
-    .nav-item.active {
-      color: #e60073;
-    }
-    .nav-item.active i {
-      color: #e60073;
-    }
   </style>
 
-  <!-- FontAwesome Icons -->
   <script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
 </head>
 
@@ -69,8 +70,7 @@
   <p>© 2025 The Outfits. All rights reserved. | <a href="mailto:outfits955@gmail.com">Contact Us</a></p>
 
 
-
-  <!-- ⭐⭐ Bottom Navigation ⭐⭐ -->
+  <!-- BOTTOM NAV -->
   <div class="bottom-nav">
     <a href="index.html" class="nav-item">
       <i class="fa-solid fa-house"></i>
