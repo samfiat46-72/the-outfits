@@ -10,7 +10,7 @@
     />
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600&display=swap">
     <link rel="manifest" href="manifest.json">
-    <style>
+        <style>
       /* --- GENERAL STYLES --- */
       * {
         margin: 0;
@@ -24,6 +24,8 @@
         color: #000000;
         padding-bottom: 74px; /* ADDED: To prevent content overlap with the 64px fixed bottom nav */
       }
+      
+      /* ... (Keep all your existing content styles here: .hero, .section-title, .product-grid, etc.) ... */
 
       .hero {
         text-align: center;
@@ -203,7 +205,7 @@
         border-top-right-radius: 10px;
         border-top: 1px solid #ddd; 
         font-family: "Poppins", Arial, sans-serif;
-        display: flex;
+        display: flex; /* <-- Ensure this is FLEX to make it visible */
         justify-content: space-around;
         align-items: center;
       }
@@ -362,8 +364,8 @@
         .nav-right { gap: 20px; }
         #bottom-nav { display: none; } /* Hide bottom nav on desktop */
       }
-
     </style>
+
   </head>
 
   <body>
