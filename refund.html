@@ -6,6 +6,13 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
   <style>
+    body {
+      font-family: Arial, sans-serif;
+      line-height: 1.6;
+      margin: 20px;
+      padding-bottom: 80px; /* space for bottom nav */
+    }
+
     /* Bottom navigation bar styles */
     .bottom-nav {
       position: fixed;
@@ -20,31 +27,26 @@
       align-items: center;
       z-index: 9999;
     }
+
     .nav-item {
       display: flex;
       flex-direction: column;
       align-items: center;
       font-size: 12px;
-      color: #555;
+      color: #444;
       text-decoration: none;
     }
+
     .nav-item i {
       font-size: 20px;
       margin-bottom: 3px;
     }
+
     .nav-item.active {
       color: #e60073;
     }
     .nav-item.active i {
       color: #e60073;
-    }
-
-    /* Prevent content from hiding behind navbar */
-    body {
-      padding-bottom: 80px;
-      font-family: Arial, sans-serif;
-      line-height: 1.6;
-      margin: 20px;
     }
   </style>
 
@@ -58,18 +60,19 @@
 
   <p>At The Outfits, we strive to ensure your satisfaction with every purchase. However, if you receive a defective or incorrect product, you may request a refund or exchange within 7 days of delivery.</p>
 
-  <p>Eligibility: Items must be unused, in their original packaging, and accompanied by proof of purchase. Refunds are processed to the original payment method within 5–7 business days.</p>
+  <p><b>Eligibility:</b> Items must be unused, in their original packaging, and accompanied by proof of purchase. Refunds are processed to the original payment method within 5–7 business days.</p>
 
-  <p>Cancellations: Orders can only be cancelled before they are shipped. Once shipped, cancellations will not be accepted.</p>
+  <p><b>Cancellations:</b> Orders can only be cancelled before they are shipped. Once shipped, cancellations will not be accepted.</p>
 
-  <p>For refund or cancellation requests, please email us at outfits955@gmail.com.</p>
+  <p>For refund or cancellation requests, please email us at <a href="mailto:outfits955@gmail.com">outfits955@gmail.com</a>.</p>
 
   <p>© 2025 The Outfits. All rights reserved. | <a href="mailto:outfits955@gmail.com">Contact Us</a></p>
 
 
+
   <!-- ⭐⭐ Bottom Navigation ⭐⭐ -->
   <div class="bottom-nav">
-    <a href="index.html" class="nav-item active">
+    <a href="index.html" class="nav-item">
       <i class="fa-solid fa-house"></i>
       <span>Home</span>
     </a>
