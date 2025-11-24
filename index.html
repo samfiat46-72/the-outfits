@@ -776,6 +776,49 @@
   color: #c5a04f;
   font-weight: 600;
   }
+  /* PART O : Bottom Sheet */
+.bottom-sheet {
+  position: fixed;
+  left: 0;
+  right: 0;
+  bottom: -100%;
+  background: #fff;
+  border-radius: 20px 20px 0 0;
+  padding: 20px;
+  box-shadow: 0 -6px 20px rgba(0,0,0,0.1);
+  transition: bottom 0.35s ease;
+  z-index: 99999;
+}
+
+.bottom-sheet.active {
+  bottom: 0;
+}
+
+.sheet-header {
+  display: flex;
+  justify-content: space-between;
+  font-size: 20px;
+  font-weight: 700;
+}
+
+.sheet-body label {
+  display: block;
+  margin: 12px 0;
+  font-size: 16px;
+}
+
+.open-filter-btn {
+  position: fixed;
+  bottom: 90px;
+  right: 20px;
+  background: #c5a04f;
+  color: #000;
+  padding: 14px 18px;
+  border-radius: 14px;
+  font-size: 16px;
+  border: none;
+  font-weight: 600;
+}
     </style>
 
   </head>
@@ -1145,6 +1188,22 @@
 
   </div>
 </section>
+    <!-- PART O : Bottom Sheet Filter -->
+<div id="filter-sheet" class="bottom-sheet">
+  <div class="sheet-header">
+    <span>Filters</span>
+    <button onclick="closeSheet()">✖</button>
+  </div>
+
+  <div class="sheet-body">
+    <label><input type="checkbox"> Shirts</label>
+    <label><input type="checkbox"> T-Shirts</label>
+    <label><input type="checkbox"> Cargos</label>
+    <label><input type="checkbox"> Trousers</label>
+  </div>
+</div>
+
+<button class="open-filter-btn" onclick="openSheet()">Open Filters</button>
     <footer>
       © 2025 The Outfits. All rights reserved. |
       <a href="contact.html">Contact Us</a>
@@ -1282,5 +1341,11 @@ document.addEventListener('DOMContentLoaded', () => {
     updateCartDisplay();
 });
 </script>
+    function openSheet() {
+  document.getElementById("filter-sheet").classList.add("active");
+}
+function closeSheet() {
+  document.getElementById("filter-sheet").classList.remove("active");
+}
 </body>
 </html>
