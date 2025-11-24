@@ -650,6 +650,132 @@
   font-weight: 600;
   font-size: 14px;
   }
+  /* PART H3 : APP DOWNLOAD */
+.app-section {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+  padding: 1.5rem;
+  background: #fff7d9;
+  border-radius: 16px;
+  margin: 20px 0;
+}
+
+.app-img {
+  width: 120px;
+  border-radius: 14px;
+}
+
+.app-text h2 {
+  font-size: 20px;
+  font-weight: 700;
+}
+
+.app-text p {
+  font-size: 14px;
+  margin: 6px 0;
+}
+
+.play-btn img {
+  width: 150px;
+}
+  /* PART H4 : TRUST SECTION */
+.trust-section {
+  padding: 1.5rem;
+  text-align: center;
+}
+
+.trust-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 12px;
+  margin-top: 10px;
+}
+
+.trust-card {
+  background: #fff;
+  padding: 16px;
+  border-radius: 12px;
+  font-size: 16px;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.05);
+}
+
+.trust-card p {
+  margin-top: 6px;
+  font-size: 14px;
+  font-weight: 600;
+  }
+  /* PART H5 : REVIEWS */
+.review-section {
+  padding: 1.5rem;
+}
+
+.review-row {
+  display: flex;
+  gap: 15px;
+  overflow-x: auto;
+  padding: 10px 0;
+}
+
+.review-row::-webkit-scrollbar {
+  display: none;
+}
+
+.review-card {
+  min-width: 200px;
+  background: #fff;
+  padding: 14px;
+  border-radius: 14px;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+}
+
+.review-card p {
+  margin: 8px 0;
+  font-size: 14px;
+}
+.review-card span {
+  font-size: 12px;
+  color: #444;
+  }
+  /* PART H6 : PRODUCT SLIDER 2 */
+.product-slider-2 {
+  padding: 1.5rem;
+}
+
+.ps-row {
+  display: flex;
+  overflow-x: auto;
+  gap: 16px;
+}
+
+.ps-row::-webkit-scrollbar {
+  display: none;
+}
+
+.ps-card {
+  min-width: 160px;
+  background: #fff;
+  border-radius: 14px;
+  padding: 10px;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+}
+
+.ps-card img {
+  width: 100%;
+  height: 150px;
+  object-fit: cover;
+  border-radius: 12px;
+}
+
+.ps-card p {
+  margin-top: 6px;
+  font-weight: 600;
+}
+
+.ps-card span {
+  color: #c5a04f;
+  font-weight: 600;
+  }
     </style>
 
   </head>
@@ -924,6 +1050,97 @@
       <img src="https://images.unsplash.com/photo-1503342217505-b0a15ec3261c?auto=format&fit=crop&w=800&q=60" alt="">
       <p>Half Shirt</p>
       <span>₹449</span>
+    </div>
+
+  </div>
+</section>
+    <!-- PART H3 : APP DOWNLOAD SECTION -->
+<section class="app-section">
+  <img src="https://i.imgur.com/g7y2cFx.png" alt="App Preview" class="app-img">
+
+  <div class="app-text">
+    <h2>Download Our App</h2>
+    <p>Fast, secure and easy shopping!</p>
+
+    <a href="#" class="play-btn">
+      <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/7/78/Google_Play_Store_badge_EN.svg/512px-Google_Play_Store_badge_EN.svg.png" alt="Play Store">
+    </a>
+  </div>
+</section>
+    <!-- PART H4 : WHY SHOP WITH US -->
+<section class="trust-section">
+  <h2 class="section-title">Why Shop With Us?</h2>
+
+  <div class="trust-grid">
+    <div class="trust-card">
+      ⭐
+      <p>Premium Quality</p>
+    </div>
+
+    <div class="trust-card">
+      🚚
+      <p>Fast Delivery</p>
+    </div>
+
+    <div class="trust-card">
+      🔒
+      <p>Secure Payments</p>
+    </div>
+
+    <div class="trust-card">
+      🔄
+      <p>Easy Returns</p>
+    </div>
+  </div>
+</section>
+    <!-- PART H5 : CUSTOMER REVIEWS -->
+<section class="review-section">
+  <h2 class="section-title">Customer Reviews</h2>
+
+  <div class="review-row">
+
+    <div class="review-card">
+      ⭐⭐⭐⭐⭐
+      <p>"Very good quality! Loved it."</p>
+      <span>- Arman</span>
+    </div>
+
+    <div class="review-card">
+      ⭐⭐⭐⭐⭐
+      <p>"Exactly like the picture!"</p>
+      <span>- Zaid</span>
+    </div>
+
+    <div class="review-card">
+      ⭐⭐⭐⭐☆
+      <p>"Best value at this price."</p>
+      <span>- Sameer</span>
+    </div>
+
+  </div>
+</section>
+    <!-- PART H6 : PRODUCT SLIDER 2 -->
+<section class="product-slider-2">
+  <h2 class="section-title">Recommended For You</h2>
+
+  <div class="ps-row">
+
+    <div class="ps-card">
+      <img src="https://images.unsplash.com/photo-1512436991641-6745cdb1723f?auto=format&fit=crop&w=800&q=60">
+      <p>Premium Shirt</p>
+      <span>₹499</span>
+    </div>
+
+    <div class="ps-card">
+      <img src="https://images.unsplash.com/photo-1521335629791-ce4aec67dd47?auto=format&fit=crop&w=800&q=60">
+      <p>Classic Fit</p>
+      <span>₹449</span>
+    </div>
+
+    <div class="ps-card">
+      <img src="https://images.unsplash.com/photo-1539109136881-3be0616acf4c?auto=format&fit=crop&w=800&q=60">
+      <p>Men's Cargo</p>
+      <span>₹799</span>
     </div>
 
   </div>
