@@ -560,6 +560,96 @@
     border-radius: 12px;
     object-fit: cover;
 }
+  /* PART F : TRENDING SECTION */
+.trending-section {
+  padding: 2rem 1rem;
+}
+
+.trending-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+  gap: 1.5rem;
+}
+
+.trend-card {
+  background: #fff;
+  border-radius: 14px;
+  overflow: hidden;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+  text-align: center;
+  padding-bottom: 1rem;
+  transition: 0.3s ease;
+}
+
+.trend-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 6px 18px rgba(0,0,0,0.12);
+}
+
+.trend-card img {
+  width: 100%;
+  height: auto;
+  object-fit: cover;
+}
+
+.trend-card h3 {
+  font-size: 1rem;
+  margin: 0.8rem 0 0.3rem;
+  font-weight: 600;
+}
+
+.trend-card p {
+  font-size: 0.9rem;
+  color: #666;
+}
+  /* PART G : MEESHO STYLE HORIZONTAL SCROLL */
+.h-scroll-section {
+  padding: 1.5rem 1rem;
+  margin-top: 10px;
+}
+
+.h-scroll-row {
+  display: flex;
+  gap: 14px;
+  overflow-x: auto;
+  padding: 10px 4px;
+  scroll-behavior: smooth;
+  -webkit-overflow-scrolling: touch;
+}
+
+.h-scroll-row::-webkit-scrollbar {
+  display: none;
+}
+
+.h-card {
+  min-width: 150px;
+  background: #fff;
+  border-radius: 14px;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+  padding: 10px;
+  flex-shrink: 0;
+  text-align: center;
+}
+
+.h-card img {
+  width: 100%;
+  height: 160px;
+  object-fit: cover;
+  border-radius: 12px;
+}
+
+.h-card p {
+  margin-top: 8px;
+  font-size: 14px;
+  font-weight: 600;
+  color: #111;
+}
+
+.h-card span {
+  color: #c5a04f;
+  font-weight: 600;
+  font-size: 14px;
+  }
     </style>
 
   </head>
@@ -777,7 +867,67 @@
         </div>
       </div>
     </section>
+        <!-- PART F : TRENDING PICKS / OFFERS -->
+<section class="trending-section">
+  <h2 class="section-title">Trending Now</h2>
 
+  <div class="trending-grid">
+
+    <div class="trend-card">
+      <img src="https://images.unsplash.com/photo-1526170375885-4d8ecf77b99f?auto=format&fit=crop&w=900&q=60" alt="Trending Shirt">
+      <h3>New Trending Shirts</h3>
+      <p>Hot selling colours & premium feel.</p>
+      <a href="#!" class="buy-now-btn">Explore</a>
+    </div>
+
+    <div class="trend-card">
+      <img src="https://images.unsplash.com/photo-1520975918318-3a48a8b8a3eb?auto=format&fit=crop&w=900&q=60" alt="T-Shirts">
+      <h3>Best T-Shirts</h3>
+      <p>Comfort × Style at the best price.</p>
+      <a href="#!" class="buy-now-btn">Explore</a>
+    </div>
+
+    <div class="trend-card">
+      <img src="https://images.unsplash.com/photo-1526170375885-4d8ecf77b99f?auto=format&fit=crop&w=900&q=60" alt="Cargos">
+      <h3>Premium Cargos</h3>
+      <p>Breathable fabric with modern fit.</p>
+      <a href="#!" class="buy-now-btn">Explore</a>
+    </div>
+
+  </div>
+</section>
+    <!-- PART G : HORIZONTAL TRENDING SLIDER (MEESHO STYLE) -->
+<section class="h-scroll-section">
+  <h2 class="section-title">Top Picks For You</h2>
+
+  <div class="h-scroll-row">
+
+    <div class="h-card">
+      <img src="https://images.unsplash.com/photo-1520975918318-3a48a8b8a3eb?auto=format&fit=crop&w=800&q=60" alt="">
+      <p>Stylish T-Shirt</p>
+      <span>₹399</span>
+    </div>
+
+    <div class="h-card">
+      <img src="https://images.unsplash.com/photo-1521335629791-ce4aec67dd47?auto=format&fit=crop&w=800&q=60" alt="">
+      <p>Casual Shirt</p>
+      <span>₹499</span>
+    </div>
+
+    <div class="h-card">
+      <img src="https://images.unsplash.com/photo-1539109136881-3be0616acf4c?auto=format&fit=crop&w=800&q=60" alt="">
+      <p>Premium Cargo</p>
+      <span>₹799</span>
+    </div>
+
+    <div class="h-card">
+      <img src="https://images.unsplash.com/photo-1503342217505-b0a15ec3261c?auto=format&fit=crop&w=800&q=60" alt="">
+      <p>Half Shirt</p>
+      <span>₹449</span>
+    </div>
+
+  </div>
+</section>
     <footer>
       © 2025 The Outfits. All rights reserved. |
       <a href="contact.html">Contact Us</a>
