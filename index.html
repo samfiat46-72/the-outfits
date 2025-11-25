@@ -854,20 +854,92 @@
   border: none;
   font-weight: 600;
 }
+  .burger {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 10px;
+    cursor: pointer;
+}
+
+.burger svg {
+    width: 28px;
+    height: 28px;
+}
+  .drawer {
+  position: fixed;
+  top: 0;
+  left: -260px;
+  width: 260px;
+  height: 100%;
+  background: #ffffff;
+  box-shadow: 2px 0 10px rgba(0,0,0,0.15);
+  z-index: 999999;
+  padding: 20px;
+  transition: left 0.3s ease;
+}
+
+.drawer.open {
+  left: 0;
+}
+
+.drawer-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 20px;
+}
+
+.drawer-links li {
+  list-style: none;
+  margin: 15px 0;
+}
+
+.drawer-links li a {
+  text-decoration: none;
+  color: #000;
+  font-size: 18px;
+  font-weight: 500;
+}
+
+.close-drawer {
+  font-size: 24px;
+  cursor: pointer;
+}
     </style>
 
   </head>
 
   <body>
-    <body>
-
+  
 <!-- SPLASH SCREEN -->
 <div id="splash-screen">
   <img src="https://raw.githubusercontent.com/samfiat46-72/the-outfits/main/1logo.png" id="splash-logo">
 </div>
+      <div id="drawer-menu" class="drawer">
+    <div class="drawer-header">
+        <h3>Menu</h3>
+        <span class="close-drawer">✕</span>
+    </div>
+
+    <ul class="drawer-links">
+        <li><a href="index.html">Home</a></li>
+        <li><a href="#">Categories</a></li>
+        <li><a href="cart.html">Cart</a></li>
+        <li><a href="orders.html">My Orders</a></li>
+        <li><a href="account.html">Account</a></li>
+    </ul>
+      </div>
     
     <!-- PASTE IN BODY where old <nav> was -->
 <header class="mheader" role="banner" aria-label="Site header">
+  <div class="burger">
+    <svg width="26" height="26" viewBox="0 0 24 24" fill="none">
+        <path d="M3 6h18M3 12h18M3 18h18"
+              stroke="#000" stroke-width="2"
+              stroke-linecap="round"/>
+    </svg>
+  </div>
   <div class="left">
     <img src="https://raw.githubusercontent.com/samfiat46-72/the-outfits/main/1logo.png" alt="The Outfits" class="logo">
     <div class="pincode" aria-hidden="true">
@@ -1392,6 +1464,17 @@ function openSheet() {
 function closeSheet() {
   document.getElementById("filter-sheet").classList.remove("active");
 }
+</script>
+      <script>
+function openDrawer() {
+    document.getElementById("drawer-menu").classList.add("open");
+}
+function closeDrawer() {
+    document.getElementById("drawer-menu").classList.remove("open");
+}
+
+document.querySelector(".burger").addEventListener("click", openDrawer);
+document.querySelector(".close-drawer").addEventListener("click", closeDrawer);
 </script>
 <script>
   setTimeout(() => {
