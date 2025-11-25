@@ -1,25 +1,22 @@
 {
   "name": "The Outfits",
   "short_name": "Outfits",
-  "id": "/",
   "start_url": "/index.html",
   "scope": "/",
-  "display": "standalone",
+  "display": "fullscreen",
   "background_color": "#ffffff",
-  "theme_color": "#c5a04f",
-  "description": "Explore the latest trends in fashion — The Outfits",
+  "theme_color": "#ffffff",
+
   "icons": [
     {
-      "src": "/icons/android-launchericon-192-192.png",
+      "src": "/icon-192.png",
       "sizes": "192x192",
-      "type": "image/png",
-      "purpose": "any"
+      "type": "image/png"
     },
     {
-      "src": "/icons/android-launchericon-512-512.png",
+      "src": "/icon-512.png",
       "sizes": "512x512",
-      "type": "image/png",
-      "purpose": "any"
+      "type": "image/png"
     }
   ]
 }
